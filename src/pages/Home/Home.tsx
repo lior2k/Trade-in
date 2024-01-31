@@ -1,6 +1,7 @@
 import NavBar from '../../components/NavBar/NavBar';
 import List from '../../components/List/List';
 import Search from '../../components/Search/Search';
+import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 
 const Home = () => {
 	return (
@@ -8,6 +9,7 @@ const Home = () => {
 			<NavBar />
 			<List />
 			<Search />
+			<FloatingButtons />
 		</div>
 	);
 };

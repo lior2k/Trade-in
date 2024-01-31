@@ -25,7 +25,12 @@
 	}
 }
 
-.nav-bar-dropdown {
+a {
+	display: inline;
+	text-decoration: none;
+}
+
+/* .nav-bar-dropdown {
 	background-color: transparent;
 	color: #1d1b1b;
 	font-size: 18px;
@@ -35,4 +40,4 @@
 
 	border-radius: 5px;
 	border-width: 1px;
-}
+} */

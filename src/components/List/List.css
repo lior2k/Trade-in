@@ -2,21 +2,24 @@
 	width: 100%;
 	margin-top: 8px;
 	overflow: hidden;
+	text-align: center;
 }
 
-.list-title {
+.title {
 	color: black;
-	font-size: 40px;
-	font-weight: 400;
+	font-size: 36px;
+	font-weight: bold;
+	padding: 8px;
 }
 
 .list-wrapper-container {
 	position: relative;
+	text-align: left;
 }
 
 .left-icon,
 .right-icon {
-	width: 50px;
+	width: 2.5%;
 	height: 100%;
 	background-color: white;
 	color: rgb(22, 22, 22, 0.5);
@@ -37,10 +40,39 @@
 }
 
 .list {
-	margin-left: 50px;
+	padding-left: 2.5%;
 	display: flex;
 	width: max-content;
 	margin-top: 10px;
 	transform: translateX(0px);
 	transition: all 0.5s ease;
+}
+
+.selected-car-info-window {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 48px;
+	z-index: 9999;
+	background-color: rgb(248, 245, 245);
+	border-style: solid;
+	border-radius: 20px;
+	border-width: 2px;
+	box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.4);
+}
+
+.selected-car-close-button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: black;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.selected-car-close-icon {
+	min-width: 24px;
+	min-height: 24px;
 }
