@@ -2,11 +2,12 @@
 	width: 100%;
 	text-align: center;
 	box-shadow: 0 2px 4px rgb(0, 0, 0, 0.1);
+	margin-top: 8px;
 }
 
-.title {
+.list-title {
 	color: black;
-	font-size: 36px;
+	font-size: 2em;
 	font-weight: bold;
 	padding: 8px;
 }

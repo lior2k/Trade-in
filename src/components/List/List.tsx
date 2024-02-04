@@ -31,7 +31,7 @@ const List = () => {
 		<div>
 			{/* list */}
 			<div className='list-outer-container'>
-				<span className='title'>On Sale</span>
+				<span className='list-title'>On Sale</span>
 				<div className='list'>{carList}</div>
 			</div>
 
