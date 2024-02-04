@@ -20,7 +20,7 @@ export const car: CarData = {
 };
 
 export const another_car: CarData = {
-	title: 'Seat Ibiza IV ST (facelist 2012)',
+	title: 'Seat Ibiza IV',
 	color: 'Blue',
 	year: 2013,
 	km: 600000,

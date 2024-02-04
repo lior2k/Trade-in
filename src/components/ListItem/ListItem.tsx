@@ -2,21 +2,27 @@ import React from 'react';
 import './ListItem.css';
 import { CarData } from '../../constants/cardata';
 
-const ListItem: React.FC<{ carData: CarData }> = ({ carData }) => {
+interface ListItemProps {
+	carData: CarData;
+	onPress: () => void;
+}
+
+const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 	return (
-		<div className='item-container'>
-			<div className='left-side-container'>
-				<h2 className='item-title'>{carData.title}</h2>
-
-				<p className='item-data'>Color: {carData.color}</p>
-				<p className='item-data'>Year: {carData.year}</p>
-				<p className='item-data'>KM: {carData.km}</p>
-				<p className='item-data'>Previous Owners: {carData.previous_owners}</p>
-				<p className='item-data'>Price: {carData.price} NIS</p>
-			</div>
-
-			<div className='right-side-container'>
+		<div className='item-container' onClick={onPress}>
+			<p className='item-title'>{carData.title}</p>
+			<div className='image-container'>
 				<img className='image' src={`/images/${carData.image}`} alt='Car'></img>
+			</div>
+			<div className='item-footer-container'>
+				<div className='data-container'>
+					<p className='item-data'>Year: {carData.year}</p>
+					<p className='item-data'>Kilometers: {carData.km}</p>
+				</div>
+
+				<div className='price-container'>
+					<p className='item-data price'>{carData.price} ₪</p>
+				</div>
 			</div>
 		</div>
 	);
