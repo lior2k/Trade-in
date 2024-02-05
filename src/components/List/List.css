@@ -15,7 +15,7 @@
 .list {
 	display: flex;
 	justify-content: space-evenly;
-	padding: 16px;
+	padding: 8px;
 	flex-wrap: wrap;
 }
 
