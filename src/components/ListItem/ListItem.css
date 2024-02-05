@@ -8,8 +8,9 @@
 
 	background: #6d9de6;
 	border-radius: 5px;
+	background-color: #20262e;
 	color: white;
-	box-shadow: 0px 0px 5px 5px #6d9de6;
+	box-shadow: 0px 0px 5px 5px rgba(240, 232, 232, 0.5);
 }
 
 .item-container:hover {

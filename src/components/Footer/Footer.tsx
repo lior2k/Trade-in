@@ -9,11 +9,15 @@ const Footer = () => {
 				<h3>Contact Information</h3>
 				<p>
 					<strong>Phone: </strong>
-					<a href='tel:050-5300554'>050-5300554</a>
+					<a href='tel:050-5300554' className='link'>
+						050-5300554
+					</a>
 				</p>
 				<p>
 					<strong>Email: </strong>
-					<a href='mailto:avi.tih@gmail.com'>avi.tih@gmail.com</a>
+					<a href='mailto:avi.tih@gmail.com' className='link'>
+						avi.tih@gmail.com
+					</a>
 				</p>
 
 				<p style={{ display: 'inline' }}>
@@ -23,8 +27,12 @@ const Footer = () => {
 
 			<div className='footer-inner-container'>
 				<h3>Links</h3>
-				<a href='/'>Home</a>
-				<a href='/about'>About</a>
+				<a href='/' className='link'>
+					Home
+				</a>
+				<a href='/about' className='link'>
+					About
+				</a>
 			</div>
 
 			<div className='footer-inner-container'>

@@ -156,13 +156,14 @@ const Search = () => {
 									return (
 										<li key={style} onClick={() => handleToggle(style)}>
 											<img className='image' src={imageSource} alt='Car'></img>
-											<label style={{ zIndex: -1 }}>
+											<p style={{ margin: '0 2px', padding: '2px' }}>
 												{style.charAt(0).toUpperCase() + style.slice(1)}
 												<input
 													type='checkbox'
 													checked={bodyStyles[style]}
+													style={{ cursor: 'pointer' }}
 												></input>
-											</label>
+											</p>
 										</li>
 									);
 								})}

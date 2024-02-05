@@ -2,8 +2,8 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-
-	padding: 0 8px 12px 8px;
+	background-color: #111010;
+	padding: 0 8px 4px 8px;
 
 	h3 {
 		margin: 4px 0 4px 0;
@@ -18,5 +18,9 @@
 	p {
 		margin: 0;
 		padding: 4px 0;
+	}
+
+	.link {
+		color: #6d9de6;
 	}
 }

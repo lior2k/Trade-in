@@ -1,17 +1,17 @@
 .nav-bar-outer-container {
 	display: flex;
 	flex-direction: row;
-
+	background-color: #111010;
 	padding: 8px;
 	margin-bottom: 8px;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 4px rgba(240, 232, 232, 0.5);
 }
 
 .nav-bar-button {
 	background-color: transparent;
 	border-width: 0;
 	text-align: center;
-	color: #1d1b1b;
+	color: white;
 	font-size: 16px;
 	padding: 14px 16px;
 	cursor: pointer;
