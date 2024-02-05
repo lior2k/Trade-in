@@ -98,113 +98,119 @@ const Search = () => {
 	};
 
 	return (
-		<div className='search-center-container'>
-			<span className='title'>Find Your New Car</span>
-			<div className='search-flex-row-container'>
-				<div className='search-flex-column-container'>
-					<h3>Quick Search</h3>
-					<form className='basic-search-form'>
-						<label className='form-label'>
-							Manufacturer:
-							<input
-								type='text'
-								name='manufacturer'
-								list='manufacturers'
-								className='form-input'
-								onChange={() => {}}
-							/>
-							<datalist id='manufacturers'>
-								<option value='Manufacturer 1' />
-								<option value='Manufacturer 2' />
-								<option value='Manufacturer 3' />
-							</datalist>
-						</label>
+		<div className='search-outer-container'>
+			<div className='search-center-container'>
+				<span className='title'>Find Your New Car</span>
 
-						<label className='form-label'>
-							Model:
-							<input
-								type='text'
-								name='model'
-								list='models'
-								className='form-input'
-								onChange={() => {}}
-							/>
-							<datalist id='models'>
-								<option value='Model 1' />
-								<option value='Model 2' />
-								<option value='Model 3' />
-							</datalist>
-						</label>
-
-						<button type='submit' className='form-submit'>
-							Quick Search
-						</button>
-					</form>
-				</div>
-
-				<div className='search-flex-column-container'>
-					<h3>Search by Body Style</h3>
-					<form className='basic-search-form' onSubmit={(e) => handleSubmit(e)}>
-						<ul className='body-type-list'>
-							{Object.keys(bodyStyles).map((style: string) => {
-								const imageSource: string = styleToUrlMap[style];
-								return (
-									<li key={style} onClick={() => handleToggle(style)}>
-										<img className='image' src={imageSource} alt='Car'></img>
-										<label style={{ zIndex: -1 }}>
-											{style.charAt(0).toUpperCase() + style.slice(1)}
-											<input
-												type='checkbox'
-												checked={bodyStyles[style]}
-											></input>
-										</label>
-									</li>
-								);
-							})}
-						</ul>
-
-						<button type='submit' className='form-submit'>
-							Search
-						</button>
-					</form>
-				</div>
-
-				<div className='search-flex-column-container'>
-					<h3>Search by Budget Range</h3>
-					<form className='basic-search-form'>
-						<div className='range-inputs'>
-							<div className='input-container'>
+				<div className='search-flex-row-container'>
+					<div className='search-flex-column-container'>
+						<h3>Quick Search</h3>
+						<form className='basic-search-form'>
+							<label className='form-label'>
+								Manufacturer:
 								<input
-									className='range'
-									type='number'
-									id='lowerBound'
-									value={lowerBound}
-									onChange={handleLowerBoundChange}
-								></input>
-								<label>Minimum Price</label>
-							</div>
+									type='text'
+									name='manufacturer'
+									list='manufacturers'
+									className='form-input'
+									onChange={() => {}}
+								/>
+								<datalist id='manufacturers'>
+									<option value='Manufacturer 1' />
+									<option value='Manufacturer 2' />
+									<option value='Manufacturer 3' />
+								</datalist>
+							</label>
 
-							<div className='input-container'>
+							<label className='form-label'>
+								Model:
 								<input
-									className='range'
-									type='number'
-									id='upperBound'
-									value={upperBound}
-									onChange={handleUpperBoundChange}
-								></input>
-								<label>Maximum Price</label>
+									type='text'
+									name='model'
+									list='models'
+									className='form-input'
+									onChange={() => {}}
+								/>
+								<datalist id='models'>
+									<option value='Model 1' />
+									<option value='Model 2' />
+									<option value='Model 3' />
+								</datalist>
+							</label>
+
+							<button type='submit' className='form-submit'>
+								Quick Search
+							</button>
+						</form>
+					</div>
+
+					<div className='search-flex-column-container'>
+						<h3>Search by Body Style</h3>
+						<form
+							className='basic-search-form'
+							onSubmit={(e) => handleSubmit(e)}
+						>
+							<ul className='body-type-list'>
+								{Object.keys(bodyStyles).map((style: string) => {
+									const imageSource: string = styleToUrlMap[style];
+									return (
+										<li key={style} onClick={() => handleToggle(style)}>
+											<img className='image' src={imageSource} alt='Car'></img>
+											<label style={{ zIndex: -1 }}>
+												{style.charAt(0).toUpperCase() + style.slice(1)}
+												<input
+													type='checkbox'
+													checked={bodyStyles[style]}
+												></input>
+											</label>
+										</li>
+									);
+								})}
+							</ul>
+
+							<button type='submit' className='form-submit'>
+								Search
+							</button>
+						</form>
+					</div>
+
+					<div className='search-flex-column-container'>
+						<h3>Search by Budget Range</h3>
+						<form className='basic-search-form'>
+							<div className='range-inputs'>
+								<div className='input-container'>
+									<input
+										className='range'
+										type='number'
+										id='lowerBound'
+										value={lowerBound}
+										onChange={handleLowerBoundChange}
+									></input>
+									<label>Minimum Price</label>
+								</div>
+
+								<div className='input-container'>
+									<input
+										className='range'
+										type='number'
+										id='upperBound'
+										value={upperBound}
+										onChange={handleUpperBoundChange}
+									></input>
+									<label>Maximum Price</label>
+								</div>
 							</div>
-						</div>
-						<DualThumbSlider
-							min={0}
-							max={400000}
-							values={priceRange}
-							onChange={handleRangeChange}
-						></DualThumbSlider>
-						<button type='submit' className='form-submit'>
-							Search
-						</button>
-					</form>
+							<DualThumbSlider
+								min={0}
+								max={400000}
+								values={priceRange}
+								onChange={handleRangeChange}
+							></DualThumbSlider>
+							<button type='submit' className='form-submit'>
+								Search
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

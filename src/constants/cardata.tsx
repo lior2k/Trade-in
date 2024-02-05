@@ -6,6 +6,7 @@ export type CarData = {
 	previous_owners: number;
 	price: number;
 	image: string;
+	id?: string;
 };
 
 export const car: CarData = {

@@ -1,7 +1,14 @@
+.search-outer-container {
+	width: 100%;
+	box-shadow: 0 2px 4px rgb(0, 0, 0, 0.1);
+}
 .search-center-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 8px;
 }
 
 .title {
@@ -14,24 +21,36 @@
 .search-flex-row-container {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .search-flex-column-container {
 	display: flex;
 	flex-direction: column;
+	/* flex: 1; */
+	width: 30%;
 	padding: 8px;
 	margin: 8px;
 	align-items: center;
 
 	box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
 
-	max-width: 600px;
-	max-height: 600px;
+	h3 {
+		margin: 4px;
+		padding: 4px;
+	}
 }
 
 .basic-search-form {
 	display: flex;
 	flex-direction: column;
+	width: 90%;
+
+	ul {
+		margin: 0;
+		padding: 8px;
+		justify-content: space-evenly;
+	}
 }
 
 .form-label {
@@ -40,7 +59,7 @@
 }
 
 .form-submit {
-	font-size: 14px;
+	font-size: 16px;
 	margin: 8px;
 	border-radius: 999px;
 	padding: 8px;
@@ -71,8 +90,7 @@
 .body-type-list li {
 	display: flex;
 	flex-direction: column;
-	/* flex: 1; */
-	flex-basis: 30%;
+	flex-basis: 25%;
 
 	cursor: pointer;
 	align-items: center;
@@ -83,21 +101,40 @@
 .range-inputs {
 	display: flex;
 	flex-direction: row;
-	flex: 1;
-	margin: 24px;
+	justify-content: space-around;
+	margin: 0px 4px 8px 4px;
+	padding: 4px;
 }
 
 .input-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	max-width: 50%;
+
+	input {
+		max-width: 100%;
+	}
 }
 
 .range,
 .form-input {
 	margin: 4px;
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: bold;
 	background-color: white;
 	padding: 4px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1500px) {
+	.search-flex-column-container {
+		width: 50%;
+	}
+
+	.search-flex-row-container {
+		flex-direction: column;
+		align-items: center;
+	}
 }

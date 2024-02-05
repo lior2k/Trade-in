@@ -10,10 +10,31 @@ const List = () => {
 	const demoCarList = [car, car, another_car, another_car];
 	const [carList, setCarList] = useState<JSX.Element[]>([]);
 	const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
+	const [popupPosition, setPopupPosition] = useState({
+		top: '50%',
+		left: '50%',
+	});
+
+	const handleCarClick = (car: CarData) => {
+		console.log(car.id);
+		setSelectedCar(car);
+		const listItem = document.getElementById(`car-${car.id}`);
+		if (listItem) {
+			const listItemRect = listItem.getBoundingClientRect();
+			const top = `${listItemRect.top + listItemRect.height}px`;
+			const left = `${listItemRect.left + listItemRect.width / 2}px`;
+			setPopupPosition({ top, left });
+		}
+	};
+
 	useEffect(() => {
 		// fetchPopularCars();
-		let carArray = demoCarList.map((car: CarData) => (
-			<ListItem carData={car} onPress={() => setSelectedCar(car)} />
+		let carArray = demoCarList.map((car: CarData, index: number) => (
+			<ListItem
+				carData={{ ...car, id: index.toString() }}
+				onPress={() => handleCarClick({ ...car, id: index.toString() })}
+				id={index.toString()}
+			/>
 		));
 		setCarList(carArray);
 	}, []);
@@ -28,7 +49,7 @@ const List = () => {
 	};
 
 	return (
-		<div>
+		<>
 			{/* list */}
 			<div className='list-outer-container'>
 				<span className='list-title'>On Sale</span>
@@ -37,22 +58,28 @@ const List = () => {
 
 			{/* pop up window */}
 			{selectedCar && (
-				<div className='selected-car-info-window'>
-					<button
-						className='selected-car-close-button'
-						onClick={() => {
-							setSelectedCar(null);
-						}}
+				<>
+					<div className='overlay' onClick={() => setSelectedCar(null)}></div>
+					<div
+						className='selected-car-info-window'
+						style={{ top: popupPosition.top, left: popupPosition.left }}
 					>
-						<Icon
-							className='selected-car-close-icon'
-							icon='material-symbols:close'
-						></Icon>
-					</button>
-					<CarDetails carData={selectedCar}></CarDetails>
-				</div>
+						<button
+							className='selected-car-close-button'
+							onClick={() => {
+								setSelectedCar(null);
+							}}
+						>
+							<Icon
+								className='selected-car-close-icon'
+								icon='material-symbols:close'
+							></Icon>
+						</button>
+						<CarDetails carData={selectedCar}></CarDetails>
+					</div>
+				</>
 			)}
-		</div>
+		</>
 	);
 };
 

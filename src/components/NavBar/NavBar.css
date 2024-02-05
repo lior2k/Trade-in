@@ -3,6 +3,7 @@
 	flex-direction: row;
 
 	padding: 8px;
+	margin-bottom: 8px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -11,7 +12,7 @@
 	border-width: 0;
 	text-align: center;
 	color: #1d1b1b;
-	font-size: 18px;
+	font-size: 16px;
 	padding: 14px 16px;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -26,14 +27,11 @@ a {
 	text-decoration: none;
 }
 
-/* .nav-bar-dropdown {
-	background-color: transparent;
-	color: #1d1b1b;
-	font-size: 18px;
-	padding: 14px 16px;
-	margin: 0px 8px;
-	cursor: pointer;
+/* MEDIA QUERIES */
 
-	border-radius: 5px;
-	border-width: 1px;
-} */
+@media screen and (max-width: 768px) {
+	.nav-bar-button {
+		font-size: 12px;
+		padding: 7px 8px;
+	}
+}
