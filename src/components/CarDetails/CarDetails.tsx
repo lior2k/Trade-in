@@ -6,7 +6,6 @@ const CarDetails: React.FC<{ carData: CarData }> = ({ carData }) => {
 	return (
 		<div
 			style={{
-				margin: '16px',
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
@@ -14,7 +13,7 @@ const CarDetails: React.FC<{ carData: CarData }> = ({ carData }) => {
 		>
 			<span className='title'>{carData.title}</span>
 			<img
-				style={{ maxHeight: 200, maxWidth: 400 }}
+				style={{ maxHeight: 200, maxWidth: 300 }}
 				src={`/images/${carData.image}`}
 				alt='Car'
 			></img>
