@@ -20,6 +20,7 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 			flexDirection: 'row',
 			flex: 1,
 			alignItems: 'center',
+			padding: '8px',
 		}}
 	>
 		<label>0</label>

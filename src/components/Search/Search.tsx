@@ -72,17 +72,6 @@ const Search = () => {
 		van: false,
 		// motorcycle: false,
 	});
-	const styleToUrlMap: Record<string, string> = {
-		electric: '/images/electric.png',
-		hybrid: '/images/hybrid.webp',
-		luxury: '/images/luxury.webp',
-		sedan: '/images/sedan.png',
-		sports: '/images/sports.png',
-		suv: '/images/suv.webp',
-		truck: '/images/truck.png',
-		van: '/images/van.webp',
-		// motorcycle: '/images/motorcycle.png',
-	};
 
 	const handleToggle = (option: string) => {
 		setBodyStyles((prevOptions) => ({
@@ -152,10 +141,13 @@ const Search = () => {
 						>
 							<ul className='body-type-list'>
 								{Object.keys(bodyStyles).map((style: string) => {
-									const imageSource: string = styleToUrlMap[style];
 									return (
 										<li key={style} onClick={() => handleToggle(style)}>
-											<img className='image' src={imageSource} alt='Car'></img>
+											<img
+												className='image'
+												src={`/images/${style}.png`}
+												alt='Car'
+											></img>
 											<p style={{ margin: '0 2px', padding: '2px' }}>
 												{style.charAt(0).toUpperCase() + style.slice(1)}
 												<input

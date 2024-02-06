@@ -110,10 +110,6 @@
 	flex-direction: column;
 	align-items: center;
 	max-width: 50%;
-
-	input {
-		max-width: 100%;
-	}
 }
 
 .range,
