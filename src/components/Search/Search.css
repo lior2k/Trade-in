@@ -27,7 +27,6 @@
 .search-flex-column-container {
 	display: flex;
 	flex-direction: column;
-	/* flex: 1; */
 	width: 30%;
 	padding: 8px;
 	margin: 8px;
@@ -56,6 +55,13 @@
 .form-label {
 	display: flex;
 	flex-direction: column;
+	margin: 8px;
+}
+
+.form-input {
+	background-color: white;
+	padding: 6px;
+	max-width: 100%;
 }
 
 .form-submit {
@@ -79,13 +85,6 @@
 
 .form-submit:hover {
 	background-position: 0 0;
-}
-
-.form-input {
-	margin: 4px;
-	background-color: white;
-	padding: 4px;
-	max-width: 100%;
 }
 
 /* MEDIA QUERIES */

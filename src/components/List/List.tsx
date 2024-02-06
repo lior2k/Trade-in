@@ -5,7 +5,11 @@ import CarDetails from '../CarDetails/CarDetails';
 import { CarData, car, another_car } from '../../constants/cardata';
 import axios from 'axios';
 
-const List = () => {
+interface ListProps {
+	title: string;
+}
+
+const List: React.FC<ListProps> = ({ title }) => {
 	const demoCarList = [car, car, another_car, another_car];
 	const [carList, setCarList] = useState<JSX.Element[]>([]);
 	const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
@@ -50,7 +54,7 @@ const List = () => {
 		<>
 			{/* list */}
 			<div className='list-outer-container'>
-				<span className='list-title'>On Sale</span>
+				<span className='list-title'>{title}</span>
 				<div className='list'>{carList}</div>
 			</div>
 

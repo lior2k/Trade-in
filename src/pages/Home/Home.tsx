@@ -7,13 +7,15 @@ import './Home.css';
 
 const Home = () => {
 	return (
-		<div className='home-container'>
-			<NavBar />
-			<List />
-			<Search />
+		<>
+			<div className='home-container'>
+				<NavBar />
+				<List title='On Sale' />
+				<Search />
+				<FloatingButtons />
+			</div>
 			<Footer />
-			<FloatingButtons />
-		</div>
+		</>
 	);
 };
 

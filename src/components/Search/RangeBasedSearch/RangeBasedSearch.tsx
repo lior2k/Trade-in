@@ -9,6 +9,7 @@ interface RangeBasedSearchProps {
 	setLowerBound: (bound: number) => void;
 	upperBound: number;
 	setUpperBound: (bound: number) => void;
+	step: number;
 }
 
 const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
@@ -18,6 +19,7 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 	setLowerBound,
 	upperBound,
 	setUpperBound,
+	step,
 }) => {
 	const [priceRange, setPriceRange] = useState<number[]>([
 		lowerBound,
@@ -103,6 +105,7 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 				max={maxValue}
 				values={priceRange}
 				onChange={handleRangeChange}
+				step={step}
 			></DualThumbSlider>
 		</>
 	);

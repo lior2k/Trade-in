@@ -6,6 +6,7 @@ interface DualThumbSliderProps {
 	max: number;
 	values: number[];
 	onChange: (newValues: number[]) => void;
+	step: number;
 }
 
 const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
@@ -13,6 +14,7 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 	max,
 	values,
 	onChange,
+	step,
 }) => (
 	<div
 		style={{
@@ -26,7 +28,7 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 		<label>{min}</label>
 		<Range
 			values={values}
-			step={1000}
+			step={step}
 			min={min}
 			max={max}
 			onChange={(newValues) => onChange(newValues)}
