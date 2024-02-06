@@ -1,67 +1,13 @@
 import React, { useState } from 'react';
 import './Search.css';
-import DualThumbSlider from './DualThumbSlider/DualThumbSlider';
+import BodyBasedSearch from './BodyBasedSearch/BodyBasedSearch';
+import RangeBasedSearch from './RangeBasedSearch/RangeBasedSearch';
 
-type bodyStylesType = Record<string, boolean>;
 const Search = () => {
 	const [lowerBound, setLowerBound] = useState<number>(12000);
 	const [upperBound, setUpperBound] = useState<number>(120000);
-	const [priceRange, setPriceRange] = useState<number[]>([
-		lowerBound,
-		upperBound,
-	]);
 
-	const handleRangeChange = (priceRange: number[]) => {
-		setPriceRange(priceRange);
-		setLowerBound(priceRange[0]);
-		setUpperBound(priceRange[1]);
-	};
-
-	const handleLowerBoundChange = (
-		event: React.ChangeEvent<HTMLInputElement>
-	) => {
-		// Parse the string value to a number
-		const numericValue = parseInt(event.target.value, 10);
-		if (numericValue > 400000 || numericValue < 0) {
-			return;
-		}
-		// Check if the parsing is successful
-		if (numericValue <= upperBound) {
-			setLowerBound(numericValue);
-			setPriceRange((prevPriceRange: number[]) => [
-				numericValue,
-				prevPriceRange[1],
-			]);
-		} else {
-			setPriceRange([numericValue, numericValue]);
-			setLowerBound(numericValue);
-			setUpperBound(numericValue);
-		}
-	};
-
-	const handleUpperBoundChange = (
-		event: React.ChangeEvent<HTMLInputElement>
-	) => {
-		// Parse the string value to a number
-		const numericValue = parseInt(event.target.value, 10);
-		if (numericValue > 400000 || numericValue < 0) {
-			return;
-		}
-		// Check if the parsing is successful
-		if (numericValue >= lowerBound) {
-			setUpperBound(numericValue);
-			setPriceRange((prevPriceRange: number[]) => [
-				prevPriceRange[0],
-				numericValue,
-			]);
-		} else {
-			setPriceRange([numericValue, numericValue]);
-			setLowerBound(numericValue);
-			setUpperBound(numericValue);
-		}
-	};
-
-	const [bodyStyles, setBodyStyles] = useState<bodyStylesType>({
+	const [bodyStyles, setBodyStyles] = useState<Record<string, boolean>>({
 		electric: false,
 		hybrid: false,
 		luxury: false,
@@ -73,7 +19,7 @@ const Search = () => {
 		// motorcycle: false,
 	});
 
-	const handleToggle = (option: string) => {
+	const handleBodyStyleToggle = (option: string) => {
 		setBodyStyles((prevOptions) => ({
 			...prevOptions,
 			[option]: !prevOptions[option],
@@ -139,27 +85,10 @@ const Search = () => {
 							className='basic-search-form'
 							onSubmit={(e) => handleSubmit(e)}
 						>
-							<ul className='body-type-list'>
-								{Object.keys(bodyStyles).map((style: string) => {
-									return (
-										<li key={style} onClick={() => handleToggle(style)}>
-											<img
-												className='image'
-												src={`/images/${style}.png`}
-												alt='Car'
-											></img>
-											<p style={{ margin: '0 2px', padding: '2px' }}>
-												{style.charAt(0).toUpperCase() + style.slice(1)}
-												<input
-													type='checkbox'
-													checked={bodyStyles[style]}
-													style={{ cursor: 'pointer' }}
-												></input>
-											</p>
-										</li>
-									);
-								})}
-							</ul>
+							<BodyBasedSearch
+								bodyStyles={bodyStyles}
+								handleBodyStyleToggle={handleBodyStyleToggle}
+							></BodyBasedSearch>
 
 							<button type='submit' className='form-submit'>
 								Search
@@ -170,35 +99,14 @@ const Search = () => {
 					<div className='search-flex-column-container'>
 						<h3>Search by Budget Range</h3>
 						<form className='basic-search-form'>
-							<div className='range-inputs'>
-								<div className='input-container'>
-									<input
-										className='range'
-										type='number'
-										id='lowerBound'
-										value={lowerBound}
-										onChange={handleLowerBoundChange}
-									></input>
-									<label>Minimum Price</label>
-								</div>
-
-								<div className='input-container'>
-									<input
-										className='range'
-										type='number'
-										id='upperBound'
-										value={upperBound}
-										onChange={handleUpperBoundChange}
-									></input>
-									<label>Maximum Price</label>
-								</div>
-							</div>
-							<DualThumbSlider
-								min={0}
-								max={400000}
-								values={priceRange}
-								onChange={handleRangeChange}
-							></DualThumbSlider>
+							<RangeBasedSearch
+								minValue={0}
+								maxValue={400000}
+								lowerBound={lowerBound}
+								setLowerBound={setLowerBound}
+								upperBound={upperBound}
+								setUpperBound={setUpperBound}
+							></RangeBasedSearch>
 							<button type='submit' className='form-submit'>
 								Search
 							</button>

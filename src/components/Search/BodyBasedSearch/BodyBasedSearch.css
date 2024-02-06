@@ -1,0 +1,15 @@
+.body-type-list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.body-type-list li {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 25%;
+	cursor: pointer;
+	align-items: center;
+
+	padding: 8px;
+}

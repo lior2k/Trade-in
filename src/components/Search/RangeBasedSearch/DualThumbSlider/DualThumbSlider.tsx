@@ -23,7 +23,7 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 			padding: '8px',
 		}}
 	>
-		<label>0</label>
+		<label>{min}</label>
 		<Range
 			values={values}
 			step={1000}
@@ -64,7 +64,7 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 				/>
 			)}
 		/>
-		<label>400,000</label>
+		<label>{max}₪</label>
 	</div>
 );
 

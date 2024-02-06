@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react';
 import React, { useState, useEffect } from 'react';
 import './List.css';
 import ListItem from '../ListItem/ListItem';
@@ -16,7 +15,6 @@ const List = () => {
 	});
 
 	const handleCarClick = (car: CarData) => {
-		console.log(car.id);
 		setSelectedCar(car);
 		const listItem = document.getElementById(`car-${car.id}`);
 		if (listItem) {
@@ -58,26 +56,11 @@ const List = () => {
 
 			{/* pop up window */}
 			{selectedCar && (
-				<>
-					<div className='overlay' onClick={() => setSelectedCar(null)}></div>
-					<div
-						className='selected-car-info-window'
-						style={{ top: popupPosition.top, left: popupPosition.left }}
-					>
-						<button
-							className='selected-car-close-button'
-							onClick={() => {
-								setSelectedCar(null);
-							}}
-						>
-							<Icon
-								className='selected-car-close-icon'
-								icon='material-symbols:close'
-							></Icon>
-						</button>
-						<CarDetails carData={selectedCar}></CarDetails>
-					</div>
-				</>
+				<CarDetails
+					carData={selectedCar}
+					closePopUp={() => setSelectedCar(null)}
+					position={popupPosition}
+				></CarDetails>
 			)}
 		</>
 	);

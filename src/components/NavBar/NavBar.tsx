@@ -1,13 +1,18 @@
 import './NavBar.css';
+import { useNavigate } from 'react-router-dom';
 
 // to do - change the first button style to a 'Brand'
 const NavBar = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div className='nav-bar-outer-container'>
-			<a href='/' rel='noreferrer' target='_self' className='nav-bar-button'>
+			<button className='nav-bar-button' onClick={() => navigate('/')}>
 				Trade In Herzliya
-			</a>
-			<button className='nav-bar-button'>Cars for Sale</button>
+			</button>
+			<button className='nav-bar-button' onClick={() => navigate('/search')}>
+				Cars for Sale
+			</button>
 			<button className='nav-bar-button'>Trade-in</button>
 			<button className='nav-bar-button'>Funding</button>
 			<button className='nav-bar-button'>Leasing</button>
