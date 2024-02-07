@@ -7,6 +7,7 @@ export type CarData = {
 	price: number;
 	image: string;
 	id?: string;
+	mongoID?: string;
 };
 
 export const car: CarData = {
