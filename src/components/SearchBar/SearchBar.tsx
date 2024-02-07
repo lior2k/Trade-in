@@ -74,6 +74,7 @@ const SearchBar = () => {
 						<div className='advanced-search-window-form'>
 							<BasicSearch></BasicSearch>
 
+							<label>Year:</label>
 							<RangeBasedSearch
 								minValue={1990}
 								maxValue={2024}
@@ -84,6 +85,7 @@ const SearchBar = () => {
 								step={1}
 							></RangeBasedSearch>
 
+							<label>Price Range:</label>
 							<RangeBasedSearch
 								minValue={0}
 								maxValue={400000}
@@ -92,8 +94,10 @@ const SearchBar = () => {
 								upperBound={priceUpperBound}
 								setUpperBound={setPriceUpperBound}
 								step={1000}
+								type='price'
 							></RangeBasedSearch>
 
+							<label>Body Style:</label>
 							<BodyBasedSearch
 								bodyStyles={bodyStyles}
 								handleBodyStyleToggle={handleBodyStyleToggle}

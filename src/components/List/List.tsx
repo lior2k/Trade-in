@@ -23,8 +23,8 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 		const listItem = document.getElementById(`car-${car.id}`);
 		if (listItem) {
 			const listItemRect = listItem.getBoundingClientRect();
-			const top = `${listItemRect.top + listItemRect.height}px`;
-			const left = `${listItemRect.left + listItemRect.width / 2}px`;
+			const top = `${listItemRect.top}px`;
+			const left = `${listItemRect.left}px`;
 			setPopupPosition({ top, left });
 		}
 	};

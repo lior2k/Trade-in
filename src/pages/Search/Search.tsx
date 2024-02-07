@@ -25,9 +25,7 @@ const Search = () => {
 		car,
 		another_car,
 		car,
-
 		car,
-
 		car,
 	];
 	return (

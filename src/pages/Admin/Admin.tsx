@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Admin.css';
-import axios from 'axios'; // You might use Axios or any other HTTP library
+import NavBar from '../../components/NavBar/NavBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import List from '../../components/List/List';
+import Footer from '../../components/Footer/Footer';
+import { car } from '../../constants/cardata';
 
 const Admin = () => {
-	const [data, setData] = useState([]);
-
-	// useEffect(() => {
-	// 	fetchData();
-	// }, []);
-
-	// const fetchData = async () => {
-	// 	try {
-	// 		const response = await axios.get('/api/data');
-	// 		setData(response.data);
-	// 	} catch (error) {
-	// 		console.error('Error fetching data:', error);
-	// 	}
-	// };
-
-	// Add other CRUD operations and UI components as needed
-
 	return (
-		<div>
-			<h1>Admin</h1>
-			{/* Render your CMS components here */}
-		</div>
+		<>
+			<NavBar />
+			<div
+				className='admin-container'
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}
+			>
+				<SearchBar />
+				<List title='On Sale' carsData={[car, car, car]}></List>
+				<List
+					title='Search Results'
+					carsData={[car, car, car, car, car, car, car, car]}
+				></List>
+			</div>
+			<Footer />
+		</>
 	);
 };
 

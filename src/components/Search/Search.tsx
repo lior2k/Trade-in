@@ -76,6 +76,7 @@ const Search = () => {
 								upperBound={upperBound}
 								setUpperBound={setUpperBound}
 								step={1000}
+								type='price'
 							></RangeBasedSearch>
 							<button type='submit' className='form-submit'>
 								Search

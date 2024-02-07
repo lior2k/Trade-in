@@ -10,8 +10,8 @@ const Home = () => {
 	const cars = [car, car, car, another_car];
 	return (
 		<>
+			<NavBar />
 			<div className='home-container'>
-				<NavBar />
 				<List title='On Sale' carsData={cars} />
 				<Search />
 				<FloatingButtons />
