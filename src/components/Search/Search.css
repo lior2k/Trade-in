@@ -52,18 +52,6 @@
 	}
 }
 
-.form-label {
-	display: flex;
-	flex-direction: column;
-	margin: 8px;
-}
-
-.form-input {
-	background-color: white;
-	padding: 6px;
-	max-width: 100%;
-}
-
 .form-submit {
 	font-size: 16px;
 	margin: 8px;

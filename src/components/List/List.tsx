@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './List.css';
 import ListItem from '../ListItem/ListItem';
 import CarDetails from '../CarDetails/CarDetails';
-import { CarData, car, another_car } from '../../constants/cardata';
+import { CarData } from '../../constants/cardata';
 import axios from 'axios';
 
 interface ListProps {
 	title: string;
+	carsData: CarData[];
 }
 
-const List: React.FC<ListProps> = ({ title }) => {
-	const demoCarList = [car, car, another_car, another_car];
-	const [carList, setCarList] = useState<JSX.Element[]>([]);
+const List: React.FC<ListProps> = ({ title, carsData }) => {
+	const [renderedCarsList, setRenderedCarsList] = useState<JSX.Element[]>([]);
 	const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
 	const [popupPosition, setPopupPosition] = useState({
 		top: '50%',
@@ -31,14 +31,14 @@ const List: React.FC<ListProps> = ({ title }) => {
 
 	useEffect(() => {
 		// fetchPopularCars();
-		let carArray = demoCarList.map((car: CarData, index: number) => (
+		let carArray = carsData.map((car: CarData, index: number) => (
 			<ListItem
 				carData={{ ...car, id: index.toString() }}
 				onPress={() => handleCarClick({ ...car, id: index.toString() })}
 				id={index.toString()}
 			/>
 		));
-		setCarList(carArray);
+		setRenderedCarsList(carArray);
 	}, []);
 
 	const fetchPopularCars = async () => {
@@ -55,7 +55,7 @@ const List: React.FC<ListProps> = ({ title }) => {
 			{/* list */}
 			<div className='list-outer-container'>
 				<span className='list-title'>{title}</span>
-				<div className='list'>{carList}</div>
+				<div className='list'>{renderedCarsList}</div>
 			</div>
 
 			{/* pop up window */}

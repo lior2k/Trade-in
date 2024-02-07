@@ -17,7 +17,6 @@ const Search = () => {
 		suv: false,
 		truck: false,
 		van: false,
-		// motorcycle: false,
 	});
 
 	const handleBodyStyleToggle = (option: string) => {
@@ -44,7 +43,7 @@ const Search = () => {
 						<form className='basic-search-form'>
 							<BasicSearch></BasicSearch>
 							<button type='submit' className='form-submit'>
-								Quick Search
+								Search
 							</button>
 						</form>
 					</div>
