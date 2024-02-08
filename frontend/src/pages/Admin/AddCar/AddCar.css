@@ -1,0 +1,36 @@
+.add-car-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 8px;
+}
+
+.form-toggle-button {
+	min-width: max-content;
+	width: 50%;
+	font-size: 16px;
+	background-color: #6d9de6;
+	color: white;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	padding: 8px;
+}
+
+.form-toggle-button:hover {
+	transform: scale(1.2);
+	box-shadow: 0 0 4px 4px #6d9de6;
+}
+
+.hidden-form {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+
+	border-radius: 10px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: white;
+	margin-top: 8px;
+	padding: 8px;
+}

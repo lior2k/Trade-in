@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const Car = require('../models/Car');
-
+const multer = require('multer');
+const upload = multer({ dest: './public/images' });
 /*
 Create one car
 -- Examples --
 	Url: http://localhost:8803/api/cars/add
-	Body (Json):
+	Body (FormData):
 		{
     		"title": "hyundai i10",
     		"color": "white",
@@ -14,10 +15,14 @@ Create one car
     		"previous_owners": 2,
     		"price": 60000
 		}
+	Files: req.files = [file1, file2, ...]
 */
-router.post('/add', async (req, res) => {
-	// todo - verify sender ...
-	const newCar = new Car(req.body);
+router.post('/add', upload.array('images', 10), async (req, res) => {
+	const newCar = new Car({
+		...req.body,
+		isFrontPage: req.body.isFrontPage === 'true',
+	});
+	req.files.forEach((file) => newCar.images.push(file.path));
 	try {
 		const savedCar = await newCar.save();
 		res.status(201).json(savedCar);
@@ -84,6 +89,16 @@ Get ALL cars
 router.get('/get/all', async (req, res) => {
 	try {
 		const cars = await Car.find({});
+		res.status(200).json(cars);
+	} catch (err) {
+		console.log('ERROR DURING GET ALL CARS');
+		res.status(500).json(err);
+	}
+});
+
+router.get('/get/frontpage', async (req, res) => {
+	try {
+		const cars = await Car.find({ isFrontPage: true });
 		res.status(200).json(cars);
 	} catch (err) {
 		console.log('ERROR DURING GET ALL CARS');

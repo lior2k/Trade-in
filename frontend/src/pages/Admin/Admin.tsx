@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Admin.css';
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import List from '../../components/List/List';
 import Footer from '../../components/Footer/Footer';
-import { car } from '../../constants/cardata';
+import AddCar from './AddCar/AddCar';
+import { CarData } from '../../constants/constants';
+import CarService from '../../services/CarService';
 
 const Admin = () => {
+	const [frontPageCars, setFrontPageCars] = useState<CarData[]>([]);
+	useEffect(() => {
+		const fetchFrontPageCars = async () => {
+			try {
+				const cars = await CarService.getFrontPageCars();
+				setFrontPageCars(cars);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchFrontPageCars();
+	}, []);
+
+	const [carList, setCarList] = useState<CarData[]>([]);
+	useEffect(() => {
+		const fetchAllCars = async () => {
+			try {
+				const cars = await CarService.getAllCars();
+				setCarList(cars);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchAllCars();
+	}, []);
+
 	return (
 		<>
 			<NavBar />
@@ -18,12 +47,11 @@ const Admin = () => {
 					alignItems: 'center',
 				}}
 			>
+				<AddCar />
 				<SearchBar />
-				<List title='On Sale' carsData={[car, car, car]}></List>
-				<List
-					title='Search Results'
-					carsData={[car, car, car, car, car, car, car, car]}
-				></List>
+
+				<List title='On Sale' carsData={frontPageCars}></List>
+				<List title='Search Results' carsData={carList}></List>
 			</div>
 			<Footer />
 		</>

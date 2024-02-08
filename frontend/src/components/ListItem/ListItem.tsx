@@ -1,19 +1,22 @@
 import React from 'react';
 import './ListItem.css';
-import { CarData } from '../../constants/cardata';
+import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
 
 interface ListItemProps {
 	carData: CarData;
 	onPress: () => void;
-	id: string;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ carData, onPress, id }) => {
+const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 	return (
-		<div className='item-container' onClick={onPress} id={`car-${id}`}>
+		<div className='item-container' onClick={onPress} id={carData._id}>
 			<p className='item-title'>{carData.title}</p>
 			<div className='image-container'>
-				<img className='image' src={`/images/${carData.image}`} alt='Car'></img>
+				<img
+					className='image'
+					src={`${BACKEND_BASE_URL}/${carData.images[0]}`}
+					alt='Car'
+				></img>
 			</div>
 			<div className='item-footer-container'>
 				<div className='data-container'>

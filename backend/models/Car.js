@@ -8,14 +8,13 @@ const CarSchema = new mongoose.Schema(
 
 		// Optional fields
 		color: { type: String },
-		mongoID: { type: String },
-
 		year: { type: Number },
 		km: { type: Number },
-		previous_owners: { type: Number },
+		previousOwners: { type: Number },
+		isFrontPage: { type: Boolean },
 		price: { type: Number },
 
-		// image: {...}
+		images: { type: [String], default: [] },
 	},
 	{
 		// Add timestamps to the schema
@@ -24,4 +23,4 @@ const CarSchema = new mongoose.Schema(
 );
 
 // Create the User model using the schema
-module.exports = mongoose.model('Car', CarSchema, 'Cars');
+module.exports = mongoose.model('Car', CarSchema, 'cars');

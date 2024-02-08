@@ -1,22 +1,10 @@
 import axios from 'axios';
-import { CarData } from '../constants/cardata';
-
-const BASE_URL = 'http://localhost:8803/api/cars';
+import { CarData, BACKEND_API_URL } from '../constants/constants';
 
 const CarService = {
-	getAllCars: async (): Promise<CarData[]> => {
-		try {
-			const response = await axios.get(`${BASE_URL}/get/all`);
-			return response.data;
-		} catch (error) {
-			console.error('Error fetching cars:', error);
-			throw error;
-		}
-	},
-
 	getCarById: async (carId: string): Promise<CarData> => {
 		try {
-			const response = await axios.get(`${BASE_URL}/get/${carId}`);
+			const response = await axios.get(`${BACKEND_API_URL}/get/${carId}`);
 			return response.data;
 		} catch (error) {
 			console.error(`Error fetching car with ID ${carId}:`, error);
@@ -24,7 +12,25 @@ const CarService = {
 		}
 	},
 
-	// Add other methods as needed
+	getAllCars: async (): Promise<CarData[]> => {
+		try {
+			const response = await axios.get(`${BACKEND_API_URL}/get/all`);
+			return response.data;
+		} catch (error) {
+			console.error('Error fetching cars:', error);
+			throw error;
+		}
+	},
+
+	getFrontPageCars: async (): Promise<CarData[]> => {
+		try {
+			const response = await axios.get(`${BACKEND_API_URL}/get/frontpage`);
+			return response.data;
+		} catch (error) {
+			console.log('Error fetching all front page cars');
+			throw error;
+		}
+	},
 };
 
 export default CarService;

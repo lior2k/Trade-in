@@ -1,6 +1,6 @@
 import React from 'react';
 import './CarDetails.css';
-import { CarData } from '../../constants/cardata';
+import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
 import { Icon } from '@iconify/react';
 
 const CarDetails: React.FC<{
@@ -33,13 +33,13 @@ const CarDetails: React.FC<{
 					<span className='title'>{carData.title}</span>
 					<img
 						style={{ maxHeight: 200, maxWidth: 300 }}
-						src={`/images/${carData.image}`}
+						src={`${BACKEND_BASE_URL}/${carData.images[0]}`}
 						alt='Car'
 					></img>
 					<p>Year: {carData.year}</p>
 					<p>Color: {carData.color}</p>
 					<p>Kilometers: {carData.km}</p>
-					<p>Previous Owners: {carData.previous_owners}</p>
+					<p>Previous Owners: {carData.previousOwners}</p>
 					<p>Price: {carData.price}</p>
 				</div>
 			</div>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './List.css';
 import ListItem from '../ListItem/ListItem';
 import CarDetails from '../CarDetails/CarDetails';
-import { CarData } from '../../constants/cardata';
+import { CarData } from '../../constants/constants';
 
 interface ListProps {
 	title: string;
@@ -18,11 +18,12 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 
 	const handleCarClick = (car: CarData) => {
 		setSelectedCar(car);
-		const listItem = document.getElementById(`car-${car.id}`);
+		const listItem = document.getElementById(car._id);
 		if (listItem) {
 			const listItemRect = listItem.getBoundingClientRect();
 			const top = `${listItemRect.top}px`;
 			const left = `${listItemRect.left}px`;
+			console.log(top, left);
 			setPopupPosition({ top, left });
 		}
 	};
@@ -37,7 +38,7 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 						<ListItem
 							carData={car}
 							onPress={() => handleCarClick(car)}
-							id={index.toString()}
+							key={index}
 						></ListItem>
 					))}
 				</div>

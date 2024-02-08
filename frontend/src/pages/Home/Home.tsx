@@ -5,34 +5,30 @@ import Search from '../../components/Search/Search';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import Footer from '../../components/Footer/Footer';
 import CarService from '../../services/CarService';
-import { CarData } from '../../constants/cardata';
+import { CarData } from '../../constants/constants';
 import './Home.css';
 
 const Home = () => {
-	const [onSaleCars, setOnSaleCars] = useState<CarData[]>([]);
+	const [frontPageCars, setFrontPageCars] = useState<CarData[]>([]);
 
 	useEffect(() => {
-		const fetchOnSaleCars = async () => {
+		const fetchFrontPageCars = async () => {
 			try {
-				const cars = await CarService.getAllCars();
-				for (let i = 0; i < cars.length; i++) {
-					cars[i].image = '../../images/hyundai.jpg';
-					cars[i].id = i.toString();
-				}
-				setOnSaleCars(cars);
+				const cars = await CarService.getFrontPageCars();
+				setFrontPageCars(cars);
 			} catch (error) {
 				console.log(error);
 			}
 		};
 
-		fetchOnSaleCars();
+		fetchFrontPageCars();
 	}, []);
 
 	return (
 		<>
 			<NavBar />
 			<div className='home-container'>
-				<List title='On Sale' carsData={onSaleCars} />
+				<List title='On Sale' carsData={frontPageCars} />
 				<Search />
 				<FloatingButtons />
 			</div>
