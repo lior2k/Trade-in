@@ -1,37 +1,9 @@
-import React, { useState } from 'react';
 import './Search.css';
 import BasicSearch from './BasicSearch/BasicSearch';
 import BodyBasedSearch from './BodyBasedSearch/BodyBasedSearch';
 import RangeBasedSearch from './RangeBasedSearch/RangeBasedSearch';
 
 const Search = () => {
-	const [lowerBound, setLowerBound] = useState<number>(12000);
-	const [upperBound, setUpperBound] = useState<number>(120000);
-
-	const [bodyStyles, setBodyStyles] = useState<Record<string, boolean>>({
-		electric: false,
-		hybrid: false,
-		luxury: false,
-		sedan: false,
-		sports: false,
-		suv: false,
-		truck: false,
-		van: false,
-	});
-
-	const handleBodyStyleToggle = (option: string) => {
-		setBodyStyles((prevOptions) => ({
-			...prevOptions,
-			[option]: !prevOptions[option],
-		}));
-	};
-
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		// Perform actions based on the selected options
-		console.log('Selected Options:', bodyStyles);
-	};
-
 	return (
 		<div className='search-outer-container'>
 			<div className='search-center-container'>
@@ -45,38 +17,19 @@ const Search = () => {
 
 					<div className='search-flex-column-container'>
 						<h3>Search by Body Style</h3>
-						<form
-							className='basic-search-form'
-							onSubmit={(e) => handleSubmit(e)}
-						>
-							<BodyBasedSearch
-								bodyStyles={bodyStyles}
-								handleBodyStyleToggle={handleBodyStyleToggle}
-							></BodyBasedSearch>
-
-							<button type='submit' className='form-submit'>
-								Search
-							</button>
-						</form>
+						<BodyBasedSearch />
 					</div>
 
 					<div className='search-flex-column-container'>
 						<h3>Search by Budget Range</h3>
-						<form className='basic-search-form'>
-							<RangeBasedSearch
-								minValue={0}
-								maxValue={400000}
-								lowerBound={lowerBound}
-								setLowerBound={setLowerBound}
-								upperBound={upperBound}
-								setUpperBound={setUpperBound}
-								step={1000}
-								type='price'
-							></RangeBasedSearch>
-							<button type='submit' className='form-submit'>
-								Search
-							</button>
-						</form>
+						<RangeBasedSearch
+							minValue={0}
+							maxValue={400000}
+							initialValueLow={12000}
+							initialValueHigh={120000}
+							step={1000}
+							type='price'
+						></RangeBasedSearch>
 					</div>
 				</div>
 			</div>

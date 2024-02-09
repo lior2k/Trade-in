@@ -9,30 +9,6 @@ const SearchBar = () => {
 	const [isAdvancedSearchOpen, setIsAdvancedSearchOpen] =
 		useState<boolean>(false);
 
-	const [yearLowerBound, setYearLowerBound] = useState<number>(2010);
-	const [yearUpperBound, setYearUpperBound] = useState<number>(2020);
-
-	const [priceLowerBound, setPriceLowerBound] = useState<number>(12000);
-	const [priceUpperBound, setPriceUpperBound] = useState<number>(120000);
-
-	const [bodyStyles, setBodyStyles] = useState<Record<string, boolean>>({
-		electric: false,
-		hybrid: false,
-		luxury: false,
-		sedan: false,
-		sports: false,
-		suv: false,
-		truck: false,
-		van: false,
-	});
-
-	const handleBodyStyleToggle = (option: string) => {
-		setBodyStyles((prevOptions) => ({
-			...prevOptions,
-			[option]: !prevOptions[option],
-		}));
-	};
-
 	return (
 		<div className='search-bar-outer-container'>
 			<div className='basic-search-container'>
@@ -75,10 +51,8 @@ const SearchBar = () => {
 							<RangeBasedSearch
 								minValue={1990}
 								maxValue={2024}
-								lowerBound={yearLowerBound}
-								setLowerBound={setYearLowerBound}
-								upperBound={yearUpperBound}
-								setUpperBound={setYearUpperBound}
+								initialValueLow={2008}
+								initialValueHigh={2020}
 								step={1}
 							></RangeBasedSearch>
 
@@ -86,19 +60,14 @@ const SearchBar = () => {
 							<RangeBasedSearch
 								minValue={0}
 								maxValue={400000}
-								lowerBound={priceLowerBound}
-								setLowerBound={setPriceLowerBound}
-								upperBound={priceUpperBound}
-								setUpperBound={setPriceUpperBound}
+								initialValueLow={12000}
+								initialValueHigh={120000}
 								step={1000}
 								type='price'
 							></RangeBasedSearch>
 
 							<label>Body Style:</label>
-							<BodyBasedSearch
-								bodyStyles={bodyStyles}
-								handleBodyStyleToggle={handleBodyStyleToggle}
-							></BodyBasedSearch>
+							<BodyBasedSearch />
 
 							<button type='submit' className='form-submit'>
 								Search

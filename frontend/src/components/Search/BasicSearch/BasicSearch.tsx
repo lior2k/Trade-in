@@ -41,7 +41,6 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 				manufacturer,
 				model
 			);
-			console.log(cars);
 			navigate('/search', { state: { cars } });
 		} catch (error) {
 			console.error('Upload error:', error);

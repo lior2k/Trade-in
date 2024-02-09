@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './RangeBasedSearch.css';
 import DualThumbSlider from './DualThumbSlider/DualThumbSlider';
+import CarService from '../../../services/CarService';
+import { useNavigate } from 'react-router-dom';
 
 interface RangeBasedSearchProps {
 	minValue: number;
 	maxValue: number;
-	lowerBound: number;
-	setLowerBound: (bound: number) => void;
-	upperBound: number;
-	setUpperBound: (bound: number) => void;
+	initialValueLow: number;
+	initialValueHigh: number;
 	step: number;
 	type?: 'price';
 }
@@ -16,13 +16,15 @@ interface RangeBasedSearchProps {
 const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 	minValue,
 	maxValue,
-	lowerBound,
-	setLowerBound,
-	upperBound,
-	setUpperBound,
+	initialValueLow,
+	initialValueHigh,
 	step,
 	type,
 }) => {
+	const navigate = useNavigate();
+	const [lowerBound, setLowerBound] = useState<number>(initialValueLow);
+	const [upperBound, setUpperBound] = useState<number>(initialValueHigh);
+
 	const [priceRange, setPriceRange] = useState<number[]>([
 		lowerBound,
 		upperBound,
@@ -77,39 +79,55 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 			setUpperBound(numericValue);
 		}
 	};
+
+	const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		try {
+			const cars = await CarService.getCarsByBudget(lowerBound, upperBound);
+			navigate('/search', { state: { cars } });
+		} catch (error) {
+			console.error('Upload error:', error);
+		}
+	};
+
 	return (
 		<>
-			<div className='range-inputs'>
-				<div className='input-container'>
-					<input
-						className='range'
-						type='number'
-						id='lowerBound'
-						value={lowerBound}
-						onChange={handleLowerBoundChange}
-					></input>
-					<label>Minimum</label>
-				</div>
+			<form className='basic-search-form' onSubmit={handleFormSubmit}>
+				<div className='range-inputs'>
+					<div className='input-container'>
+						<input
+							className='range'
+							type='number'
+							id='lowerBound'
+							value={lowerBound}
+							onChange={handleLowerBoundChange}
+						></input>
+						<label>Minimum</label>
+					</div>
 
-				<div className='input-container'>
-					<input
-						className='range'
-						type='number'
-						id='upperBound'
-						value={upperBound}
-						onChange={handleUpperBoundChange}
-					></input>
-					<label>Maximum</label>
+					<div className='input-container'>
+						<input
+							className='range'
+							type='number'
+							id='upperBound'
+							value={upperBound}
+							onChange={handleUpperBoundChange}
+						></input>
+						<label>Maximum</label>
+					</div>
 				</div>
-			</div>
-			<DualThumbSlider
-				min={minValue}
-				max={maxValue}
-				values={priceRange}
-				onChange={handleRangeChange}
-				step={step}
-				type={type}
-			></DualThumbSlider>
+				<DualThumbSlider
+					min={minValue}
+					max={maxValue}
+					values={priceRange}
+					onChange={handleRangeChange}
+					step={step}
+					type={type}
+				></DualThumbSlider>
+				<button type='submit' className='form-submit'>
+					Search
+				</button>
+			</form>
 		</>
 	);
 };

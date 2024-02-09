@@ -36,13 +36,47 @@ const CarService = {
 		manufacturer: string,
 		model?: string
 	): Promise<CarData[]> => {
+		let url;
+		if (model) {
+			url = `${BACKEND_API_URL}/search/${manufacturer}/${model}`;
+		} else {
+			url = `${BACKEND_API_URL}/search/${manufacturer}`;
+		}
 		try {
+			const response = await axios.get(url);
+			return response.data;
+		} catch (error) {
+			console.log('Error fetching cars by manufacturer and model');
+			throw error;
+		}
+	},
+
+	getCarsByBodyStyle: async (selectedStyles: string[]): Promise<CarData[]> => {
+		try {
+			const queryParams = selectedStyles
+				.map((style) => `styles=${style}`)
+				.join('&');
 			const response = await axios.get(
-				`${BACKEND_API_URL}/search/${manufacturer}/${model}`
+				`${BACKEND_API_URL}/search/body?${queryParams}`
 			);
 			return response.data;
 		} catch (error) {
-			console.log('Error fetching all front page cars');
+			console.log('Error fetching cars by body style');
+			throw error;
+		}
+	},
+
+	getCarsByBudget: async (
+		lowerBound: number,
+		upperBound: number
+	): Promise<CarData[]> => {
+		try {
+			const response = await axios.get(
+				`${BACKEND_API_URL}/search/budget/${lowerBound}/${upperBound}`
+			);
+			return response.data;
+		} catch (error) {
+			console.log('Error fetching cars by body style');
 			throw error;
 		}
 	},
