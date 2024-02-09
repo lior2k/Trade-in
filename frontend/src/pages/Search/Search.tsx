@@ -7,28 +7,41 @@ import Footer from '../../components/Footer/Footer';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import CarService from '../../services/CarService';
 import { CarData } from '../../constants/constants';
+import { useLocation } from 'react-router-dom';
 
 const Search = () => {
 	const [carList, setCarList] = useState<CarData[]>([]);
+	const location = useLocation();
+	const { state } = location;
 
 	useEffect(() => {
-		const fetchAllCars = async () => {
+		const fetchData = async () => {
 			try {
-				const cars = await CarService.getAllCars();
+				let cars;
+
+				// Check if search results are present in the location state
+				if (state && state.cars) {
+					cars = state.cars;
+				} else {
+					// Fetch all cars if no search results
+					cars = await CarService.getAllCars();
+				}
+
 				setCarList(cars);
 			} catch (error) {
 				console.log(error);
 			}
 		};
-		fetchAllCars();
-	}, []);
+
+		fetchData();
+	}, [state]);
 
 	return (
 		<>
 			<NavBar />
 			<div className='search-page-container'>
 				<SearchBar />
-				<List title={'Search Results'} carsData={carList} />
+				<List title='Search Results' carsData={carList} />
 			</div>
 			<FloatingButtons />
 			<Footer />

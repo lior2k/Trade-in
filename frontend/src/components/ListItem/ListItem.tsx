@@ -14,7 +14,7 @@ const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 			<div className='image-container'>
 				<img
 					className='image'
-					src={`${BACKEND_BASE_URL}/${carData.images[0]}`}
+					src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}
 					alt='Car'
 				></img>
 			</div>

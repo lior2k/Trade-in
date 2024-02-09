@@ -8,6 +8,7 @@ import { Icon } from '@iconify/react';
 const SearchBar = () => {
 	const [isAdvancedSearchOpen, setIsAdvancedSearchOpen] =
 		useState<boolean>(false);
+
 	const [yearLowerBound, setYearLowerBound] = useState<number>(2010);
 	const [yearUpperBound, setYearUpperBound] = useState<number>(2020);
 
@@ -35,19 +36,15 @@ const SearchBar = () => {
 	return (
 		<div className='search-bar-outer-container'>
 			<div className='basic-search-container'>
-				<BasicSearch></BasicSearch>
+				<BasicSearch direction='row' />
 			</div>
 
 			<button
-				className='advanced-search-button icon-button'
+				className='form-submit icon-button'
 				onClick={() => setIsAdvancedSearchOpen(true)}
 			>
 				Advanced Search
 				<Icon icon='mingcute:settings-2-line'></Icon>
-			</button>
-
-			<button className='search-button icon-button'>
-				<Icon icon='material-symbols:search'></Icon>
 			</button>
 
 			{isAdvancedSearchOpen && (
@@ -72,7 +69,7 @@ const SearchBar = () => {
 							</button>
 						</div>
 						<div className='advanced-search-window-form'>
-							<BasicSearch></BasicSearch>
+							<BasicSearch direction='row' />
 
 							<label>Year:</label>
 							<RangeBasedSearch

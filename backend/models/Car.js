@@ -5,7 +5,8 @@ const CarSchema = new mongoose.Schema(
 	{
 		// Required fields
 		title: { type: String, required: true },
-
+		manufacturer: { type: String, required: true },
+		model: { type: String, required: true },
 		// Optional fields
 		color: { type: String },
 		year: { type: Number },

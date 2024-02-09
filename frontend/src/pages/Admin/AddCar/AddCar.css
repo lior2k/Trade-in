@@ -33,4 +33,10 @@
 	border-color: white;
 	margin-top: 8px;
 	padding: 8px;
+
+	input {
+		padding: 4px;
+		margin-bottom: 4px;
+		font-size: 16px;
+	}
 }

@@ -7,7 +7,6 @@ mongoose.set('strictQuery', false);
 const dotenv = require('dotenv');
 dotenv.config();
 
-// REST API crud operations
 const carsRoute = require('./routes/cars');
 
 // puts the specified middleware functions at the specified path

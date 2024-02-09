@@ -31,6 +31,21 @@ const CarService = {
 			throw error;
 		}
 	},
+
+	getCarsByManufacturerAndModel: async (
+		manufacturer: string,
+		model?: string
+	): Promise<CarData[]> => {
+		try {
+			const response = await axios.get(
+				`${BACKEND_API_URL}/search/${manufacturer}/${model}`
+			);
+			return response.data;
+		} catch (error) {
+			console.log('Error fetching all front page cars');
+			throw error;
+		}
+	},
 };
 
 export default CarService;

@@ -6,6 +6,8 @@ import { BACKEND_API_URL } from '../../../constants/constants';
 
 const AddCar = () => {
 	const [title, setTitle] = useState('');
+	const [manufacturer, setManufacturer] = useState('');
+	const [model, setModel] = useState('');
 	const [year, setYear] = useState('');
 	const [color, setColor] = useState('');
 	const [kilometers, setKilometers] = useState('');
@@ -23,10 +25,13 @@ const AddCar = () => {
 
 	const clearFormAndFiles = () => {
 		setTitle('');
+		setManufacturer('');
+		setModel('');
 		setYear('');
 		setColor('');
 		setKilometers('');
 		setPreviousOwners('');
+		// setIsFrontPage(false);
 		setPrice('');
 		setSelectedFiles([]);
 	};
@@ -36,6 +41,8 @@ const AddCar = () => {
 
 		const formData = new FormData();
 		formData.append('title', title);
+		formData.append('manufacturer', manufacturer);
+		formData.append('model', model);
 		formData.append('year', year);
 		formData.append('color', color);
 		formData.append('km', kilometers);
@@ -55,11 +62,13 @@ const AddCar = () => {
 			});
 
 			console.log('Upload success:', response.data);
+			alert('Car Uploaded Successfully');
 
 			// Reset form input values
 			clearFormAndFiles();
 
 			// You can handle the response from the server here
+			// TODO UPDATE CARS
 		} catch (error) {
 			console.error('Upload error:', error);
 			// Handle error
@@ -82,6 +91,20 @@ const AddCar = () => {
 						type='text'
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
+					/>
+
+					<label>Manufacturer</label>
+					<input
+						type='text'
+						value={manufacturer}
+						onChange={(e) => setManufacturer(e.target.value)}
+					/>
+
+					<label>Model</label>
+					<input
+						type='text'
+						value={model}
+						onChange={(e) => setModel(e.target.value)}
 					/>
 
 					<label>Year</label>
@@ -112,7 +135,7 @@ const AddCar = () => {
 						onChange={(e) => setPreviousOwners(e.target.value)}
 					/>
 
-					<label>Add to 'On Sale'?</label>
+					<label>Add to Front Page?</label>
 					<input
 						type='checkbox'
 						checked={isFrontPage}

@@ -23,7 +23,6 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 			const listItemRect = listItem.getBoundingClientRect();
 			const top = `${listItemRect.top}px`;
 			const left = `${listItemRect.left}px`;
-			console.log(top, left);
 			setPopupPosition({ top, left });
 		}
 	};
@@ -33,6 +32,11 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 			{/* list */}
 			<div className='list-outer-container'>
 				<span className='list-title'>{title}</span>
+				{carsData && (
+					<span className='list-secondary-title'>
+						Displaying {carsData.length} Results
+					</span>
+				)}
 				<div className='list'>
 					{carsData.map((car: CarData, index: number) => (
 						<ListItem

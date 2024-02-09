@@ -40,12 +40,7 @@ const Search = () => {
 				<div className='search-flex-row-container'>
 					<div className='search-flex-column-container'>
 						<h3>Quick Search</h3>
-						<form className='basic-search-form'>
-							<BasicSearch></BasicSearch>
-							<button type='submit' className='form-submit'>
-								Search
-							</button>
-						</form>
+						<BasicSearch direction='column' />
 					</div>
 
 					<div className='search-flex-column-container'>

@@ -22,7 +22,7 @@ router.post('/add', upload.array('images', 10), async (req, res) => {
 		...req.body,
 		isFrontPage: req.body.isFrontPage === 'true',
 	});
-	req.files.forEach((file) => newCar.images.push(file.path));
+	req.files.forEach((file) => newCar.images.push(file.filename));
 	try {
 		const savedCar = await newCar.save();
 		res.status(201).json(savedCar);
@@ -115,6 +115,32 @@ router.get('/get/:id', async (req, res) => {
 	try {
 		const car = await Car.findById(req.params.id);
 		res.status(200).json(car);
+	} catch (err) {
+		console.log('ERROR DURING GET CAR');
+		res.status(500).json(err);
+	}
+});
+
+/*
+Get by manufacturer & model if given
+-- Examples --
+	Url: http://localhost:8803/api/cars/search/seat/ibiza
+*/
+router.get('/search/:manufacturer/:model', async (req, res) => {
+	try {
+		const { manufacturer, model } = req.params;
+
+		// Construct the conditions based on the parameters
+		const conditions = {
+			manufacturer: new RegExp(manufacturer, 'i'), // Case-insensitive regex match
+		};
+
+		if (model) {
+			conditions.model = new RegExp(model, 'i'); // Case-insensitive regex match
+		}
+
+		const cars = await Car.find(conditions);
+		res.status(200).json(cars);
 	} catch (err) {
 		console.log('ERROR DURING GET CAR');
 		res.status(500).json(err);

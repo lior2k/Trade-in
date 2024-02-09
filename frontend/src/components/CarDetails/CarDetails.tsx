@@ -33,7 +33,7 @@ const CarDetails: React.FC<{
 					<span className='title'>{carData.title}</span>
 					<img
 						style={{ maxHeight: 200, maxWidth: 300 }}
-						src={`${BACKEND_BASE_URL}/${carData.images[0]}`}
+						src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}
 						alt='Car'
 					></img>
 					<p>Year: {carData.year}</p>
