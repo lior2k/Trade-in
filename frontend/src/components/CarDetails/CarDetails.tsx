@@ -1,5 +1,6 @@
 import React from 'react';
 import './CarDetails.css';
+import { Carousel } from 'react-responsive-carousel';
 import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
 import { Icon } from '@iconify/react';
 
@@ -31,11 +32,17 @@ const CarDetails: React.FC<{
 					}}
 				>
 					<span className='title'>{carData.title}</span>
-					<img
-						style={{ maxHeight: 200, maxWidth: 300 }}
-						src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}
-						alt='Car'
-					></img>
+					<Carousel showArrows={true}>
+						{carData.images.map((image, index) => (
+							<div key={index} className='image-container'>
+								<img
+									className='image'
+									src={`${BACKEND_BASE_URL}/images/${image}`}
+									alt={`Car ${index + 1}`}
+								/>
+							</div>
+						))}
+					</Carousel>
 					<p>Year: {carData.year}</p>
 					<p>Color: {carData.color}</p>
 					<p>Kilometers: {carData.km}</p>

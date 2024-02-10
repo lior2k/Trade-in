@@ -19,6 +19,7 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 	const [model, setModel] = useState<string>('');
 
 	const handleManufacturerChoice = (e: React.ChangeEvent<HTMLInputElement>) => {
+		console.log(e.target.value);
 		setManufacturer(e.target.value);
 	};
 
@@ -83,6 +84,7 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 					/>
 					<datalist id='models'>
 						{manufacturer &&
+							CarModels[manufacturer] &&
 							CarModels[manufacturer].map((value, index) => (
 								<option key={index} value={value}>
 									{value}

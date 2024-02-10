@@ -45,7 +45,7 @@ const SearchBar = () => {
 							</button>
 						</div>
 						<div className='advanced-search-window-form'>
-							<BasicSearch direction='row' />
+							<BasicSearch direction='column' />
 
 							<label>Year:</label>
 							<RangeBasedSearch
