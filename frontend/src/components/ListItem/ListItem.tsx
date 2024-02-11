@@ -24,7 +24,7 @@ const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 
 			<Carousel showArrows={true} showThumbs={false}>
 				{carData.images.map((image, index) => (
-					<div key={index} className='image-container'>
+					<div key={index}>
 						<img
 							className='image'
 							src={`${BACKEND_BASE_URL}/images/${image}`}

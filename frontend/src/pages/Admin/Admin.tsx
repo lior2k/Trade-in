@@ -9,6 +9,15 @@ import { CarData } from '../../constants/constants';
 import CarService from '../../services/CarService';
 
 const Admin = () => {
+	const [frontPageTrigger, setFrontPageTrigger] = useState<boolean>(false);
+	const [carListTrigger, setCarListTrigger] = useState<boolean>(false);
+	const refreshBothListsOnUpload = () => {
+		setFrontPageTrigger(!frontPageTrigger);
+		setCarListTrigger(!carListTrigger);
+	};
+	const refreshMainListOnly = () => {
+		setCarListTrigger(!carListTrigger);
+	};
 	const [frontPageCars, setFrontPageCars] = useState<CarData[]>([]);
 	useEffect(() => {
 		const fetchFrontPageCars = async () => {
@@ -21,7 +30,7 @@ const Admin = () => {
 		};
 
 		fetchFrontPageCars();
-	}, []);
+	}, [frontPageTrigger]);
 
 	const [carList, setCarList] = useState<CarData[]>([]);
 	useEffect(() => {
@@ -34,7 +43,7 @@ const Admin = () => {
 			}
 		};
 		fetchAllCars();
-	}, []);
+	}, [carListTrigger]);
 
 	return (
 		<>
@@ -47,7 +56,10 @@ const Admin = () => {
 					alignItems: 'center',
 				}}
 			>
-				<AddCar />
+				<AddCar
+					refreshMainListOnly={refreshMainListOnly}
+					refreshBothListsOnUpload={refreshBothListsOnUpload}
+				/>
 				<SearchBar />
 
 				<List title='On Sale' carsData={frontPageCars}></List>

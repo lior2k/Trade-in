@@ -1,5 +1,7 @@
 export type CarData = {
 	title: string;
+	manufacturer: string;
+	model: string;
 	color: string;
 	year: number;
 	km: number;

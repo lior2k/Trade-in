@@ -4,7 +4,15 @@ import FileUploader from '../../../components/FileUploader/FileUploader';
 import axios from 'axios';
 import { BACKEND_API_URL } from '../../../constants/constants';
 
-const AddCar = () => {
+interface AddCarProps {
+	refreshMainListOnly: () => void;
+	refreshBothListsOnUpload: () => void;
+}
+
+const AddCar: React.FC<AddCarProps> = ({
+	refreshMainListOnly,
+	refreshBothListsOnUpload,
+}) => {
 	const [title, setTitle] = useState('');
 	const [manufacturer, setManufacturer] = useState('');
 	const [model, setModel] = useState('');
@@ -15,7 +23,7 @@ const AddCar = () => {
 	const [isFrontPage, setIsFrontPage] = useState(false);
 	const [price, setPrice] = useState('');
 	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-
+	const [type, setType] = useState('');
 	const [toggleButtonText, setToggleButtonText] = useState('Click to Add Car');
 	const [formVisible, setFormVisible] = useState<boolean>(false);
 	const toggleFormVisibility = (visibility: boolean) => {
@@ -36,6 +44,10 @@ const AddCar = () => {
 		setSelectedFiles([]);
 	};
 
+	const handleTypeChoice = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setType(e.target.value);
+	};
+
 	const handleUpload = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault(); // Prevent default form submission
 
@@ -47,6 +59,7 @@ const AddCar = () => {
 		formData.append('color', color);
 		formData.append('km', kilometers);
 		formData.append('previousOwners', previousOwners);
+		formData.append('type', type);
 		formData.append('isFrontPage', String(isFrontPage));
 		formData.append('price', price);
 		selectedFiles.forEach((file) => {
@@ -64,11 +77,14 @@ const AddCar = () => {
 			console.log('Upload success:', response.data);
 			alert('Car Uploaded Successfully');
 
+			if (isFrontPage) {
+				refreshBothListsOnUpload();
+			} else {
+				refreshMainListOnly();
+			}
+
 			// Reset form input values
 			clearFormAndFiles();
-
-			// You can handle the response from the server here
-			// TODO UPDATE CARS
 		} catch (error) {
 			console.error('Upload error:', error);
 			// Handle error
@@ -134,6 +150,19 @@ const AddCar = () => {
 						value={previousOwners}
 						onChange={(e) => setPreviousOwners(e.target.value)}
 					/>
+
+					<label>Type</label>
+					<input type='text' list='types' onChange={handleTypeChoice} />
+					<datalist id='types'>
+						<option value='Electric'>Electric</option>
+						<option value='Hybrid'>Hybrid</option>
+						<option value='Luxury'>Luxury</option>
+						<option value='Sedan'>Sedan</option>
+						<option value='Sports'>Sports</option>
+						<option value='SUV'>SUV</option>
+						<option value='Truck'>Truck</option>
+						<option value='Van'>Van</option>
+					</datalist>
 
 					<label>Add to Front Page?</label>
 					<input
