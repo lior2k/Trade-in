@@ -28,11 +28,12 @@ const Home = () => {
 		<>
 			<NavBar />
 			<div className='home-container'>
-				<List title='On Sale' carsData={frontPageCars} />
+				<h3 className='main-title'>רכבים מובילים</h3>
+				<List carsData={frontPageCars} />
 				<Search />
 				<FloatingButtons />
+				<Footer />
 			</div>
-			<Footer />
 		</>
 	);
 };

@@ -4,30 +4,13 @@
 	align-items: center;
 	width: 100%;
 	text-align: center;
-	box-shadow: 0 2px 4px rgb(0, 0, 0, 0.1);
-	margin-bottom: 8px;
-}
-
-.list-title {
-	display: block;
-	color: white;
-	font-size: 2em;
-	font-weight: bold;
-	padding: 4px;
-}
-
-.list-secondary-title {
-	display: block;
-	color: white;
-	font-size: 1.5em;
-	padding: 4px;
 }
 
 .list {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	width: 80%;
-	/* padding: 8px; */
+	gap: 0.5rem;
 	flex-wrap: wrap;
 }
 

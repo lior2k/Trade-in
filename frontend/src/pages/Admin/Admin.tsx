@@ -62,8 +62,10 @@ const Admin = () => {
 				/>
 				<SearchBar />
 
-				<List title='On Sale' carsData={frontPageCars}></List>
-				<List title='Search Results' carsData={carList}></List>
+				<h3 className='main-title'>רכבים מובילים</h3>
+				<List carsData={frontPageCars}></List>
+				{/* <h3 className='main-title'>רכבים מובילים</h3> */}
+				<List carsData={carList}></List>
 			</div>
 			<Footer />
 		</>

@@ -12,36 +12,39 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 	return (
-		<div className='item-container' id={carData._id}>
+		<div className='item-container' id={carData._id} onClick={onPress}>
 			<div className='item-header-container'>
-				<p className='item-title'>{carData.title}</p>
-				<Icon
-					onClick={onPress}
-					className='item-icon'
-					icon='pepicons-pencil:expand'
-				></Icon>
+				<div className='item-header-underline'>
+					<p className='item-title'>{carData.title}</p>
+				</div>
 			</div>
 
-			<Carousel showArrows={true} showThumbs={false}>
-				{carData.images.map((image, index) => (
-					<div key={index}>
-						<img
-							className='image'
-							src={`${BACKEND_BASE_URL}/images/${image}`}
-							alt={`Car ${index + 1}`}
-						/>
-					</div>
-				))}
-			</Carousel>
+			<div className='img-container'>
+				<img
+					className='image'
+					src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}
+					alt={`Car`}
+				/>
+			</div>
 
 			<div className='item-footer-container'>
 				<div className='data-container'>
-					<p className='item-data'>Year: {carData.year}</p>
-					<p className='item-data'>Km: {carData.km}</p>
+					<p className='item-data'>{carData.previousOwners}</p>
+					<p className='item-data'>יד</p>
+				</div>
+				<div className='data-container'>
+					<p className='item-data'>{carData.year}</p>
+					<p className='item-data'>שנה</p>
 				</div>
 
-				<div className='price-container'>
+				<div className='data-container'>
+					<p className='item-data'>{carData.km}</p>
+					<p className='item-data'>ק"מ</p>
+				</div>
+
+				<div className='data-container'>
 					<p className='item-data price'>{carData.price} ₪</p>
+					<p className='item-data price'>מחיר</p>
 				</div>
 			</div>
 		</div>

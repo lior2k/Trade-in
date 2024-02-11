@@ -7,21 +7,21 @@ const Search = () => {
 	return (
 		<div className='search-outer-container'>
 			<div className='search-center-container'>
-				<span className='title'>Find Your New Car</span>
+				<h2 className='main-title'>איך תרצו לחפש את הרכב החדש שלכם?</h2>
 
 				<div className='search-flex-row-container'>
 					<div className='search-flex-column-container'>
-						<h3>Quick Search</h3>
+						<h3 className='secondary-title'>חיפוש לפי יצרן ומודל</h3>
 						<BasicSearch direction='column' />
 					</div>
 
 					<div className='search-flex-column-container'>
-						<h3>Search by Body Style</h3>
+						<h3 className='secondary-title'>חיפוש לפי סוג שילדה</h3>
 						<BodyBasedSearch />
 					</div>
 
 					<div className='search-flex-column-container'>
-						<h3>Search by Budget Range</h3>
+						<h3 className='secondary-title'>חיפוש לפי טווח מחירים</h3>
 						<RangeBasedSearch
 							minValue={0}
 							maxValue={400000}

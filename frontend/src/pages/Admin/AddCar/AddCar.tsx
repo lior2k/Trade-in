@@ -84,7 +84,7 @@ const AddCar: React.FC<AddCarProps> = ({
 			}
 
 			// Reset form input values
-			clearFormAndFiles();
+			// clearFormAndFiles();
 		} catch (error) {
 			console.error('Upload error:', error);
 			// Handle error

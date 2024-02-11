@@ -5,11 +5,10 @@ import CarDetails from '../CarDetails/CarDetails';
 import { CarData } from '../../constants/constants';
 
 interface ListProps {
-	title: string;
 	carsData: CarData[];
 }
 
-const List: React.FC<ListProps> = ({ title, carsData }) => {
+const List: React.FC<ListProps> = ({ carsData }) => {
 	const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
 	const [popupPosition, setPopupPosition] = useState({
 		top: '50%',
@@ -29,14 +28,7 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 
 	return (
 		<>
-			{/* list */}
 			<div className='list-outer-container'>
-				<span className='list-title'>{title}</span>
-				{carsData && (
-					<span className='list-secondary-title'>
-						Displaying {carsData.length} Results
-					</span>
-				)}
 				<div className='list'>
 					{carsData.map((car: CarData, index: number) => (
 						<ListItem
@@ -48,7 +40,6 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 				</div>
 			</div>
 
-			{/* pop up window */}
 			{selectedCar && (
 				<CarDetails
 					carData={selectedCar}

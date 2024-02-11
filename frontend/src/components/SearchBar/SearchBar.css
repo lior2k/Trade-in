@@ -10,7 +10,6 @@
 	border-width: 1px;
 	border-style: solid;
 	border-color: white;
-	color: white;
 }
 
 .basic-search-container {
@@ -22,7 +21,6 @@
 .search-button {
 	border-radius: 99px;
 	background-color: #6d9de6;
-	color: white;
 }
 
 .icon-button {
@@ -64,7 +62,6 @@
 	.close-button {
 		border: none;
 		background-color: transparent;
-		color: white;
 		cursor: pointer;
 	}
 

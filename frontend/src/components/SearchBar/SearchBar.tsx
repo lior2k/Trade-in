@@ -15,13 +15,23 @@ const SearchBar = () => {
 				<BasicSearch direction='row' />
 			</div>
 
-			<button
-				className='form-submit icon-button'
-				onClick={() => setIsAdvancedSearchOpen(true)}
-			>
-				Advanced Search
-				<Icon icon='mingcute:settings-2-line'></Icon>
-			</button>
+			<div>
+				<button
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						gap: '8px',
+					}}
+					className='form-submit icon-button'
+					onClick={() => setIsAdvancedSearchOpen(true)}
+				>
+					<p style={{ margin: '0', padding: '2px' }}>Advanced Search</p>
+					<Icon
+						style={{ marginBottom: '2px' }}
+						icon='grommet-icons:search-advanced'
+					></Icon>
+				</button>
+			</div>
 
 			{isAdvancedSearchOpen && (
 				<>

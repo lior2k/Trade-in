@@ -41,7 +41,7 @@ const Search = () => {
 			<NavBar />
 			<div className='search-page-container'>
 				<SearchBar />
-				<List title='Search Results' carsData={carList} />
+				<List carsData={carList} />
 			</div>
 			<FloatingButtons />
 			<Footer />
