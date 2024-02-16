@@ -131,37 +131,19 @@ router.get('/search/:manufacturer/:model', async (req, res) => {
 		const { manufacturer, model } = req.params;
 
 		// Construct the conditions based on the parameters
-		const conditions = {
-			manufacturer: new RegExp(manufacturer, 'i'), // Case-insensitive regex match
-			model: new RegExp(model, 'i'),
-		};
+		const conditions = {};
+		if (manufacturer !== 'manufacturer') {
+			conditions.manufacturer = new RegExp(manufacturer, 'i');
+		}
+
+		if (model !== 'model') {
+			conditions.model = new RegExp(model, 'i');
+		}
 
 		const cars = await Car.find(conditions);
 		res.status(200).json(cars);
 	} catch (err) {
 		console.log('error at /search/:manufacturer/:model');
-		res.status(500).json(err);
-	}
-});
-
-/*
-Get by manufacturer only
--- Examples --
-	Url: http://localhost:8803/api/cars/search/seat
-*/
-router.get('/search/:manufacturer', async (req, res) => {
-	try {
-		const { manufacturer } = req.params;
-
-		// Construct the conditions based on the parameters
-		const conditions = {
-			manufacturer: new RegExp(manufacturer, 'i'), // Case-insensitive regex match
-		};
-
-		const cars = await Car.find(conditions);
-		res.status(200).json(cars);
-	} catch (err) {
-		console.log('error at /search/:manufacturer');
 		res.status(500).json(err);
 	}
 });

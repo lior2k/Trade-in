@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CarModels } from '../../../constants/constants';
 import CarService from '../../../services/CarService';
+import SearchButton from '../../SearchButton/SearchButton';
+import { Icon } from '@iconify/react';
 
 interface BasicSearchProps {
 	direction: 'row' | 'column';
@@ -13,28 +15,17 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 		flexDirection: direction,
 	};
 
-	const navigate = useNavigate();
-
+	const [showManufacturerList, setShowManufacturerList] =
+		useState<boolean>(false);
+	const [showModelList, setShowModelList] = useState<boolean>(false);
 	const [manufacturer, setManufacturer] = useState<string>('');
 	const [model, setModel] = useState<string>('');
-
-	const handleManufacturerChoice = (e: React.ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target.value);
-		setManufacturer(e.target.value);
-	};
-
-	const handleModelChoice = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (manufacturer === '') {
-			alert('Choose a Manufacturer');
-			return;
-		}
-		setModel(e.target.value);
-	};
+	const navigate = useNavigate();
 
 	const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (manufacturer === '') {
-			alert('Choose a Manufacturer');
+		if (manufacturer === '' && model === '') {
+			alert('בחר יצרן ו/או מודל');
 			return;
 		}
 		try {
@@ -55,46 +46,78 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 				onSubmit={handleFormSubmit}
 				style={style}
 			>
-				<label className='form-label'>
-					Manufacturer:
-					<input
-						type='text'
-						name='manufacturer'
-						list='manufacturers'
-						className='form-input'
-						onChange={handleManufacturerChoice}
-					/>
-					<datalist id='manufacturers'>
-						{Object.keys(CarModels).map((key) => (
-							<option key={key} value={key}>
-								{key}
-							</option>
-						))}
-					</datalist>
-				</label>
+				<div className='form-input-outer-container'>
+					<span className='padding'>יצרן</span>
 
-				<label className='form-label'>
-					Model:
-					<input
-						type='text'
-						name='model'
-						list='models'
-						className='form-input'
-						onChange={handleModelChoice}
-					/>
-					<datalist id='models'>
-						{manufacturer &&
-							CarModels[manufacturer] &&
-							CarModels[manufacturer].map((value, index) => (
-								<option key={index} value={value}>
-									{value}
-								</option>
-							))}
-					</datalist>
-				</label>
-				<button type='submit' className='form-submit'>
-					Search
-				</button>
+					<div
+						className='form-input-inner-container'
+						onClick={() => {
+							setShowManufacturerList(!showManufacturerList);
+						}}
+					>
+						<span>{manufacturer === '' ? 'בחר' : manufacturer}</span>
+						<div
+							className={`expanding ${showManufacturerList ? 'expanded' : ''}`}
+						>
+							<ul className='expanded-list'>
+								{Object.keys(CarModels).map((key) => (
+									<li
+										className='expanded-list-item'
+										key={key}
+										value={key}
+										onClick={() => setManufacturer(key)}
+									>
+										{key}
+									</li>
+								))}
+							</ul>
+						</div>
+						<Icon className='arrow-down-icon' icon='ep:arrow-down' />
+					</div>
+				</div>
+
+				<div className='form-input-outer-container'>
+					<span className='padding'>מודל</span>
+
+					<div
+						className='form-input-inner-container'
+						onClick={() => {
+							setShowModelList(!showModelList);
+						}}
+					>
+						<span>{model === '' ? 'בחר' : model}</span>
+						<div className={`expanding ${showModelList ? 'expanded' : ''}`}>
+							<ul className='expanded-list'>
+								{CarModels[manufacturer]
+									? CarModels[manufacturer].map((value, index) => (
+											<li
+												className='expanded-list-item'
+												key={index}
+												value={value}
+												onClick={() => setModel(value)}
+											>
+												{value}
+											</li>
+									  ))
+									: Object.keys(CarModels).map((manufacturerKey) =>
+											CarModels[manufacturerKey].map((value, index) => (
+												<li
+													className='expanded-list-item'
+													key={index}
+													value={value}
+													onClick={() => setModel(value)}
+												>
+													{value}
+												</li>
+											))
+									  )}
+							</ul>
+						</div>
+						<Icon className='arrow-down-icon' icon='ep:arrow-down' />
+					</div>
+				</div>
+
+				<SearchButton />
 			</form>
 		</>
 	);

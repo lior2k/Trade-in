@@ -1,5 +1,6 @@
 import React from 'react';
 import { Range, getTrackBackground } from 'react-range';
+import './DualThumbSlider.css';
 
 interface DualThumbSliderProps {
 	min: number;
@@ -18,15 +19,7 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 	step,
 	type,
 }) => (
-	<div
-		style={{
-			display: 'flex',
-			flexDirection: 'row',
-			flex: 1,
-			alignItems: 'center',
-			padding: '8px',
-		}}
-	>
+	<div className='dual-thumb-slider-container'>
 		<label>{min}</label>
 		<Range
 			values={values}
@@ -37,11 +30,9 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 			renderTrack={({ props, children }) => (
 				<div
 					{...props}
+					className='track' // Apply the track class
 					style={{
 						...props.style,
-						margin: '0px 16px',
-						height: '6px',
-						width: '100%',
 						background: getTrackBackground({
 							values,
 							colors: ['#ccc', '#548BF4', '#ccc'],
@@ -56,15 +47,8 @@ const DualThumbSlider: React.FC<DualThumbSliderProps> = ({
 			renderThumb={({ props, isDragged }) => (
 				<div
 					{...props}
-					style={{
-						...props.style,
-						height: '24px',
-						width: '24px',
-						backgroundColor: '#FFF',
-						border: '2px solid #548BF4',
-						borderRadius: '50%',
-						boxShadow: '0px 2px 6px #AAA',
-					}}
+					className='thumb' // Apply the thumb class
+					style={{ ...props.style }}
 				/>
 			)}
 		/>

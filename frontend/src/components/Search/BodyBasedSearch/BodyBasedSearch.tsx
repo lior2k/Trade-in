@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import './BodyBasedSearch.css';
 import { useNavigate } from 'react-router-dom';
 import CarService from '../../../services/CarService';
+import SearchButton from '../../SearchButton/SearchButton';
 
 const BodyBasedSearch: React.FC = () => {
 	const navigate = useNavigate();
 	const [bodyStyles, setBodyStyles] = useState<Record<string, boolean>>({
-		electric: false,
-		hybrid: false,
-		luxury: false,
-		sedan: false,
-		sports: false,
-		suv: false,
-		truck: false,
-		van: false,
+		חשמלי: false,
+		היברידי: false,
+		יוקרה: false,
+		משפחתי: false,
+		ספורט: false,
+		"ג'יפ": false,
+		'7 מקומות': false,
+		מסחרי: false,
 	});
 
 	const handleBodyStyleToggle = (option: string) => {
@@ -44,7 +45,7 @@ const BodyBasedSearch: React.FC = () => {
 
 	return (
 		<>
-			<form className='basic-search-form' onSubmit={handleFormSubmit}>
+			<form className='body-search-form' onSubmit={handleFormSubmit}>
 				<ul className='body-type-list'>
 					{Object.keys(bodyStyles).map((style: string) => {
 						return (
@@ -55,7 +56,7 @@ const BodyBasedSearch: React.FC = () => {
 									alt='Car'
 								></img>
 								<p style={{ margin: '0 2px', padding: '2px' }}>
-									{style.charAt(0).toUpperCase() + style.slice(1)}
+									{style}
 									<input
 										type='checkbox'
 										checked={bodyStyles[style]}
@@ -67,9 +68,7 @@ const BodyBasedSearch: React.FC = () => {
 					})}
 				</ul>
 
-				<button type='submit' className='form-submit'>
-					Search
-				</button>
+				<SearchButton />
 			</form>
 		</>
 	);

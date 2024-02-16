@@ -3,6 +3,7 @@ import './RangeBasedSearch.css';
 import DualThumbSlider from './DualThumbSlider/DualThumbSlider';
 import CarService from '../../../services/CarService';
 import { useNavigate } from 'react-router-dom';
+import SearchButton from '../../SearchButton/SearchButton';
 
 interface RangeBasedSearchProps {
 	minValue: number;
@@ -92,7 +93,7 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 
 	return (
 		<>
-			<form className='basic-search-form' onSubmit={handleFormSubmit}>
+			<form className='range-search-form' onSubmit={handleFormSubmit}>
 				<div className='range-inputs'>
 					<div className='input-container'>
 						<input
@@ -102,7 +103,7 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 							value={lowerBound}
 							onChange={handleLowerBoundChange}
 						></input>
-						<label>Minimum</label>
+						<label>מחיר מינימלי</label>
 					</div>
 
 					<div className='input-container'>
@@ -113,9 +114,10 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 							value={upperBound}
 							onChange={handleUpperBoundChange}
 						></input>
-						<label>Maximum</label>
+						<label>מחיר מקסימלי</label>
 					</div>
 				</div>
+
 				<DualThumbSlider
 					min={minValue}
 					max={maxValue}
@@ -124,9 +126,17 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 					step={step}
 					type={type}
 				></DualThumbSlider>
-				<button type='submit' className='form-submit'>
-					Search
-				</button>
+
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						width: '100%',
+						alignItems: 'center',
+					}}
+				>
+					<SearchButton />
+				</div>
 			</form>
 		</>
 	);

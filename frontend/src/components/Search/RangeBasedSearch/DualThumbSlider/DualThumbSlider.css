@@ -1,0 +1,21 @@
+.dual-thumb-slider-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 8px;
+}
+
+.track {
+	margin: 0px 16px;
+	height: 6px;
+	width: 100%;
+}
+
+.thumb {
+	height: 24px;
+	width: 24px;
+	background-color: #fff;
+	border: 2px solid #548bf4;
+	border-radius: 50%;
+	box-shadow: 0px 2px 6px #aaa;
+}

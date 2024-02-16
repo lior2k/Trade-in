@@ -24,9 +24,9 @@ const Search = () => {
 						<h3 className='secondary-title'>חיפוש לפי טווח מחירים</h3>
 						<RangeBasedSearch
 							minValue={0}
-							maxValue={400000}
-							initialValueLow={12000}
-							initialValueHigh={120000}
+							maxValue={250000}
+							initialValueLow={24000}
+							initialValueHigh={64000}
 							step={1000}
 							type='price'
 						></RangeBasedSearch>

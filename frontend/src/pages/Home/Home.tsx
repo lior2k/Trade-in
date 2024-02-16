@@ -32,8 +32,8 @@ const Home = () => {
 				<List carsData={frontPageCars} />
 				<Search />
 				<FloatingButtons />
-				<Footer />
 			</div>
+			<Footer />
 		</>
 	);
 };

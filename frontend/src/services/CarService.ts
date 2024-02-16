@@ -34,13 +34,15 @@ const CarService = {
 
 	getCarsByManufacturerAndModel: async (
 		manufacturer: string,
-		model?: string
+		model: string
 	): Promise<CarData[]> => {
 		let url;
-		if (model) {
-			url = `${BACKEND_API_URL}/search/${manufacturer}/${model}`;
+		if (manufacturer === '') {
+			url = `${BACKEND_API_URL}/search/model/${model}`;
+		} else if (model === '') {
+			url = `${BACKEND_API_URL}/search/manufacturer/${manufacturer}`;
 		} else {
-			url = `${BACKEND_API_URL}/search/${manufacturer}`;
+			url = `${BACKEND_API_URL}/search/${manufacturer}/${model}`;
 		}
 		try {
 			const response = await axios.get(url);

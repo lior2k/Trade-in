@@ -1,11 +1,80 @@
+.basic-search-form {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	align-items: center;
+}
+
+.form-input-outer-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.padding {
+	padding: 8px;
+}
+
+.form-input-inner-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	border: 1px solid rgb(191, 190, 190);
+	border-radius: 5px;
+	padding: 12px;
+
+	width: 75%;
+
+	cursor: pointer;
+
+	position: relative;
+}
+
+.expanding {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	overflow-y: scroll;
+	box-sizing: border-box;
+	background-color: white;
+	max-height: 0;
+	width: 100%;
+	z-index: 5;
+	transition: all 0.2s ease-in-out;
+}
+
+.expanding.expanded {
+	display: flex;
+	border: 1px solid rgb(191, 190, 190);
+	border-radius: 5px;
+	max-height: 250px;
+}
+
+.expanded-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.expanded-list-item {
+	padding: 8px;
+}
+
+.arrow-down-icon {
+	width: 1.2em;
+	height: 1.2em;
+}
+
 .form-label {
 	display: flex;
 	flex-direction: column;
-	margin: 8px;
+	padding: 8px 0;
+	width: 75%;
 }
 
 .form-input {
-	background-color: white;
-	padding: 6px;
-	max-width: 100%;
+	padding: 8px;
 }

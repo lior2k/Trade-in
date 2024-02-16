@@ -11,14 +11,10 @@ const FloatingButtons = () => {
 
 	return (
 		<div className='floating-buttons'>
-			<a
-				href='https://www.facebook.com/avitih'
-				target='_blank'
-				rel='noreferrer'
-				className='button facebook'
-			>
-				<Icon icon='ic:baseline-facebook' className='icon'></Icon>
-			</a>
+			<button className='button phone' onClick={toggleContactInfo}>
+				<Icon icon='ic:baseline-phone' className='icon'></Icon>
+			</button>
+
 			<a
 				href='https://www.instagram.com/shachoach/'
 				rel='noreferrer'
@@ -27,9 +23,15 @@ const FloatingButtons = () => {
 			>
 				<Icon icon='mdi:instagram' className='icon'></Icon>
 			</a>
-			<button className='button phone' onClick={toggleContactInfo}>
-				<Icon icon='ic:baseline-phone' className='icon'></Icon>
-			</button>
+
+			<a
+				href='https://www.facebook.com/avitih'
+				target='_blank'
+				rel='noreferrer'
+				className='button facebook'
+			>
+				<Icon icon='ic:baseline-facebook' className='icon'></Icon>
+			</a>
 
 			{contactsToggled && (
 				<div className='contacts-popup-window'>
@@ -38,7 +40,7 @@ const FloatingButtons = () => {
 							icon='mdi:location'
 							style={{ width: '24px', height: '24px' }}
 						></Icon>
-						<h4>Contact Us</h4>
+						<h4>צרו קשר</h4>
 						<button className='toggle-icon'>
 							<Icon
 								icon='fe:arrow-down'
@@ -62,12 +64,11 @@ const FloatingButtons = () => {
 					</a>
 
 					<p className='contact-info' style={{ margin: 0 }}>
-						דויד אלרואי 2, Herzliya, Israel
+						דוד אלרואי 2 הרצליה
 					</p>
 
 					<div className='flex-row-container lower-section'>
-						<p className='contact-info'>Contact:</p>
-						<p className='contact-info'>050-5277127, 050-5300554</p>
+						<p className='contact-info'>טלפון: 050-5277127, 050-5300554</p>
 					</div>
 				</div>
 			)}
