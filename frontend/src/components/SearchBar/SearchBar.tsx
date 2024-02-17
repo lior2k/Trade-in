@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './SearchBar.css';
 import BasicSearch from '../Search/BasicSearch/BasicSearch';
 import BodyBasedSearch from '../Search/BodyBasedSearch/BodyBasedSearch';
 import RangeBasedSearch from '../Search/RangeBasedSearch/RangeBasedSearch';
+import SearchButton from '../SearchButton/SearchButton';
 import { Icon } from '@iconify/react';
 
 const SearchBar = () => {
@@ -11,27 +12,13 @@ const SearchBar = () => {
 
 	return (
 		<div className='search-bar-outer-container'>
-			<div className='basic-search-container'>
-				<BasicSearch direction='row' />
-			</div>
-
-			<div>
-				<button
-					style={{
-						display: 'flex',
-						alignItems: 'center',
-						gap: '8px',
-					}}
-					className='form-submit icon-button'
-					onClick={() => setIsAdvancedSearchOpen(true)}
-				>
-					<p style={{ margin: '0', padding: '2px' }}>Advanced Search</p>
-					<Icon
-						style={{ marginBottom: '2px' }}
-						icon='grommet-icons:search-advanced'
-					></Icon>
-				</button>
-			</div>
+			<BasicSearch direction='row' />
+			<SearchButton
+				type='button'
+				text='חיפוש מתקדם'
+				icon='carbon:search-advanced'
+				onPress={() => setIsAdvancedSearchOpen(!isAdvancedSearchOpen)}
+			></SearchButton>
 
 			{isAdvancedSearchOpen && (
 				<>

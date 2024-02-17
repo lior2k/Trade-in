@@ -135,7 +135,11 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 						alignItems: 'center',
 					}}
 				>
-					<SearchButton />
+					<SearchButton
+						text='חיפוש'
+						type='submit'
+						icon='material-symbols:search'
+					/>
 				</div>
 			</form>
 		</>

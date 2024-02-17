@@ -68,7 +68,11 @@ const BodyBasedSearch: React.FC = () => {
 					})}
 				</ul>
 
-				<SearchButton />
+				<SearchButton
+					text='חיפוש'
+					type='submit'
+					icon='material-symbols:search'
+				/>
 			</form>
 		</>
 	);

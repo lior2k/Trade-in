@@ -28,6 +28,7 @@ const Home = () => {
 		<>
 			<NavBar />
 			<div className='home-container'>
+				{/* <div className='section-container'></div> */}
 				<h3 className='main-title'>רכבים מובילים</h3>
 				<List carsData={frontPageCars} />
 				<Search />

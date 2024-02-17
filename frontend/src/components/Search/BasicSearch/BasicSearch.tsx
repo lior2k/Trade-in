@@ -72,7 +72,11 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 								))}
 							</ul>
 						</div>
-						<Icon className='arrow-down-icon' icon='ep:arrow-down' />
+						{showManufacturerList ? (
+							<Icon className='arrow-down-icon' icon='ep:arrow-up' />
+						) : (
+							<Icon className='arrow-down-icon' icon='ep:arrow-down' />
+						)}
 					</div>
 				</div>
 
@@ -113,11 +117,19 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 									  )}
 							</ul>
 						</div>
-						<Icon className='arrow-down-icon' icon='ep:arrow-down' />
+						{showModelList ? (
+							<Icon className='arrow-down-icon' icon='ep:arrow-up' />
+						) : (
+							<Icon className='arrow-down-icon' icon='ep:arrow-down' />
+						)}
 					</div>
 				</div>
 
-				<SearchButton />
+				<SearchButton
+					text='חיפוש'
+					type='submit'
+					icon='material-symbols:search'
+				/>
 			</form>
 		</>
 	);
