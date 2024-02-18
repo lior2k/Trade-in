@@ -43,6 +43,12 @@
 	padding: 8px;
 }
 
+.slider-container {
+	width: 100%;
+	aspect-ratio: 16/9;
+	margin-bottom: 8px;
+}
+
 .info-footer-outer-container {
 	display: flex;
 	flex-direction: row;

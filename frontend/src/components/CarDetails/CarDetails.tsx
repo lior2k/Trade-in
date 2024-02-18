@@ -1,7 +1,8 @@
 import React from 'react';
 import './CarDetails.css';
-import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
+import { CarData } from '../../constants/constants';
 import { Icon } from '@iconify/react';
+import ImageSlider from '../ImageSlider/ImageSlider';
 
 const CarDetails: React.FC<{
 	carData: CarData;
@@ -32,18 +33,17 @@ const CarDetails: React.FC<{
 							</div>
 						))}
 					</Carousel> */}
+					<div className='slider-container'>
+						<ImageSlider images={carData.images} />
+					</div>
 
-					<img
-						className='image'
-						src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}
-						alt={`Car`}
-					/>
-
-					<p className='description'>
-						מטופלת כחדשה ללא תאונות ,התחייבות בבדיקה על הכל +דגם LE +מולטי מדיה
-						,מצלמת רוורס ,קודנית ,גנטים מגנזיום +100% מימון,צקים,הוראת
-						קבע,אשראי,אפשרות החלפה גמיש
-					</p>
+					<div>
+						<p className='description'>
+							מטופלת כחדשה ללא תאונות ,התחייבות בבדיקה על הכל +דגם LE +מולטי
+							מדיה ,מצלמת רוורס ,קודנית ,גנטים מגנזיום +100% מימון,צקים,הוראת
+							קבע,אשראי,אפשרות החלפה גמיש
+						</p>
+					</div>
 
 					<h3 className='secondary-title'>פרטים נוספים</h3>
 					<div className='info-footer-outer-container'>

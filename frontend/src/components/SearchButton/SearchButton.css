@@ -6,7 +6,7 @@
 	margin: 16px;
 	padding: 16px;
 	width: fit-content;
-	background: linear-gradient(
+	/* background: linear-gradient(
 		to left,
 		#6d9de6 0%,
 		#6d9de6 50%,
@@ -14,19 +14,25 @@
 		#ffffff 100%
 	);
 	background-size: 200% 100%;
-	background-position: 0 0;
+	background-position: 0 0; */
+	background-color: #6d9de6;
 	transition: background-position 0.3s;
 	cursor: pointer;
 	font-size: 1.2em;
 	border: 1px solid rgb(191, 190, 190);
 	border-radius: 5px;
+	color: white;
+	direction: rtl;
+	gap: 4px;
 }
 
 .search-button:hover {
-	background-position: 100% 0;
+	/* background-position: 100% 0; */
+	box-shadow: 0 0 10px 1px #6d9de6;
 }
 
 .search-icon {
 	width: 1.2em;
 	height: 1.2em;
+	/* margin-right: 2px; */
 }
