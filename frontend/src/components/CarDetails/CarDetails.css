@@ -1,12 +1,13 @@
 .selected-car-info-window {
 	position: fixed;
-	padding: 36px;
 	z-index: 9999;
 	border: 1px solid rgb(191, 190, 190);
 	background-color: white;
 	border-radius: 5px;
 	box-shadow: 0 0px 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
 	width: 24%;
+	padding: 24px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -40,10 +41,9 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	padding: 8px;
 }
 
-.slider-container {
+.image-slider {
 	width: 100%;
 	aspect-ratio: 16/9;
 	margin-bottom: 8px;

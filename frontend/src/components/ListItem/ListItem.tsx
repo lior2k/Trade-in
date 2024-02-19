@@ -1,7 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Icon } from '@iconify/react';
 import './ListItem.css';
 import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
 

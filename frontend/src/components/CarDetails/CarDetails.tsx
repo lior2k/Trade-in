@@ -33,8 +33,8 @@ const CarDetails: React.FC<{
 							</div>
 						))}
 					</Carousel> */}
-					<div className='slider-container'>
-						<ImageSlider images={carData.images} />
+					<div className='image-slider'>
+						<ImageSlider images={carData.images} parentWidth={24} />
 					</div>
 
 					<div>
@@ -71,7 +71,7 @@ const CarDetails: React.FC<{
 							<p className='data'>{carData.km}</p>
 							<p className='data'>{carData.year}</p>
 							<p className='data'>נפח מנוע</p>
-							<p className='data price'>{carData.price}</p>
+							<p className='data price'>{carData.price} ₪</p>
 						</div>
 					</div>
 				</div>
