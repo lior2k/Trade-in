@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './ListItem.css';
 import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
 
