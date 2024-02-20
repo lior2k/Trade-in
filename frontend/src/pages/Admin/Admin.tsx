@@ -60,7 +60,7 @@ const Admin = () => {
 					refreshMainListOnly={refreshMainListOnly}
 					refreshBothListsOnUpload={refreshBothListsOnUpload}
 				/>
-				<SearchBar />
+				<SearchBar setCarList={setCarList} />
 
 				<h3 className='main-title'>רכבים מובילים</h3>
 				<List carsData={frontPageCars}></List>

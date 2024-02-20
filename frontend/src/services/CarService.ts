@@ -82,6 +82,32 @@ const CarService = {
 			throw error;
 		}
 	},
+
+	getCarsByParameters: async (
+		manufacturer: string,
+		model: string,
+		yearLowerBound: number,
+		yearUpperBound: number,
+		priceLowerBound: number,
+		priceUpperBound: number
+	): Promise<CarData[]> => {
+		try {
+			const response = await axios.get(`${BACKEND_API_URL}/search/advanced`, {
+				params: {
+					manufacturer,
+					model,
+					yearLowerBound,
+					yearUpperBound,
+					priceLowerBound,
+					priceUpperBound,
+				},
+			});
+			return response.data;
+		} catch (error) {
+			console.log('Error fetching cars by body style');
+			throw error;
+		}
+	},
 };
 
 export default CarService;

@@ -40,7 +40,7 @@ const Search = () => {
 		<>
 			<NavBar />
 			<div className='search-page-container'>
-				<SearchBar />
+				<SearchBar setCarList={setCarList} />
 				<List carsData={carList} />
 			</div>
 			<FloatingButtons />

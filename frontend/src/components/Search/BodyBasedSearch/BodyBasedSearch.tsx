@@ -72,6 +72,7 @@ const BodyBasedSearch: React.FC = () => {
 					text='חיפוש'
 					type='submit'
 					icon='material-symbols:search'
+					style={{ margin: '16px', padding: '16px' }}
 				/>
 			</form>
 		</>

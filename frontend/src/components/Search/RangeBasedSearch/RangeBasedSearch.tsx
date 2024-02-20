@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './RangeBasedSearch.css';
 import DualThumbSlider from './DualThumbSlider/DualThumbSlider';
-import CarService from '../../../services/CarService';
-import { useNavigate } from 'react-router-dom';
-import SearchButton from '../../SearchButton/SearchButton';
 
 interface RangeBasedSearchProps {
+	lowerBound: number;
+	setLowerBound: React.Dispatch<React.SetStateAction<number>>;
+	lowerBoundText: string;
+	upperBound: number;
+	setUpperBound: React.Dispatch<React.SetStateAction<number>>;
+	upperBoundText: string;
 	minValue: number;
 	maxValue: number;
-	initialValueLow: number;
-	initialValueHigh: number;
+	range: number[];
+	setRange: React.Dispatch<React.SetStateAction<number[]>>;
 	step: number;
 	type?: 'price';
 }
 
 const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
+	lowerBound,
+	setLowerBound,
+	lowerBoundText,
+	upperBound,
+	setUpperBound,
+	upperBoundText,
 	minValue,
 	maxValue,
-	initialValueLow,
-	initialValueHigh,
+	range,
+	setRange,
 	step,
 	type,
 }) => {
-	const navigate = useNavigate();
-	const [lowerBound, setLowerBound] = useState<number>(initialValueLow);
-	const [upperBound, setUpperBound] = useState<number>(initialValueHigh);
-
-	const [priceRange, setPriceRange] = useState<number[]>([
-		lowerBound,
-		upperBound,
-	]);
-
 	const handleRangeChange = (priceRange: number[]) => {
-		setPriceRange(priceRange);
+		setRange(priceRange);
 		setLowerBound(priceRange[0]);
 		setUpperBound(priceRange[1]);
 	};
@@ -48,12 +48,9 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 		// Check if the parsing is successful
 		if (numericValue <= upperBound) {
 			setLowerBound(numericValue);
-			setPriceRange((prevPriceRange: number[]) => [
-				numericValue,
-				prevPriceRange[1],
-			]);
+			setRange((prevPriceRange: number[]) => [numericValue, prevPriceRange[1]]);
 		} else {
-			setPriceRange([numericValue, numericValue]);
+			setRange([numericValue, numericValue]);
 			setLowerBound(numericValue);
 			setUpperBound(numericValue);
 		}
@@ -70,79 +67,49 @@ const RangeBasedSearch: React.FC<RangeBasedSearchProps> = ({
 		// Check if the parsing is successful
 		if (numericValue >= lowerBound) {
 			setUpperBound(numericValue);
-			setPriceRange((prevPriceRange: number[]) => [
-				prevPriceRange[0],
-				numericValue,
-			]);
+			setRange((prevPriceRange: number[]) => [prevPriceRange[0], numericValue]);
 		} else {
-			setPriceRange([numericValue, numericValue]);
+			setRange([numericValue, numericValue]);
 			setLowerBound(numericValue);
 			setUpperBound(numericValue);
 		}
 	};
 
-	const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		try {
-			const cars = await CarService.getCarsByBudget(lowerBound, upperBound);
-			navigate('/search', { state: { cars } });
-		} catch (error) {
-			console.error('Upload error:', error);
-		}
-	};
-
 	return (
-		<>
-			<form className='range-search-form' onSubmit={handleFormSubmit}>
-				<div className='range-inputs'>
-					<div className='input-container'>
-						<input
-							className='range'
-							type='number'
-							id='lowerBound'
-							value={lowerBound}
-							onChange={handleLowerBoundChange}
-						></input>
-						<label>מחיר מינימלי</label>
-					</div>
-
-					<div className='input-container'>
-						<input
-							className='range'
-							type='number'
-							id='upperBound'
-							value={upperBound}
-							onChange={handleUpperBoundChange}
-						></input>
-						<label>מחיר מקסימלי</label>
-					</div>
+		<div className='range-wrapper'>
+			<div className='range-inputs'>
+				<div className='input-container'>
+					<input
+						className='range'
+						type='number'
+						id='lowerBound'
+						value={lowerBound}
+						onChange={handleLowerBoundChange}
+					></input>
+					<label>{lowerBoundText}</label>
 				</div>
 
-				<DualThumbSlider
-					min={minValue}
-					max={maxValue}
-					values={priceRange}
-					onChange={handleRangeChange}
-					step={step}
-					type={type}
-				></DualThumbSlider>
-
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						width: '100%',
-						alignItems: 'center',
-					}}
-				>
-					<SearchButton
-						text='חיפוש'
-						type='submit'
-						icon='material-symbols:search'
-					/>
+				<div className='input-container'>
+					<input
+						className='range'
+						type='number'
+						id='upperBound'
+						value={upperBound}
+						onChange={handleUpperBoundChange}
+					></input>
+					<label>{upperBoundText}</label>
 				</div>
-			</form>
-		</>
+			</div>
+
+			<DualThumbSlider
+				min={minValue}
+				max={maxValue}
+				values={range}
+				onChange={handleRangeChange}
+				step={step}
+				type={type}
+			></DualThumbSlider>
+		</div>
 	);
 };
 

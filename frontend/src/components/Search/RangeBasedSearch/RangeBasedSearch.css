@@ -1,10 +1,6 @@
-.range-search-form {
-	display: flex;
-	flex-direction: column;
-	width: 90%;
+.range-wrapper {
 	direction: ltr;
 }
-
 .range-inputs {
 	display: flex;
 	flex-direction: row;

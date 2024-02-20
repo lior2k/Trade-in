@@ -1,0 +1,49 @@
+.expanding-input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid rgb(191, 190, 190);
+	border-radius: 5px;
+	padding: 8px;
+	cursor: pointer;
+	position: relative;
+}
+
+.expanding {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	background-color: white;
+	max-height: 0;
+	width: 100%;
+	z-index: 5;
+	transition: all 0.2s ease-in-out;
+}
+
+.expanding.expanded {
+	display: flex;
+	border: 1px solid rgb(191, 190, 190);
+	border-radius: 5px;
+	max-height: 250px;
+}
+
+.expanded-list {
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.expanded-list-item {
+	padding: 8px;
+	width: 100%;
+}
+
+.arrow-down-icon {
+	width: 1.2em;
+	height: 1.2em;
+}

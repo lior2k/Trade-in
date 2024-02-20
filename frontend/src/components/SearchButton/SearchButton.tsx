@@ -2,28 +2,35 @@ import './SearchButton.css';
 import { Icon } from '@iconify/react';
 
 interface SearchButtonProps {
-	type: 'submit' | 'button';
+	type?: 'submit' | 'button';
 	onPress?: () => void;
-	icon: string;
-	text: string;
+	icon?: string;
+	text?: string;
+	style?: {};
 }
 
 const SearchButton: React.FC<SearchButtonProps> = ({
-	type,
+	type = 'submit',
 	onPress,
-	icon,
-	text,
+	icon = 'material-symbols:search',
+	text = 'חיפוש',
+	style,
 }) => {
 	if (onPress) {
 		return (
-			<button type={type} className='search-button' onClick={onPress}>
+			<button
+				type={type}
+				className='search-button'
+				onClick={onPress}
+				style={style}
+			>
 				<span>{text}</span>
 				<Icon className='search-icon' icon={icon}></Icon>
 			</button>
 		);
 	} else {
 		return (
-			<button type={type} className='search-button'>
+			<button type={type} className='search-button' style={style}>
 				<span>{text}</span>
 				<Icon className='search-icon' icon={icon}></Icon>
 			</button>

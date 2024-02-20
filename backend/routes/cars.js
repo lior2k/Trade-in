@@ -200,4 +200,56 @@ router.get('/search/budget/:lowerBound/:upperBound', async (req, res) => {
 	}
 });
 
+/*
+Get by budget only
+-- Examples --
+	Url: http://localhost:8803/api/cars/search/advanced
+*/
+router.get('/search/advanced', async (req, res) => {
+	try {
+		const {
+			manufacturer,
+			model,
+			yearLowerBound,
+			yearUpperBound,
+			priceLowerBound,
+			priceUpperBound,
+		} = req.query;
+
+		// Validate parameters as needed
+		// ...
+
+		const query = {};
+
+		if (manufacturer !== '') {
+			query.manufacturer = manufacturer;
+		}
+
+		if (model !== '') {
+			query.model = model;
+		}
+
+		if (yearLowerBound && yearUpperBound) {
+			query.year = {
+				$gte: parseInt(yearLowerBound),
+				$lte: parseInt(yearUpperBound),
+			};
+		}
+
+		if (priceLowerBound && priceUpperBound) {
+			query.price = {
+				$gte: parseInt(priceLowerBound),
+				$lte: parseInt(priceUpperBound),
+			};
+		}
+
+		const cars = await Car.find(query);
+
+		res.json(cars);
+	} catch (error) {
+		console.error('Error fetching cars by advanced parameters:', error);
+		res.status(500).json({ error: 'Internal Server Error' });
+	}
+});
+
 module.exports = router;

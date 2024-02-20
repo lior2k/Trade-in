@@ -3,18 +3,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CarModels } from '../../../constants/constants';
 import CarService from '../../../services/CarService';
+import ExpandingInput from '../../ExpandingInput/ExpandingInput';
 import SearchButton from '../../SearchButton/SearchButton';
-import { Icon } from '@iconify/react';
 
-interface BasicSearchProps {
-	direction: 'row' | 'column';
-}
-
-const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
-	const style: React.CSSProperties = {
-		flexDirection: direction,
-	};
-
+const BasicSearch = () => {
 	const [showManufacturerList, setShowManufacturerList] =
 		useState<boolean>(false);
 	const [showModelList, setShowModelList] = useState<boolean>(false);
@@ -41,95 +33,43 @@ const BasicSearch: React.FC<BasicSearchProps> = ({ direction }) => {
 
 	return (
 		<>
-			<form
-				className='basic-search-form'
-				onSubmit={handleFormSubmit}
-				style={style}
-			>
+			<form className='basic-search-form' onSubmit={handleFormSubmit}>
 				<div className='form-input-outer-container'>
 					<span className='padding'>יצרן</span>
 
-					<div
-						className='form-input-inner-container'
-						onClick={() => {
-							setShowManufacturerList(!showManufacturerList);
-						}}
-					>
-						<span>{manufacturer === '' ? 'בחר' : manufacturer}</span>
-						<div
-							className={`expanding ${showManufacturerList ? 'expanded' : ''}`}
-						>
-							<ul className='expanded-list'>
-								{Object.keys(CarModels).map((key) => (
-									<li
-										className='expanded-list-item'
-										key={key}
-										value={key}
-										onClick={() => setManufacturer(key)}
-									>
-										{key}
-									</li>
-								))}
-							</ul>
-						</div>
-						{showManufacturerList ? (
-							<Icon className='arrow-down-icon' icon='ep:arrow-up' />
-						) : (
-							<Icon className='arrow-down-icon' icon='ep:arrow-down' />
-						)}
-					</div>
+					<ExpandingInput
+						isExpanded={showManufacturerList}
+						setIsExpanded={setShowManufacturerList}
+						value={manufacturer}
+						setValue={setManufacturer}
+						placeHolder='יצרן'
+						listToRender={Object.keys(CarModels)}
+						style={{ width: '75%' }}
+					/>
 				</div>
 
 				<div className='form-input-outer-container'>
 					<span className='padding'>מודל</span>
 
-					<div
-						className='form-input-inner-container'
-						onClick={() => {
-							setShowModelList(!showModelList);
-						}}
-					>
-						<span>{model === '' ? 'בחר' : model}</span>
-						<div className={`expanding ${showModelList ? 'expanded' : ''}`}>
-							<ul className='expanded-list'>
-								{CarModels[manufacturer]
-									? CarModels[manufacturer].map((value, index) => (
-											<li
-												className='expanded-list-item'
-												key={index}
-												value={value}
-												onClick={() => setModel(value)}
-											>
-												{value}
-											</li>
-									  ))
-									: Object.keys(CarModels).map((manufacturerKey) =>
-											CarModels[manufacturerKey].map((value, index) => (
-												<li
-													className='expanded-list-item'
-													key={index}
-													value={value}
-													onClick={() => setModel(value)}
-												>
-													{value}
-												</li>
-											))
-									  )}
-							</ul>
-						</div>
-						{showModelList ? (
-							<Icon className='arrow-down-icon' icon='ep:arrow-up' />
-						) : (
-							<Icon className='arrow-down-icon' icon='ep:arrow-down' />
-						)}
-					</div>
+					<ExpandingInput
+						isExpanded={showModelList}
+						setIsExpanded={setShowModelList}
+						value={model}
+						setValue={setModel}
+						placeHolder='מודל'
+						listToRender={
+							manufacturer !== ''
+								? CarModels[manufacturer]
+								: Object.values(CarModels).reduce(
+										(result, currentArray) => result.concat(currentArray),
+										[]
+								  )
+						}
+						style={{ width: '75%' }}
+					/>
 				</div>
 
-				<SearchButton
-					text='חיפוש'
-					type='submit'
-					icon='material-symbols:search'
-				/>
+				<SearchButton style={{ margin: '16px', padding: '16px' }} />
 			</form>
 		</>
 	);
