@@ -34,10 +34,12 @@
 	color: var(--text-color);
 	font-weight: var(--main-font-weight);
 	background: transparent;
+	transition: all 0.3s ease-in-out;
 }
 
 .nav-bar-link:hover {
 	text-decoration: underline;
+	color: var(--theme-color);
 }
 
 .active {

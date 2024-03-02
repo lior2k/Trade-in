@@ -1,6 +1,7 @@
 import React from 'react';
 import './ListItem.css';
 import { CarData, BACKEND_BASE_URL } from '../../constants/constants';
+import { Icon } from '@iconify/react';
 
 interface ListItemProps {
 	carData: CarData;
@@ -9,39 +10,45 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 	return (
-		<div className='item-container' id={carData._id} onClick={onPress}>
-			<div className='item-header-container'>
-				<div className='item-header-underline'>
-					<p className='item-title'>{carData.title}</p>
-				</div>
-			</div>
-
-			<div className='img-container'>
+		<div className='item-container bradius' id={carData._id} onClick={onPress}>
+			<div className='image-wrapper'>
 				<img
-					className='image'
 					src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}
-					alt={`Car`}
+					alt='Car'
 				/>
 			</div>
 
-			<div className='item-footer-container'>
-				<div className='data-container'>
-					<p className='item-data'>{carData.previousOwners}</p>
-					<p className='item-data'>יד</p>
-				</div>
-				<div className='data-container'>
-					<p className='item-data'>{carData.year}</p>
-					<p className='item-data'>שנה</p>
+			<div className='bottom-section-wrapper'>
+				<div className='car-title-wrapper'>
+					<span className='car-title'>
+						{carData.manufacturer} {carData.model}
+					</span>
 				</div>
 
-				<div className='data-container'>
-					<p className='item-data'>{carData.km}</p>
-					<p className='item-data'>ק"מ</p>
+				<div className='car-data-wrapper'>
+					<div className='car-data-inner-wrapper'>
+						<Icon icon='et:speedometer'></Icon>
+						<span className=''>{carData.km} ק"מ</span>
+					</div>
+
+					<div className='car-data-inner-wrapper'>
+						<Icon icon='f7:hand-raised'></Icon>
+						<span className=''>יד {carData.previousOwners}</span>
+					</div>
+
+					<div className='car-data-inner-wrapper'>
+						<Icon icon='clarity:date-line'></Icon>
+						<span className=''>שנה {carData.year}</span>
+					</div>
 				</div>
 
-				<div className='data-container'>
-					<p className='item-data price'>{carData.price} ₪</p>
-					<p className='item-data price'>מחיר</p>
+				<div className='car-price-wrapper'>
+					<span className='price'>{carData.price.toLocaleString()}₪</span>
+
+					<span className='theme-link-text'>
+						לפרטים
+						<Icon icon='uit:arrow-up-left'></Icon>
+					</span>
 				</div>
 			</div>
 		</div>

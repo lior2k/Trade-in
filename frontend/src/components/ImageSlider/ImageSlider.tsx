@@ -2,10 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './ImageSlider.css';
 import { BACKEND_BASE_URL } from '../../constants/constants';
 
-const ImageSlider: React.FC<{ images: string[]; parentWidth: number }> = ({
-	images,
-	parentWidth,
-}) => {
+const ImageSlider: React.FC<{ images: string[] }> = ({ images }) => {
 	const [imageIndex, setImageIndex] = useState<number>(0);
 	const timerRef = useRef<NodeJS.Timeout | null>(null);
 

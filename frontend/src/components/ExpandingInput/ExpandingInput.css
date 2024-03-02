@@ -15,8 +15,6 @@
 	position: absolute;
 	top: 100%;
 	left: 0;
-	overflow-y: scroll;
-	overflow-x: hidden;
 	box-sizing: border-box;
 	background-color: white;
 	max-height: 0;
@@ -27,8 +25,18 @@
 	transition: max-height 0.2s ease-in-out;
 }
 
+.expanding-inner-wrapper {
+	width: 100%;
+	border-top: solid 1px var(--light-grey);
+	max-height: inherit;
+	margin-block: 1.5rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
 .expanding.expanded {
 	display: flex;
+	border: solid 1px var(--light-grey);
 	max-height: 250px;
 }
 
@@ -42,6 +50,8 @@
 .expanded-list-item {
 	padding: 8px;
 	width: 100%;
+	color: var(--text-color);
+	font-weight: var(--main-font-weight);
 }
 
 .arrow-down-icon {

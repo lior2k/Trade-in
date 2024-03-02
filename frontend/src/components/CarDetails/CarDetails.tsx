@@ -22,19 +22,9 @@ const CarDetails: React.FC<{
 
 				<div className='selected-car-info-inner-container'>
 					<p className='item-title'>{carData.title}</p>
-					{/* <Carousel showArrows={true} showThumbs={false}>
-						{carData.images.map((image, index) => (
-							<div key={index}>
-								<img
-									className='image'
-									src={`${BACKEND_BASE_URL}/images/${image}`}
-									alt={`Car ${index + 1}`}
-								/>
-							</div>
-						))}
-					</Carousel> */}
+
 					<div className='image-slider'>
-						<ImageSlider images={carData.images} parentWidth={24} />
+						<ImageSlider images={carData.images} />
 					</div>
 
 					<div>

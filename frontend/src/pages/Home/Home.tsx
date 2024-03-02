@@ -31,9 +31,9 @@ const Home = () => {
 				<h2 className='section-title'>רכבים מובילים</h2>
 				<List carsData={frontPageCars} />
 				<Search />
-				<FloatingButtons />
 				<Footer />
 			</div>
+			<FloatingButtons />
 		</div>
 	);
 };
