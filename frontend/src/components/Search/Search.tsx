@@ -29,7 +29,7 @@ const Search = () => {
 	return (
 		<div className='search-outer-container'>
 			<div className='search-center-container'>
-				<h2 className='main-title'>איך תרצו לחפש את הרכב החדש שלכם?</h2>
+				<h2 className='section-title'>איך תרצו לחפש את הרכב החדש שלכם?</h2>
 
 				<div className='search-flex-row-container'>
 					<div className='search-flex-column-container'>

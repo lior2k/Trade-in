@@ -21,7 +21,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
 		<div className='dropzone-outer-container'>
 			<div
 				{...getRootProps()}
-				className={`dropzone ${isDragActive ? 'active' : ''}`}
+				className={`dropzone ${isDragActive ? 'drag-active' : ''}`}
 			>
 				<input {...getInputProps()} />
 				<p>Drag & drop some files here, or click to select files</p>

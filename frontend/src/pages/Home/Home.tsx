@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import NavBar from '../../components/NavBar/NavBar';
+import HomeHeader from './HomeHeader/HomeHeader';
 import List from '../../components/List/List';
 import Search from '../../components/Search/Search';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
@@ -25,17 +25,16 @@ const Home = () => {
 	}, []);
 
 	return (
-		<>
-			<NavBar />
-			<div className='home-container'>
-				{/* <div className='section-container'></div> */}
-				<h3 className='main-title'>רכבים מובילים</h3>
+		<div className='home-container'>
+			<HomeHeader />
+			<div className='bradius top-minus bgwhite'>
+				<h2 className='section-title'>רכבים מובילים</h2>
 				<List carsData={frontPageCars} />
 				<Search />
 				<FloatingButtons />
+				<Footer />
 			</div>
-			<Footer />
-		</>
+		</div>
 	);
 };
 

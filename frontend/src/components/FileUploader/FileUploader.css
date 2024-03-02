@@ -10,7 +10,7 @@
 	cursor: pointer;
 }
 
-.active {
+.drag-active {
 	background-color: grey;
 }
 

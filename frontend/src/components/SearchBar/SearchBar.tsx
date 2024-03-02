@@ -9,10 +9,10 @@ import RangeBasedSearch from '../Search/RangeBasedSearch/RangeBasedSearch';
 import { CarData } from '../../constants/constants';
 
 interface SearchBarProps {
-	setCarList: React.Dispatch<React.SetStateAction<CarData[]>>;
+	onSearch: (cars: CarData[]) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 	const [isAdvancedSearchOpen, setIsAdvancedSearchOpen] =
 		useState<boolean>(false);
 
@@ -51,16 +51,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 		event: React.FormEvent<HTMLFormElement>
 	) => {
 		event.preventDefault();
-		if (manufacturer === '' && model === '') {
-			alert('בחר יצרן ו/או מודל');
-			return;
-		}
 		try {
-			const cars = await CarService.getCarsByManufacturerAndModel(
-				manufacturer,
-				model
-			);
-			setCarList(cars);
+			let cars;
+			if (manufacturer === '' && model === '') {
+				cars = await CarService.getAllCars();
+			} else {
+				cars = await CarService.getCarsByManufacturerAndModel(
+					manufacturer,
+					model
+				);
+			}
+			onSearch(cars);
 		} catch (error) {
 			console.error('fetching by manufacturer and model error:', error);
 		}
@@ -80,7 +81,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 				priceLowerBound,
 				priceUpperBound
 			);
-			setCarList(cars);
+			onSearch(cars);
 			setIsAdvancedSearchOpen(false);
 		} catch (error) {
 			console.error('advanced search fetching error:', error);
@@ -95,9 +96,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 					setIsExpanded={setShowManufacturerList}
 					value={manufacturer}
 					setValue={setManufacturer}
-					placeHolder='יצרן'
+					placeHolder='כל היצרנים'
 					listToRender={Object.keys(CarModels)}
-					style={{ width: '25%' }}
+					style={{
+						flexGrow: '2',
+						flexShrink: '1',
+						border: 'none',
+						borderLeft: 'solid 1px var(--light-grey)',
+						borderRadius: '0',
+						paddingInline: '.5rem',
+						justifyContent: 'space-between',
+					}}
 				/>
 
 				<ExpandingInput
@@ -105,7 +114,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 					setIsExpanded={setShowModelList}
 					value={model}
 					setValue={setModel}
-					placeHolder='מודל'
+					placeHolder='כל המודלים'
 					listToRender={
 						manufacturer !== ''
 							? CarModels[manufacturer]
@@ -114,17 +123,29 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 									[]
 							  )
 					}
-					style={{ width: '25%' }}
+					style={{
+						flexGrow: '2',
+						flexShrink: '1',
+						border: 'none',
+						borderLeft: 'solid 1px var(--light-grey)',
+						borderRadius: '0',
+						paddingInline: '.5rem',
+						justifyContent: 'space-between',
+					}}
 				/>
 
-				<SearchButton text='חיפוש' type='submit' style={{ width: '12%' }} />
+				<SearchButton
+					text='חפש'
+					type='submit'
+					style={{ flexGrow: '1', flexShrink: '0.5' }}
+				/>
 
 				<SearchButton
 					text='חיפוש מתקדם'
 					type='button'
 					icon='carbon:search-advanced'
 					onPress={() => setIsAdvancedSearchOpen(!isAdvancedSearchOpen)}
-					style={{ width: '25%' }}
+					style={{ flexGrow: '1', flexShrink: '0.5' }}
 				/>
 			</form>
 
@@ -161,7 +182,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 								onSubmit={searchByAllParameters}
 							>
 								<div className='inner-form-wrapper'>
-									<span className='mini-title'>יצרן</span>
+									<span className='section-title'>יצרן</span>
 									<ExpandingInput
 										isExpanded={showManufacturerList}
 										setIsExpanded={setShowManufacturerList}
@@ -231,7 +252,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setCarList }) => {
 
 								<SearchButton
 									type='submit'
-									text='חיפוש'
+									text='חפש'
 									style={{ margin: '16px', padding: '16px' }}
 								/>
 							</form>

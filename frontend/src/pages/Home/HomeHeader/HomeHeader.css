@@ -1,0 +1,32 @@
+.home-header-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	gap: 1rem;
+	max-height: 90vh;
+	padding-block-end: 6rem;
+}
+
+.home-header-container::before {
+	content: '';
+	background: url('../../../../public/images/backgroundImage.jpg') no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0;
+	opacity: 0.5;
+	z-index: -50;
+}
+
+.home-header-inner-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin: 0 auto;
+	width: 100%;
+	max-width: var(--content-width);
+}

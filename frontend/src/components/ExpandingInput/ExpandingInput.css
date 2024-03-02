@@ -3,11 +3,12 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	border: 1px solid rgb(191, 190, 190);
-	border-radius: 5px;
-	padding: 8px;
+	border: 1px solid var(--grey);
+	border-radius: 100vw;
+	padding: 1rem;
 	cursor: pointer;
 	position: relative;
+	color: var(--text-color);
 }
 
 .expanding {
@@ -20,14 +21,14 @@
 	background-color: white;
 	max-height: 0;
 	width: 100%;
+	border: none;
+	transform: translateY(2rem);
 	z-index: 5;
-	transition: all 0.2s ease-in-out;
+	transition: max-height 0.2s ease-in-out;
 }
 
 .expanding.expanded {
 	display: flex;
-	border: 1px solid rgb(191, 190, 190);
-	border-radius: 5px;
 	max-height: 250px;
 }
 
