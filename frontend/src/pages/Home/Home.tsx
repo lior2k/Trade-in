@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import HomeHeader from './HomeHeader/HomeHeader';
-import List from '../../components/List/List';
+import HomePageCarousel from './HomePageCarousel/HomePageCarousel';
 import Search from '../../components/Search/Search';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import Footer from '../../components/Footer/Footer';
@@ -28,8 +28,7 @@ const Home = () => {
 		<div className='home-container'>
 			<HomeHeader />
 			<div className='bradius top-minus bgwhite'>
-				<h2 className='section-title'>רכבים מובילים</h2>
-				<List carsData={frontPageCars} />
+				<HomePageCarousel carList={frontPageCars} />
 				<Search />
 				<Footer />
 			</div>

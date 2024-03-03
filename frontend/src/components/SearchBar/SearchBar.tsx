@@ -104,7 +104,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 						border: 'none',
 						borderLeft: 'solid 1px var(--light-grey)',
 						borderRadius: '0',
-						paddingInline: '.5rem',
+						paddingInline: '1rem',
 						justifyContent: 'space-between',
 					}}
 				/>
@@ -129,7 +129,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 						border: 'none',
 						borderLeft: 'solid 1px var(--light-grey)',
 						borderRadius: '0',
-						paddingInline: '.5rem',
+						paddingInline: '1rem',
 						justifyContent: 'space-between',
 					}}
 				/>
@@ -137,7 +137,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 				<SearchButton
 					text='חפש'
 					type='submit'
-					style={{ flexGrow: '1', flexShrink: '0.5' }}
+					style={{ flexGrow: '1', flexShrink: '0.5', marginInline: '1rem' }}
 				/>
 
 				<SearchButton

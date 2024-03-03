@@ -27,11 +27,14 @@
 
 .expanding-inner-wrapper {
 	width: 100%;
-	border-top: solid 1px var(--light-grey);
 	max-height: inherit;
 	margin-block: 1.5rem;
 	overflow-y: scroll;
 	overflow-x: hidden;
+}
+
+.expanding-inner-wrapper.expanded {
+	border-top: solid 1px var(--light-grey);
 }
 
 .expanding.expanded {

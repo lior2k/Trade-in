@@ -33,7 +33,9 @@ const ExpandingInput: React.FC<ExpandingInputProps> = ({
 		>
 			<span>{value === '' ? placeHolder : value}</span>
 			<div className={`expanding bradius ${isExpanded ? 'expanded' : ''}`}>
-				<div className='expanding-inner-wrapper'>
+				<div
+					className={`expanding-inner-wrapper ${isExpanded ? 'expanded' : ''}`}
+				>
 					<ul className='expanded-list'>
 						{listToRender.map((value, key) => (
 							<li

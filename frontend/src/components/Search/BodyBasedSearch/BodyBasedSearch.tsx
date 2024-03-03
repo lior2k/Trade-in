@@ -55,14 +55,14 @@ const BodyBasedSearch: React.FC = () => {
 									src={`/images/${style}.png`}
 									alt='Car'
 								></img>
-								<p style={{ margin: '0 2px', padding: '2px' }}>
+								<span style={{ margin: '0 2px', padding: '2px' }}>
 									{style}
 									<input
 										type='checkbox'
 										checked={bodyStyles[style]}
 										style={{ cursor: 'pointer' }}
 									></input>
-								</p>
+								</span>
 							</li>
 						);
 					})}

@@ -1,0 +1,16 @@
+.carousel-wrapper {
+	margin: 0 auto;
+	max-width: 80%;
+}
+
+.title-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.carousel-item {
+	direction: rtl;
+	width: 352px;
+}
