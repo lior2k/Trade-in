@@ -10,7 +10,7 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
 	return (
-		<div className='item-container bradius' id={carData._id} onClick={onPress}>
+		<div className='item-container bradius bgwhite' id={carData._id} onClick={onPress}>
 			<div className='image-wrapper'>
 				<img
 					src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}

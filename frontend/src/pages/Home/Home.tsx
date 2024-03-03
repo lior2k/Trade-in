@@ -27,11 +27,9 @@ const Home = () => {
 	return (
 		<div className='home-container'>
 			<HomeHeader />
-			<div className='bradius top-minus bgwhite'>
 				<HomePageCarousel carList={frontPageCars} />
 				<Search />
 				<Footer />
-			</div>
 			<FloatingButtons />
 		</div>
 	);
