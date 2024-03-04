@@ -89,7 +89,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 	};
 
 	return (
-		<div className='search-bar-outer-container'>
+		<div className='search-bar-outer-container bradius'>
 			<form className='form-flex-row' onSubmit={searchByManufacturerAndModel}>
 				<ExpandingInput
 					isExpanded={showManufacturerList}

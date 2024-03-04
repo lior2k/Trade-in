@@ -45,9 +45,9 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 					infinite={true}
 					//   autoPlay={this.props.deviceType !== "mobile" ? true : false}
 					autoPlay={true}
-					autoPlaySpeed={3000}
+					autoPlaySpeed={5000}
 					keyBoardControl={true}
-					customTransition='all .5s ease-in-out'
+					customTransition='all 0.5s linear'
 					// transitionDuration={500}
 					containerClass='carousel-container'
 					// removeArrowOnDeviceType={['tablet', 'mobile']}

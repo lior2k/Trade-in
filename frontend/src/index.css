@@ -14,10 +14,11 @@ body {
 	--main-font-weight: 400;
 	--heading-font: 'DM Sans';
 	--heading-font-weight: 700;
-	--theme-color-005: rgba(64, 95, 242, 0.05);
-	--theme-color-007: rgba(64, 95, 242, 0.07);
-	--theme-color-010: rgba(64, 95, 242, 0.1);
+	--sub-text-font-weight: 200;
 	--theme-color-020: rgba(64, 95, 242, 0.2);
+	--theme-color-040: rgba(64, 95, 242, 0.4);
+	--theme-color-060: rgba(64, 95, 242, 0.6);
+	--theme-color-080: rgba(64, 95, 242, 0.8);
 	--second-color-050: rgba(5, 11, 32, 0.5);
 	--grey: rgb(191, 190, 190);
 	--light-grey: rgb(233, 233, 233);
@@ -29,20 +30,17 @@ body {
 	color: var(--text-color);
 }
 
-@keyframes slide-up {
-	0% {
-		-webkit-transform: translate3d(0, 3rem, 0);
-		transform: translate3d(0, 3rem, 0);
-		opacity: 0;
-		filter: alpha(opacity=0);
-		transition-property: opacity, transform;
-		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-	}
-	100% {
+@keyframes fade-in {
+	to {
+		scale: 1;
 		opacity: 1;
-		filter: alpha(opacity=100);
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes fade-out {
+	to {
+		scale: 0;
+		opacity: 0;
 	}
 }
 
@@ -62,6 +60,7 @@ body {
 .sub-text {
 	font-size: 1rem;
 	font-style: italic;
+	font-weight: var(--sub-text-font-weight);
 }
 
 .bradius {
@@ -95,9 +94,9 @@ body {
 
 /* Style the thumb (the draggable scrollbar handle) */
 ::-webkit-scrollbar-thumb {
-	background-color: var(--theme-color); /* Set your desired color */
+	background-color: var(--theme-color-060); /* Set your desired color */
 	border-radius: 100vw; /* Make it round */
-	border: 1px solid var(--scrollbar-thumb-border-color); /* Border for a sleek appearance */
+	border: 1px solid var(--grey); /* Border for a sleek appearance */
 }
 
 /* Style the track (the area on which the thumb moves) */
@@ -107,7 +106,7 @@ body {
 
 /* Optional: Add a hover effect on the thumb */
 ::-webkit-scrollbar-thumb:hover {
-	background-color: var(--scrollbar-thumb-hover-color);
+	background-color: var(--theme-hover-color);
 }
 
 @media screen and (max-width: 768px) {

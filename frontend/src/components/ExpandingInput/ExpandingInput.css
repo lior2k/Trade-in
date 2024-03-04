@@ -20,7 +20,7 @@
 	max-height: 0;
 	width: 100%;
 	border: none;
-	transform: translateY(2rem);
+	transform: translateY(1.25rem);
 	z-index: 5;
 	transition: max-height 0.2s ease-in-out;
 }
