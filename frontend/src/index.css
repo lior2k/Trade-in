@@ -84,6 +84,32 @@ body {
 	padding: 1rem;
 }
 
+.margin {
+	margin-block: 1rem;
+}
+
+/* Hide scrollbar arrows */
+::-webkit-scrollbar {
+	width: 0.5rem; /* Adjust the width as needed */
+}
+
+/* Style the thumb (the draggable scrollbar handle) */
+::-webkit-scrollbar-thumb {
+	background-color: var(--theme-color); /* Set your desired color */
+	border-radius: 100vw; /* Make it round */
+	border: 1px solid var(--scrollbar-thumb-border-color); /* Border for a sleek appearance */
+}
+
+/* Style the track (the area on which the thumb moves) */
+::-webkit-scrollbar-track {
+	background: transparent; /* No background */
+}
+
+/* Optional: Add a hover effect on the thumb */
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--scrollbar-thumb-hover-color);
+}
+
 @media screen and (max-width: 768px) {
 	.main-title {
 		font-size: 1.75rem;
