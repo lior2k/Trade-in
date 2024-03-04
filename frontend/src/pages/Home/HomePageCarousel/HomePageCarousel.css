@@ -1,7 +1,7 @@
 .carousel-outer-wrapper {
 	border-top-left-radius: 2rem;
 	border-top-right-radius: 2rem;
-	padding-block-end: 2rem;
+	padding-block-end: 4rem;
 }
 
 .carousel-wrapper {
@@ -18,4 +18,61 @@
 
 .carousel-item {
 	direction: rtl;
+}
+
+.carousel-arrow {
+	position: absolute;
+	z-index: 1000;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 4rem;
+	aspect-ratio: 2/1;
+
+	border: solid 1px var(--grey);
+	border-radius: 100vw;
+	font-size: 1.2rem;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.carousel-arrow:hover {
+	border-color: var(--second-color);
+}
+
+.arrow-right-wrapper {
+	bottom: -2rem;
+	right: 0;
+	transform: translateY(50%);
+}
+
+.arrow-left-wrapper {
+	bottom: -2rem;
+	right: 5rem;
+	transform: translateY(50%);
+}
+
+.slick-prev,
+.slick-next {
+	top: auto;
+	bottom: -2rem;
+	transform: translateY(50%);
+	z-index: 1000;
+}
+
+.slick-prev {
+	right: 0 !important;
+}
+
+/* .slick-next {
+	left: auto !important;
+	right: 2rem !important;
+} */
+
+.slick-dots {
+	top: auto;
+	bottom: -2rem;
+	transform: translateY(50%);
 }

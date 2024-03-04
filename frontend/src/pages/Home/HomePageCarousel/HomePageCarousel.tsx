@@ -1,32 +1,59 @@
 import React from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { CarData } from '../../../constants/constants';
 import ListItem from '../../../components/ListItem/ListItem';
 import { Icon } from '@iconify/react';
 import useWindowDimensions from '../../../hooks/useWindowsDimensions';
+import { useState, useEffect } from 'react';
 import './HomePageCarousel.css';
 
 const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
-	const dimensions = useWindowDimensions();
-	const responsive = {
-		desktop: {
-			breakpoint: { max: 3000, min: 1024 },
-			items: dimensions.width < 1600 ? 3 : 4,
-			// slidesToSlide: 1, // optional, default to 1.
-		},
-		tablet: {
-			breakpoint: { max: 1024, min: 464 },
-			items: 2,
-			// slidesToSlide: 2, // optional, default to 1.
-		},
-		mobile: {
-			breakpoint: { max: 464, min: 0 },
-			items: 1,
-			// slidesToSlide: 1, // optional, default to 1.
-		},
+	const ArrowRightButton = (props: any) => {
+		const { onClick } = props;
+		return (
+			<div className='carousel-arrow arrow-right-wrapper' onClick={onClick}>
+				<Icon icon='fluent:ios-arrow-right-24-regular'></Icon>
+			</div>
+		);
 	};
 
+	const ArrowLeftButton = (props: any) => {
+		const { onClick } = props;
+		return (
+			<div className='carousel-arrow arrow-left-wrapper' onClick={onClick}>
+				<Icon icon='fluent:ios-arrow-left-24-regular'></Icon>
+			</div>
+		);
+	};
+
+	const dimensions = useWindowDimensions();
+	const [slidesToShow, setSlidesToShow] = useState(1);
+	useEffect(() => {
+		setSlidesToShow(
+			dimensions.width <= 464
+				? 1
+				: dimensions.width <= 1024
+				? 2
+				: dimensions.width <= 2048
+				? 3
+				: 4
+		);
+	}, [dimensions]);
+
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: slidesToShow,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		prevArrow: <ArrowRightButton />,
+		nextArrow: <ArrowLeftButton />,
+		// rtl: true,
+	};
 	return (
 		<div className='carousel-outer-wrapper bglightgrey top-minus'>
 			<div className='carousel-wrapper'>
@@ -36,29 +63,11 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 						לכל הרכבים<Icon icon='uit:arrow-up-left'></Icon>
 					</span>
 				</div>
-				<Carousel
-					swipeable={false}
-					draggable={false}
-					// showDots={true}
-					responsive={responsive}
-					ssr={false} // means to render carousel on server-side.
-					infinite={true}
-					//   autoPlay={this.props.deviceType !== "mobile" ? true : false}
-					autoPlay={true}
-					autoPlaySpeed={5000}
-					keyBoardControl={true}
-					customTransition='all 0.5s linear'
-					// transitionDuration={500}
-					containerClass='carousel-container'
-					// removeArrowOnDeviceType={['tablet', 'mobile']}
-					//   deviceType={this.props.deviceType}
-					// dotListClass='custom-dot-list-style'
-					itemClass='carousel-item'
-				>
+				<Slider {...settings}>
 					{carList.map((carData, index) => (
 						<ListItem carData={carData} key={index} onPress={() => {}} />
 					))}
-				</Carousel>
+				</Slider>
 			</div>
 		</div>
 	);
