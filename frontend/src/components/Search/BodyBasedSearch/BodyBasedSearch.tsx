@@ -45,7 +45,7 @@ const BodyBasedSearch: React.FC = () => {
 
 	return (
 		<>
-			<form className='body-search-form' onSubmit={handleFormSubmit}>
+			<form className='search-form' onSubmit={handleFormSubmit}>
 				<ul className='body-type-list'>
 					{Object.keys(bodyStyles).map((style: string) => {
 						return (

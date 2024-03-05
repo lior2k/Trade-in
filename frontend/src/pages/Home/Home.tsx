@@ -27,9 +27,9 @@ const Home = () => {
 	return (
 		<div className='home-container'>
 			<HomeHeader />
-				<HomePageCarousel carList={frontPageCars} />
-				<Search />
-				<Footer />
+			<HomePageCarousel carList={frontPageCars} />
+			<Search />
+			{/* <Footer /> */}
 			<FloatingButtons />
 		</div>
 	);

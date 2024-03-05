@@ -27,16 +27,15 @@
 	position: absolute;
 	top: 50%;
 	transform: translate(0, -50%);
-	font-size: 2em;
-	color: rgb(83, 79, 79);
+	font-size: 1.5rem;
+	color: var(--second-color);
 	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out;
 	z-index: 5;
 }
 
 .arrow:hover {
-	color: black;
-	transform: scale(1.2) translate(0, -50%);
+	color: var(--theme-hover-color);
 }
 
 .left {
@@ -56,11 +55,10 @@
 .dot {
 	cursor: pointer;
 	margin: 0 4px;
-	font-size: 1.5em;
-	transition: transform 0.1s ease-in-out;
+	font-size: 1.5rem;
+	transition: transform 0.2s ease-in-out;
 }
 
 .dot:hover {
-	/* font-size: 1.75em; */
 	transform: scale(1.2);
 }

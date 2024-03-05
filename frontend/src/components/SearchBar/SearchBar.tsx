@@ -145,7 +145,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 					type='button'
 					icon='carbon:search-advanced'
 					onPress={() => setIsAdvancedSearchOpen(!isAdvancedSearchOpen)}
-					style={{ flexGrow: '1', flexShrink: '0.5' }}
+					style={{ flexGrow: '.75', flexShrink: '0.5' }}
 				/>
 			</form>
 

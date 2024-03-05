@@ -32,22 +32,19 @@ const Search = () => {
 				<h2 className='section-title'>איך תרצו לחפש את הרכב החדש שלכם?</h2>
 
 				<div className='search-flex-row-container'>
-					<div className='search-flex-column-container'>
-						<h3 className='secondary-title'>חיפוש לפי יצרן ומודל</h3>
+					<div className='search-flex-column-container bradius'>
+						<h3 className='mini-title'>חיפוש לפי יצרן ומודל</h3>
 						<BasicSearch />
 					</div>
 
-					<div className='search-flex-column-container'>
-						<h3 className='secondary-title'>חיפוש לפי סוג שילדה</h3>
+					<div className='search-flex-column-container bradius'>
+						<h3 className='mini-title'>חיפוש לפי סוג שילדה</h3>
 						<BodyBasedSearch />
 					</div>
 
-					<div className='search-flex-column-container'>
-						<h3 className='secondary-title'>חיפוש לפי טווח מחירים</h3>
-						<form
-							className='range-search-form'
-							onSubmit={handleRangeFormSubmit}
-						>
+					<div className='search-flex-column-container bradius'>
+						<h3 className='mini-title'>חיפוש לפי טווח מחירים</h3>
+						<form className='search-form' onSubmit={handleRangeFormSubmit}>
 							<RangeBasedSearch
 								lowerBound={lowerBound}
 								setLowerBound={setLowerBound}

@@ -6,7 +6,6 @@
 	transition: all 0.3s ease-in-out;
 	cursor: pointer;
 	background-color: var(--theme-color);
-	font-size: 1.2em;
 	border: 1px solid var(--theme-color);
 	border-radius: 100vw;
 	color: white;

@@ -32,9 +32,9 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 	const [slidesToShow, setSlidesToShow] = useState(1);
 	useEffect(() => {
 		setSlidesToShow(
-			dimensions.width <= 464
+			dimensions.width <= 767
 				? 1
-				: dimensions.width <= 1024
+				: dimensions.width <= 1365
 				? 2
 				: dimensions.width <= 2048
 				? 3
@@ -59,7 +59,7 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 			<div className='carousel-wrapper'>
 				<div className='title-wrapper'>
 					<h2 className='section-title'>רכבים מובילים</h2>
-					<span className='sub-text theme-link-text'>
+					<span className='title-link theme-link-text'>
 						לכל הרכבים<Icon icon='uit:arrow-up-left'></Icon>
 					</span>
 				</div>

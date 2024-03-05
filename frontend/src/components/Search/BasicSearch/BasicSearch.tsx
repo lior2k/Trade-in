@@ -33,7 +33,7 @@ const BasicSearch = () => {
 
 	return (
 		<>
-			<form className='basic-search-form' onSubmit={handleFormSubmit}>
+			<form className='search-form' onSubmit={handleFormSubmit}>
 				<div className='form-input-outer-container'>
 					<span className='padding'>יצרן</span>
 

@@ -8,17 +8,16 @@
 .form-toggle-button {
 	min-width: max-content;
 	width: 50%;
-	font-size: 16px;
-	background-color: #6d9de6;
+	background-color: var(--theme-color);
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 10px;
 	padding: 8px;
+	transition: background-color 0.2s ease-in-out;
 }
 
 .form-toggle-button:hover {
-	transform: scale(1.2);
-	box-shadow: 0 0 4px 4px #6d9de6;
+	background-color: var(--theme-hover-color);
 }
 
 .hidden-form {
@@ -36,6 +35,5 @@
 	input {
 		padding: 4px;
 		margin-bottom: 4px;
-		font-size: 16px;
 	}
 }

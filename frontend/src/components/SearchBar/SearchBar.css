@@ -4,6 +4,7 @@
 	margin: 1rem;
 	background: #fff;
 	width: 80%;
+	max-width: 960px;
 }
 
 .form-flex-row {
@@ -28,6 +29,7 @@
 	transform: translate(-50%, -50%);
 	z-index: 9999;
 	border: 1px solid rgb(191, 190, 190);
+	/* grey */
 	border-radius: 25px;
 	background-color: white;
 
@@ -78,18 +80,19 @@
 	align-items: center;
 	gap: 4px;
 	border-bottom: 1px solid rgb(221, 221, 221);
+	/* light grey */
 }
 
-.mini-title {
+/* .mini-title {
 	font-size: 1.2rem;
 	font-weight: bold;
 	color: rgb(41, 38, 39);
-}
+} */
 
 .reset-button {
 	background-color: transparent;
 	border: none;
-	transition: transform 0.1 ease-in-out;
+	transition: transform 0.2 ease-in-out;
 	cursor: pointer;
 	font-size: 1rem;
 }

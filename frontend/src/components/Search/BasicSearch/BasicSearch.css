@@ -1,17 +1,6 @@
-.basic-search-form {
-	display: flex;
-	flex-direction: column;
-	width: 90%;
-	align-items: center;
-}
-
 .form-input-outer-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-}
-
-.padding {
-	padding: 8px;
 }
