@@ -34,13 +34,14 @@ const FloatingButtons = () => {
 			</a>
 
 			{contactsToggled && (
-				<div className='contacts-popup-window'>
-					<div className='flex-row-container upper-section'>
+				<div style={{width: 0, height: 0, position: 'relative'}}>
+					<div className='contacts-popup-window'>
+					<div className='flex-row-container section upper'>
 						<Icon
 							icon='mdi:location'
 							style={{ width: '24px', height: '24px' }}
 						></Icon>
-						<h4>צרו קשר</h4>
+						<span className='sub-text'>צרו קשר</span>
 						<button className='toggle-icon'>
 							<Icon
 								icon='fe:arrow-down'
@@ -63,13 +64,18 @@ const FloatingButtons = () => {
 						></img>
 					</a>
 
-					<p className='contact-info' style={{ margin: 0 }}>
-						דוד אלרואי 2 הרצליה
-					</p>
+					
 
-					<div className='flex-row-container lower-section'>
-						<p className='contact-info'>טלפון: 050-5277127, 050-5300554</p>
+					<div className='section lower'>
+					<span className='sub-text contact-info' style={{ margin: 0 }}>
+						דוד אלרואי 2 הרצליה
+					</span>
+					<div className='flex-row-container'>
+					<span className='sub-text contact-info'>טלפון: 050-5277127, 050-5300554</span>
 					</div>
+						
+					</div>
+				</div>
 				</div>
 			)}
 		</div>

@@ -71,11 +71,10 @@
 
 .contacts-popup-window {
 	position: absolute;
-	min-width: 300px;
-	min-height: 350px;
-	top: -350px;
-	left: 80px;
-	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+	min-width: 240px;
+	top: -0.5rem;
+	left: 0;
+	transform: translateY(-100%);
 }
 
 .flex-row-container {
@@ -84,39 +83,36 @@
 	justify-content: space-between;
 	align-items: center;
 	color: white;
+}
+
+.toggle-icon {
+	background-color: transparent;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+.section {
 	background-color: rgb(96, 221, 162);
-
-	h4 {
-		margin-top: 6px;
-		margin-bottom: 6px;
-	}
-
-	.toggle-icon {
-		background-color: transparent;
-		border: none;
-		color: white;
-		cursor: pointer;
-	}
+	padding: .75rem;
 }
 
-.upper-section {
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	padding: 8px;
+.upper {
+	border-top-right-radius: 2rem;
+	border-top-left-radius: 2rem;
 }
 
-.lower-section {
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
+.lower {
+	border-bottom-right-radius: 2rem;
+	border-bottom-left-radius: 2rem;
 }
 
 .location-image {
 	width: 100%;
-	/* cursor: pointer; */
 }
 
 .contact-info {
-	background-color: rgb(96, 221, 162);
+	width: 100%;
 	color: white;
 	margin: 4px;
 	padding: 4px;

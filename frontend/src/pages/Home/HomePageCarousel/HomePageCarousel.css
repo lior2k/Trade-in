@@ -1,84 +1,85 @@
 .carousel-outer-wrapper {
-	border-top-left-radius: 2rem;
-	border-top-right-radius: 2rem;
-	padding-block-end: 4rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding-block-end: 4rem;
 }
 
 .carousel-wrapper {
-	padding-inline: 1rem;
-	margin: 0 auto;
-	max-width: var(--max-content-width);
+  padding-inline: 1rem;
+  padding-block-start: 1rem;
+  margin: 0 auto;
+  max-width: var(--max-content-width);
 }
 
 .title-wrapper {
-	position: relative;
+  position: relative;
 }
 
 .title-link {
-	position: absolute;
-	left: 0;
-	top: 0;
-	transform: translate(50%, 50%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(50%, 50%);
 }
 
 .carousel-item {
-	direction: rtl;
+  direction: rtl;
 }
 
 .carousel-arrow {
-	position: absolute;
-	z-index: 1000;
+  position: absolute;
+  z-index: 1000;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	width: 4rem;
-	aspect-ratio: 2/1;
+  width: 4rem;
+  aspect-ratio: 2/1;
 
-	border: solid 1px var(--grey);
-	border-radius: 100vw;
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
+  border: solid 1px var(--grey);
+  border-radius: 100vw;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .carousel-arrow:hover {
-	border-color: var(--second-color);
+  border-color: var(--second-color);
 }
 
 .arrow-right-wrapper {
-	bottom: -2rem;
-	right: 0;
-	transform: translateY(50%);
+  bottom: -2rem;
+  right: 0;
+  transform: translateY(50%);
 }
 
 .arrow-left-wrapper {
-	bottom: -2rem;
-	right: 5rem;
-	transform: translateY(50%);
+  bottom: -2rem;
+  right: 5rem;
+  transform: translateY(50%);
 }
 
 .slick-dots {
-	top: auto;
-	bottom: -2rem;
-	transform: translateY(50%);
+  top: auto;
+  bottom: -2rem;
+  transform: translateY(50%);
 }
 
 /* MEDIA */
 
 @media screen and (max-width: 767px) {
-	.title-wrapper {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
+  .title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-	.title-link {
-		position: static;
-		display: inline;
-		left: auto;
-		top: auto;
-		transform: none;
-	}
+  .title-link {
+    position: static;
+    display: inline;
+    left: auto;
+    top: auto;
+    transform: none;
+  }
 }
