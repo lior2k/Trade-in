@@ -1,139 +1,139 @@
 body {
-  margin: 0;
+	margin: 0;
 
-  --theme-color: #405ff2;
-  --second-color: #050b20;
-  --text-color: #050b20;
-  --link-color: #050b20;
-  --link-hover-color: #405ff2;
-  --heading-color: #050b20;
-  --theme-hover-color: #4e6cfb;
-  --second-hover-color: #050b20cc;
-  --main-font: "DM Sans", "sans-serif", "serif";
-  --main-font-size: 15px;
-  --main-font-weight: 400;
-  --heading-font: "Merriweather", serif;
-  --heading-font-weight: 700;
-  --sub-text-font-weight: 200;
-  --theme-color-005: rgba(64, 95, 242, 0.05);
-  --theme-color-020: rgba(64, 95, 242, 0.2);
-  --theme-color-040: rgba(64, 95, 242, 0.4);
-  --theme-color-060: rgba(64, 95, 242, 0.6);
-  --theme-color-080: rgba(64, 95, 242, 0.8);
-  --second-color-050: rgba(5, 11, 32, 0.5);
-  --grey: rgb(191, 190, 190);
-  --light-grey: rgb(233, 233, 233);
+	--theme-color: #405ff2;
+	--second-color: #050b20;
+	--text-color: #050b20;
+	--link-color: #050b20;
+	--link-hover-color: #405ff2;
+	--heading-color: #050b20;
+	--theme-hover-color: #4e6cfb;
+	--second-hover-color: #050b20cc;
+	--main-font: 'DM Sans', 'sans-serif', 'serif';
+	--main-font-size: 15px;
+	--main-font-weight: 400;
+	--heading-font: 'Merriweather', serif;
+	--heading-font-weight: 700;
+	--sub-text-font-weight: 200;
+	--theme-color-005: rgba(64, 95, 242, 0.05);
+	--theme-color-020: rgba(64, 95, 242, 0.2);
+	--theme-color-040: rgba(64, 95, 242, 0.4);
+	--theme-color-060: rgba(64, 95, 242, 0.6);
+	--theme-color-080: rgba(64, 95, 242, 0.8);
+	--second-color-050: rgba(5, 11, 32, 0.5);
+	--grey: rgb(191, 190, 190);
+	--light-grey: rgb(233, 233, 233);
 
-  --mobile-width: 767px;
-  --tablet-width: 1365px;
-  --max-content-width: 1920px;
+	--mobile-width: 767px;
+	--tablet-width: 1365px;
+	--max-content-width: 1920px;
 
-  font-family: var(--main-font), sans-serif;
-  font-size: 18px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--text-color);
+	font-family: var(--main-font), sans-serif;
+	font-size: 18px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--text-color);
 }
 
 @keyframes fade-in {
-  to {
-    scale: 1;
-    opacity: 1;
-  }
+	to {
+		scale: 1;
+		opacity: 1;
+	}
 }
 
 @keyframes fade-out {
-  to {
-    scale: 0;
-    opacity: 0;
-  }
+	to {
+		scale: 0;
+		opacity: 0;
+	}
 }
 
 .main-title {
-  font-size: 3.5rem;
-  text-align: center;
-  font-family: var(--heading-font);
-  color: var(--heading-color);
-  font-weight: var(--heading-font-weight);
-  font-style: italic;
-  margin-block-start: 0;
+	font-size: 3.5rem;
+	text-align: center;
+	font-family: var(--heading-font);
+	color: var(--heading-color);
+	font-weight: var(--heading-font-weight);
+	font-style: italic;
+	margin-block-start: 0;
 }
 
 .section-title {
-  text-align: center;
-  font-size: 2rem;
-  font-family: var(--heading-font);
-  color: var(--heading-color);
-  font-weight: var(--heading-font-weight);
-  font-style: italic;
-  margin-block-start: 0;
+	text-align: center;
+	font-size: 2rem;
+	font-family: var(--heading-font);
+	color: var(--heading-color);
+	font-weight: var(--heading-font-weight);
+	font-style: italic;
+	margin-block: 1rem;
 }
 
 .mini-title {
-  /* font-size: 1.2rem; */
-  font-family: var(--main-font);
-  font-weight: var(--main-font-weight);
-  color: var(--heading-color);
+	font-size: 1.25rem;
+	font-family: var(--main-font);
+	font-weight: var(--main-font-weight);
+	color: var(--heading-color);
 }
 
 .sub-text {
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: var(--sub-text-font-weight);
+	font-size: 1rem;
+	font-style: italic;
+	font-weight: var(--sub-text-font-weight);
 }
 
 .bradius {
-  border-radius: 2rem;
+	border-radius: 2rem;
 }
 
 .top-minus {
-  transform: translateY(-2rem);
+	transform: translateY(-2rem);
 }
 
 .bgwhite {
-  background-color: white;
+	background-color: white;
 }
 
 .bglightgrey {
-  background-color: var(--light-grey);
+	background-color: var(--light-grey);
 }
 
 .padding {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .margin {
-  margin-block: 1rem;
+	margin-block: 1rem;
 }
 
 button {
-  font-size: var(--font-size);
+	font-size: var(--font-size);
 }
 
 /* Hide scrollbar arrows */
 ::-webkit-scrollbar {
-  width: 0.5rem; /* Adjust the width as needed */
+	width: 0.5rem; /* Adjust the width as needed */
 }
 
 /* Style the thumb (the draggable scrollbar handle) */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--theme-color-060); /* Set your desired color */
-  border-radius: 100vw; /* Make it round */
-  border: 1px solid var(--grey); /* Border for a sleek appearance */
+	background-color: var(--theme-color-060); /* Set your desired color */
+	border-radius: 100vw; /* Make it round */
+	border: 1px solid var(--grey); /* Border for a sleek appearance */
 }
 
 /* Style the track (the area on which the thumb moves) */
 ::-webkit-scrollbar-track {
-  background: transparent; /* No background */
+	background: transparent; /* No background */
 }
 
 /* Optional: Add a hover effect on the thumb */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--theme-hover-color);
+	background-color: var(--theme-hover-color);
 }
 
 @media screen and (max-width: 768px) {
-  .main-title {
-    font-size: 1.75rem;
-  }
+	.main-title {
+		font-size: 1.75rem;
+	}
 }

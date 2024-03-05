@@ -1,12 +1,13 @@
 .widget-box-container {
-  background-color: var(--light-grey);
-  padding: 1rem;
+	background-color: var(--light-grey);
+	padding: 1rem;
 }
 
 .widget-box {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  max-width: var(--max-content-width);
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+	max-width: var(--max-content-width);
+	margin: 0 auto;
 }
