@@ -27,7 +27,7 @@ router.post('/add', upload.array('images', 10), async (req, res) => {
 		const savedCar = await newCar.save();
 		res.status(201).json(savedCar);
 	} catch (err) {
-		console.log('ERROR DURING ADD NEW CAR');
+		console.log('ERROR DURING ADD NEW CAR', err);
 		res.status(500).json(err);
 	}
 });

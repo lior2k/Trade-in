@@ -71,8 +71,8 @@ body {
 
 .mini-title {
 	font-size: 1.25rem;
-	font-family: var(--main-font);
-	font-weight: var(--main-font-weight);
+	font-family: var(--heading-font);
+	font-weight: var(--heading-font-weight);
 	color: var(--heading-color);
 }
 

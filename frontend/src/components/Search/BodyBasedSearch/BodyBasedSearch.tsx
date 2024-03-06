@@ -13,7 +13,6 @@ const BodyBasedSearch: React.FC = () => {
 		משפחתי: false,
 		ספורט: false,
 		"ג'יפ": false,
-		'7 מקומות': false,
 		מסחרי: false,
 	});
 
@@ -60,6 +59,7 @@ const BodyBasedSearch: React.FC = () => {
 									<input
 										type='checkbox'
 										checked={bodyStyles[style]}
+										readOnly
 										style={{ cursor: 'pointer' }}
 									></input>
 								</span>

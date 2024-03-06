@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CarData } from '../../../constants/constants';
 import ListItem from '../../../components/ListItem/ListItem';
+import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import useWindowDimensions from '../../../hooks/useWindowsDimensions';
 import { useState, useEffect } from 'react';
@@ -59,9 +60,11 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 			<div className='carousel-wrapper'>
 				<div className='title-wrapper'>
 					<h2 className='section-title'>רכבים מובילים</h2>
-					<span className='title-link theme-link-text'>
-						לכל הרכבים<Icon icon='uit:arrow-up-left'></Icon>
-					</span>
+					<Link to={'/search'}>
+						<span className='title-link theme-link-text'>
+							לכל הרכבים<Icon icon='uit:arrow-up-left'></Icon>
+						</span>
+					</Link>
 				</div>
 				<Slider {...settings}>
 					{carList.map((carData, index) => (

@@ -25,4 +25,4 @@ const CarSchema = new mongoose.Schema(
 );
 
 // Create the User model using the schema
-module.exports = mongoose.model('Car', CarSchema, 'cars');
+module.exports = mongoose.model('Car', CarSchema, 'Cars');

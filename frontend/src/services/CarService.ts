@@ -55,9 +55,9 @@ const CarService = {
 
 	getCarsByBodyStyle: async (selectedStyles: string[]): Promise<CarData[]> => {
 		try {
-			const queryParams = selectedStyles
-				.map((style) => `styles=${style}`)
-				.join('&');
+			let queryParams = 'styles=';
+			selectedStyles.map((style) => (queryParams += style + '&'));
+			console.log(queryParams);
 			const response = await axios.get(
 				`${BACKEND_API_URL}/search/body?${queryParams}`
 			);

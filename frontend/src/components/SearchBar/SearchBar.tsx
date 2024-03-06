@@ -182,7 +182,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 								onSubmit={searchByAllParameters}
 							>
 								<div className='inner-form-wrapper'>
-									<span className='section-title'>יצרן</span>
+									<span className='mini-title'>יצרן</span>
 									<ExpandingInput
 										isExpanded={showManufacturerList}
 										setIsExpanded={setShowManufacturerList}

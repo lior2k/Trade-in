@@ -1,0 +1,17 @@
+.search-header-container {
+	display: flex;
+	flex-direction: column;
+	max-height: 90vh;
+	padding-block-end: 6rem;
+	background-color: var(--second-color);
+	width: 100%;
+}
+
+.search-header-inner-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin: 2rem auto;
+	width: 100%;
+}

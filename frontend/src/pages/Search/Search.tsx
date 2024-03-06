@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Search.css';
-import NavBar from '../../components/NavBar/NavBar';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import SearchHeader from './SearchHeader/SearchHeader';
 import List from '../../components/List/List';
 import Footer from '../../components/Footer/Footer';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
@@ -37,15 +36,12 @@ const Search = () => {
 	}, [state]);
 
 	return (
-		<>
-			<NavBar />
-			<div className='search-page-container'>
-				<SearchBar onSearch={setCarList} />
-				<List carsData={carList} />
-			</div>
+		<div className='search-page-container'>
+			<SearchHeader />
+			<List carsData={carList} />
 			<FloatingButtons />
 			<Footer />
-		</>
+		</div>
 	);
 };
 

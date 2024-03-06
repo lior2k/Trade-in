@@ -9,7 +9,9 @@
 }
 
 .logo {
-	margin: 1.5rem;
+	margin: 1rem;
+	max-width: 48px;
+	aspect-ratio: 1;
 }
 
 .primary-navigation {

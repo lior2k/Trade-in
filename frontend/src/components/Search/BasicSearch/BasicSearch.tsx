@@ -16,15 +16,16 @@ const BasicSearch = () => {
 
 	const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (manufacturer === '' && model === '') {
-			alert('בחר יצרן ו/או מודל');
-			return;
-		}
 		try {
-			const cars = await CarService.getCarsByManufacturerAndModel(
-				manufacturer,
-				model
-			);
+			let cars;
+			if (manufacturer === '' && model === '') {
+				cars = await CarService.getAllCars();
+			} else {
+				cars = await CarService.getCarsByManufacturerAndModel(
+					manufacturer,
+					model
+				);
+			}
 			navigate('/search', { state: { cars } });
 		} catch (error) {
 			console.error('Upload error:', error);

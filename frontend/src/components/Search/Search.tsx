@@ -1,72 +1,72 @@
-import "./Search.css";
-import { useState } from "react";
-import BasicSearch from "./BasicSearch/BasicSearch";
-import BodyBasedSearch from "./BodyBasedSearch/BodyBasedSearch";
-import RangeBasedSearch from "./RangeBasedSearch/RangeBasedSearch";
-import CarService from "../../services/CarService";
-import { useNavigate } from "react-router-dom";
-import SearchButton from "../SearchButton/SearchButton";
+import './Search.css';
+import { useState } from 'react';
+import BasicSearch from './BasicSearch/BasicSearch';
+import BodyBasedSearch from './BodyBasedSearch/BodyBasedSearch';
+import RangeBasedSearch from './RangeBasedSearch/RangeBasedSearch';
+import CarService from '../../services/CarService';
+import { useNavigate } from 'react-router-dom';
+import SearchButton from '../SearchButton/SearchButton';
 
 const Search = () => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const [lowerBound, setLowerBound] = useState<number>(24000);
-  const [upperBound, setUpperBound] = useState<number>(64000);
-  const [range, setRange] = useState<number[]>([lowerBound, upperBound]);
+	const [lowerBound, setLowerBound] = useState<number>(24000);
+	const [upperBound, setUpperBound] = useState<number>(64000);
+	const [range, setRange] = useState<number[]>([lowerBound, upperBound]);
 
-  const handleRangeFormSubmit = async (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
-    event.preventDefault();
-    try {
-      const cars = await CarService.getCarsByBudget(lowerBound, upperBound);
-      navigate("/search", { state: { cars } });
-    } catch (error) {
-      console.error("Upload error:", error);
-    }
-  };
+	const handleRangeFormSubmit = async (
+		event: React.FormEvent<HTMLFormElement>
+	) => {
+		event.preventDefault();
+		try {
+			const cars = await CarService.getCarsByBudget(lowerBound, upperBound);
+			navigate('/search', { state: { cars } });
+		} catch (error) {
+			console.error('Upload error:', error);
+		}
+	};
 
-  return (
-    <div className="search-outer-container">
-      <div className="search-center-container">
-        <h2 className="section-title">איך תרצו לחפש את הרכב החדש שלכם?</h2>
+	return (
+		<div className='search-outer-container'>
+			<div className='search-center-container'>
+				<h2 className='section-title'>איך תרצו לחפש את הרכב החדש שלכם?</h2>
 
-        <div className="search-flex-row-container">
-          <div className="search-flex-column-container bradius">
-            <h3 className="mini-title">חיפוש לפי יצרן ומודל</h3>
-            <BasicSearch />
-          </div>
+				<div className='search-flex-row-container'>
+					<div className='search-flex-column-container bradius'>
+						<h3 className='mini-title'>חיפוש לפי יצרן ומודל</h3>
+						<BasicSearch />
+					</div>
 
-          <div className="search-flex-column-container bradius">
-            <h3 className="mini-title">חיפוש לפי סוג שילדה</h3>
-            <BodyBasedSearch />
-          </div>
+					<div className='search-flex-column-container bradius'>
+						<h3 className='mini-title'>חיפוש לפי סוג שילדה</h3>
+						<BodyBasedSearch />
+					</div>
 
-          <div className="search-flex-column-container bradius">
-            <h3 className="mini-title">חיפוש לפי טווח מחירים</h3>
-            <form className="search-form" onSubmit={handleRangeFormSubmit}>
-              <RangeBasedSearch
-                lowerBound={lowerBound}
-                setLowerBound={setLowerBound}
-                lowerBoundText="מחיר מינימלי"
-                upperBound={upperBound}
-                setUpperBound={setUpperBound}
-                upperBoundText="מחיר מקסימלי"
-                minValue={0}
-                maxValue={250000}
-                range={range}
-                setRange={setRange}
-                step={1000}
-                type="price"
-              ></RangeBasedSearch>
-            </form>
+					<div className='search-flex-column-container bradius'>
+						<h3 className='mini-title'>חיפוש לפי טווח מחירים</h3>
+						<form className='search-form' onSubmit={handleRangeFormSubmit}>
+							<RangeBasedSearch
+								lowerBound={lowerBound}
+								setLowerBound={setLowerBound}
+								lowerBoundText='מחיר מינימלי'
+								upperBound={upperBound}
+								setUpperBound={setUpperBound}
+								upperBoundText='מחיר מקסימלי'
+								minValue={0}
+								maxValue={250000}
+								range={range}
+								setRange={setRange}
+								step={1000}
+								type='price'
+							></RangeBasedSearch>
 
-            <SearchButton style={{ padding: "16px", margin: "16px" }} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+							<SearchButton style={{ padding: '16px', margin: '16px' }} />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Search;

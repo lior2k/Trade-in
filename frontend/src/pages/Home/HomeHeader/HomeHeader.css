@@ -27,7 +27,6 @@
 	gap: 1rem;
 	margin: 2rem auto;
 	width: 100%;
-	max-width: var(--content-width);
 }
 
 .header-bottom-form-wrapper {
