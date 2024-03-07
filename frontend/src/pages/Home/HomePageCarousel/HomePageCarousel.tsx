@@ -49,7 +49,7 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 		speed: 500,
 		slidesToShow: slidesToShow,
 		slidesToScroll: 1,
-		autoplay: true,
+		autoplay: false,
 		autoplaySpeed: 5000,
 		prevArrow: <ArrowRightButton />,
 		nextArrow: <ArrowLeftButton />,
@@ -68,7 +68,12 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 				</div>
 				<Slider {...settings}>
 					{carList.map((carData, index) => (
-						<ListItem carData={carData} key={index} onPress={() => {}} />
+						<ListItem
+							carData={carData}
+							key={index}
+							onPress={() => {}}
+							style={{ minWidth: '20%' }}
+						/>
 					))}
 				</Slider>
 			</div>

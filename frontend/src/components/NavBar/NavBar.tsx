@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
-const NavBar = () => {
+const NavBar: React.FC<{ style?: {} }> = ({ style }) => {
 	const location = useLocation();
 
 	const isActive = (pathname: string) => {
@@ -13,7 +13,7 @@ const NavBar = () => {
 	const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
 
 	return (
-		<header className='primary-header flex'>
+		<div className='nav-bar-container flex'>
 			<Icon
 				className='mobile-nav-toggle'
 				onClick={() => setIsNavOpen(!isNavOpen)}
@@ -26,7 +26,11 @@ const NavBar = () => {
 			></Icon>
 
 			<nav>
-				<ul data-visible={isNavOpen} className='primary-navigation flex'>
+				<ul
+					data-visible={isNavOpen}
+					className='primary-navigation flex'
+					style={style}
+				>
 					<li>
 						<Link className={`nav-bar-link ${isActive('/')}`} to='/'>
 							טרייד-אין הרצליה
@@ -76,7 +80,7 @@ const NavBar = () => {
 			<div>
 				<img src='favicon.ico' alt='Logo' className='logo' />
 			</div>
-		</header>
+		</div>
 	);
 };
 

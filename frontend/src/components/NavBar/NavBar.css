@@ -3,7 +3,7 @@
 	gap: 1rem;
 }
 
-.primary-header {
+.nav-bar-container {
 	align-items: center;
 	justify-content: space-between;
 }
@@ -32,15 +32,15 @@
 .nav-bar-link {
 	text-decoration: none;
 	margin: 0.75rem;
-	color: var(--text-color);
 	font-weight: var(--main-font-weight);
 	background: transparent;
 	transition: all 0.3s ease-in-out;
+	color: inherit;
+	opacity: 0.9;
 }
 
 .nav-bar-link:hover {
 	text-decoration: underline;
-	color: var(--theme-color);
 }
 
 .active {

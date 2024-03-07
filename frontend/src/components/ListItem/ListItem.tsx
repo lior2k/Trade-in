@@ -6,11 +6,17 @@ import { Icon } from '@iconify/react';
 interface ListItemProps {
 	carData: CarData;
 	onPress: () => void;
+	style?: React.CSSProperties;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ carData, onPress }) => {
+const ListItem: React.FC<ListItemProps> = ({ carData, onPress, style }) => {
 	return (
-		<div className='item-container bradius bgwhite' id={carData._id} onClick={onPress}>
+		<div
+			className='item-container bradius bgwhite'
+			id={carData._id}
+			onClick={onPress}
+			// style={style}
+		>
 			<div className='image-wrapper'>
 				<img
 					src={`${BACKEND_BASE_URL}/images/${carData.images[0]}`}

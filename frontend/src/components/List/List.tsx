@@ -24,6 +24,7 @@ const List: React.FC<ListProps> = ({ carsData }) => {
 							carData={car}
 							onPress={() => handleCarClick(car)}
 							key={index}
+							style={{ width: '20%' }}
 						></ListItem>
 					))}
 				</div>

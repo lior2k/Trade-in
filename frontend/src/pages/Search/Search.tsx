@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Search.css';
 import SearchHeader from './SearchHeader/SearchHeader';
 import List from '../../components/List/List';
 import Footer from '../../components/Footer/Footer';
@@ -36,12 +35,18 @@ const Search = () => {
 	}, [state]);
 
 	return (
-		<div className='search-page-container'>
-			<SearchHeader />
-			<List carsData={carList} />
-			<FloatingButtons />
-			<Footer />
-		</div>
+		<>
+			<header>
+				<SearchHeader />
+			</header>
+			<main>
+				<List carsData={carList} />
+				<FloatingButtons />
+			</main>
+			<footer>
+				<Footer />
+			</footer>
+		</>
 	);
 };
 

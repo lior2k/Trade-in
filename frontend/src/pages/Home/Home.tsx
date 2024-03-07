@@ -7,7 +7,6 @@ import Footer from '../../components/Footer/Footer';
 import CarService from '../../services/CarService';
 import { CarData } from '../../constants/constants';
 import WidgetBox from '../../components/WidgetBox/WidgetBox';
-import './Home.css';
 
 const Home = () => {
 	const [frontPageCars, setFrontPageCars] = useState<CarData[]>([]);
@@ -26,14 +25,20 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div className='home-container'>
-			<HomeHeader />
-			<HomePageCarousel carList={frontPageCars} />
-			<Search />
-			<WidgetBox />
-			<Footer />
-			<FloatingButtons />
-		</div>
+		<>
+			<header>
+				<HomeHeader />
+			</header>
+			<main>
+				<HomePageCarousel carList={frontPageCars} />
+				<Search />
+				<WidgetBox />
+				<FloatingButtons />
+			</main>
+			<footer>
+				<Footer />
+			</footer>
+		</>
 	);
 };
 

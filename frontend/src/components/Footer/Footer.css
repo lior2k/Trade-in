@@ -17,6 +17,10 @@
 }
 
 .back-to-top-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	background-color: var(--theme-color-080);
 	border: none;
 	transition: background-color 0.2s ease-in-out;

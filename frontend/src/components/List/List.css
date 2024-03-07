@@ -3,13 +3,21 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	transform: translateY(-2rem);
+	background-color: white;
+	padding-block-start: 2rem;
+	border-top-left-radius: 32px;
+	border-top-right-radius: 32px;
 }
 
 .list {
 	display: flex;
-	justify-content: center;
-	width: 80%;
-	gap: 0.5rem;
+	/* justify-content: right; */
+	max-width: var(--max-content-width);
+	width: 100%;
+	gap: 1rem;
+	padding-inline: 1rem;
+	box-sizing: border-box;
 	flex-wrap: wrap;
 }
 

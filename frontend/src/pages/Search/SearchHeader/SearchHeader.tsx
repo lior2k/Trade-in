@@ -7,7 +7,7 @@ import { CarData } from '../../../constants/constants';
 const SearchHeader = () => {
 	return (
 		<div className='search-header-container'>
-			<NavBar />
+			<NavBar style={{ color: '#FFF' }} />
 			<div className='search-header-inner-container'>
 				<SearchBar onSearch={() => {}} />
 			</div>
