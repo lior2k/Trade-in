@@ -1,87 +1,52 @@
-.selected-car-info-window {
-	position: fixed;
-	z-index: 9999;
-	border: 1px solid rgb(191, 190, 190);
-	background-color: white;
-	border-radius: 5px;
-	box-shadow: 0 0px 4px 8px rgba(0, 0, 0, 0.2);
-	box-sizing: border-box;
-	width: 24%;
-	padding: 24px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.selected-car-close-button {
-	position: absolute;
-	top: 16px;
-	left: 16px;
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-}
-
-.selected-car-close-icon {
-	min-width: 24px;
-	min-height: 24px;
-}
-
 .overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-	z-index: 9998;
-}
-
-.selected-car-info-inner-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  z-index: 9998;
 }
 
 .image-slider {
-	width: 100%;
-	aspect-ratio: 16/9;
-	margin-bottom: 16px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-bottom: 32px;
 }
 
 .info-footer-outer-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .info-footer-inner-container {
-	display: flex;
-	flex-direction: column;
-	width: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
 }
 
 .grey {
-	color: rgb(83, 79, 79);
+  color: rgb(83, 79, 79);
 }
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 1500px) {
-	.selected-car-info-window {
-		width: 36%;
-	}
+/* @media screen and (max-width: 1500px) {
+  .selected-car-info-window {
+    width: 36%;
+  }
 }
 
 @media screen and (max-width: 768px) {
-	.selected-car-info-window {
-		width: 54%;
-	}
-}
+  .selected-car-info-window {
+    width: 54%;
+  }
+} */
 
 @media screen and (max-width: 480px) {
-	.selected-car-info-window {
-		width: 72%;
-	}
+  .selected-car-info-window {
+    width: 90%;
+  }
 }
