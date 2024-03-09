@@ -40,7 +40,7 @@ const Search = () => {
 				<SearchHeader setCarList={setCarList} />
 			</header>
 			<main>
-				<List carsData={carList} />
+				<List title='רכבים למכירה' carsData={carList} />
 				<FloatingButtons />
 			</main>
 			<footer>

@@ -3,6 +3,7 @@ import './AddCar.css';
 import FileUploader from '../../../components/FileUploader/FileUploader';
 import axios from 'axios';
 import { BACKEND_API_URL } from '../../../constants/constants';
+import SearchButton from '../../../components/SearchButton/SearchButton';
 
 interface AddCarProps {
 	refreshMainListOnly: () => void;
@@ -24,11 +25,14 @@ const AddCar: React.FC<AddCarProps> = ({
 	const [price, setPrice] = useState('');
 	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 	const [type, setType] = useState('');
-	const [toggleButtonText, setToggleButtonText] = useState('Click to Add Car');
+	const [toggleButtonText, setToggleButtonText] =
+		useState('לחץ כדי להוסיף רכב');
 	const [formVisible, setFormVisible] = useState<boolean>(false);
 	const toggleFormVisibility = (visibility: boolean) => {
 		setFormVisible(visibility);
-		setToggleButtonText(visibility ? 'Close Form Window' : 'Click to Add Car');
+		setToggleButtonText(
+			visibility ? 'סגור טופס הוספת רכב' : 'לחץ כדי להוסיף רכב'
+		);
 	};
 
 	const clearFormAndFiles = () => {
@@ -101,87 +105,104 @@ const AddCar: React.FC<AddCarProps> = ({
 			</button>
 			{formVisible && (
 				<form className='hidden-form' onSubmit={(event) => handleUpload(event)}>
-					{/* Your form content here */}
-					<label>Title</label>
-					<input
-						type='text'
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-					/>
+					<label className='form-label'>
+						<span>כותרת</span>
+						<input
+							type='text'
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+						/>
+					</label>
 
-					<label>Manufacturer</label>
-					<input
-						type='text'
-						value={manufacturer}
-						onChange={(e) => setManufacturer(e.target.value)}
-					/>
+					<label>
+						<span>יצרן</span>
+						<input
+							type='text'
+							value={manufacturer}
+							onChange={(e) => setManufacturer(e.target.value)}
+						/>
+					</label>
 
-					<label>Model</label>
-					<input
-						type='text'
-						value={model}
-						onChange={(e) => setModel(e.target.value)}
-					/>
+					<label>
+						<span>מודל</span>
+						<input
+							type='text'
+							value={model}
+							onChange={(e) => setModel(e.target.value)}
+						/>
+					</label>
 
-					<label>Year</label>
-					<input
-						type='text'
-						value={year}
-						onChange={(e) => setYear(e.target.value)}
-					/>
+					<label>
+						<span>שנה</span>
+						<input
+							type='text'
+							value={year}
+							onChange={(e) => setYear(e.target.value)}
+						/>
+					</label>
 
-					<label>Color</label>
-					<input
-						type='text'
-						value={color}
-						onChange={(e) => setColor(e.target.value)}
-					/>
+					<label>
+						<span>צבע</span>
+						<input
+							type='text'
+							value={color}
+							onChange={(e) => setColor(e.target.value)}
+						/>
+					</label>
 
-					<label>Kilometers</label>
-					<input
-						type='text'
-						value={kilometers}
-						onChange={(e) => setKilometers(e.target.value)}
-					/>
+					<label>
+						<span>קילומטראז'</span>
+						<input
+							type='text'
+							value={kilometers}
+							onChange={(e) => setKilometers(e.target.value)}
+						/>
+					</label>
 
-					<label>Previous Owners</label>
-					<input
-						type='text'
-						value={previousOwners}
-						onChange={(e) => setPreviousOwners(e.target.value)}
-					/>
+					<label>
+						<span>יד</span>
+						<input
+							type='text'
+							value={previousOwners}
+							onChange={(e) => setPreviousOwners(e.target.value)}
+						/>
+					</label>
 
-					<label>Type</label>
-					<input type='text' list='types' onChange={handleTypeChoice} />
-					<datalist id='types'>
-						<option value='Electric'>Electric</option>
-						<option value='Hybrid'>Hybrid</option>
-						<option value='Luxury'>Luxury</option>
-						<option value='Sedan'>Sedan</option>
-						<option value='Sports'>Sports</option>
-						<option value='SUV'>SUV</option>
-						<option value='Truck'>Truck</option>
-						<option value='Van'>Van</option>
-					</datalist>
+					<label>
+						<span>סוג רכב</span>
+						<input type='text' list='types' onChange={handleTypeChoice} />
+						<datalist id='types'>
+							<option value='Electric'>Electric</option>
+							<option value='Hybrid'>Hybrid</option>
+							<option value='Luxury'>Luxury</option>
+							<option value='Sedan'>Sedan</option>
+							<option value='Sports'>Sports</option>
+							<option value='SUV'>SUV</option>
+							<option value='Truck'>Truck</option>
+							<option value='Van'>Van</option>
+						</datalist>
+					</label>
 
-					<label>Add to Front Page?</label>
-					<input
-						type='checkbox'
-						checked={isFrontPage}
-						onChange={() => setIsFrontPage(!isFrontPage)}
-					/>
+					<label>
+						<span>להוסיף לתצוגה בעמוד הבית?</span>
+						<input
+							type='checkbox'
+							checked={isFrontPage}
+							onChange={() => setIsFrontPage(!isFrontPage)}
+						/>
+					</label>
 
-					<label>Price</label>
-					<input value={price} onChange={(e) => setPrice(e.target.value)} />
+					<label>
+						<span>מחיר</span>
+						<input value={price} onChange={(e) => setPrice(e.target.value)} />
+					</label>
 
 					<FileUploader
 						selectedFiles={selectedFiles}
 						setSelectedFiles={setSelectedFiles}
 					></FileUploader>
 
-					<button className='form-submit' type='submit'>
-						Upload
-					</button>
+					<SearchButton type='submit' icon='mdi:arrow-upload' text='העלאה' />
 				</form>
 			)}
 		</div>
