@@ -1,17 +1,20 @@
-.dropzone-outer-container {
-	border-style: solid;
-	border-width: 3px;
-	border-color: black;
-	background-color: white;
-	color: black;
-}
-
 .dropzone {
-	cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 100vw;
+  padding: 0.5rem;
+  border: solid 1px var(--second-color);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.dropzone:focus {
+  background-color: var(--theme-color-040);
+  color: #fff;
 }
 
 .drag-active {
-	background-color: grey;
+  background-color: var(--second-color);
 }
 
 .dropzone-file-list-container {
