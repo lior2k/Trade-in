@@ -1,0 +1,97 @@
+20.03.2024	11:14:42	5188b1c9-490f-4a38-be35-b3af5c5474d2	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:14:42	e89b2566-721a-4537-964f-6831a0a764df	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:14:52	21e06235-2212-40a8-9558-31303d35bec5	GET	[object Object]	/api/cars/get/all
+20.03.2024	11:14:52	304768e9-33f6-429f-9d8b-406a9a75a825	GET	[object Object]	/api/cars/get/all
+20.03.2024	11:14:52	ef7bc2fc-67f8-45eb-9037-3f5d724f13cd	GET	[object Object]	/images/undefined
+20.03.2024	11:14:52	bd935639-f1be-4009-be4f-d98139e32a8c	undefined	undefined	undefined
+20.03.2024	11:16:46	72c3a60c-05f6-4d26-a1a8-ec39a6032e14	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:16:46	97ec95c7-2ede-46b2-b139-efeade15bee1	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:17:22	075063c2-6e53-4067-accf-351e76de03b1	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:17:22	18a3f78c-9d3f-4878-bec8-99a00bf52054	undefined	undefined	undefined
+20.03.2024	11:17:22	9aa7a4ac-e3f5-4bdb-8e56-4fc080e7ab11	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:17:22	1cf0a011-8181-4765-a6f7-e11488774b35	undefined	undefined	undefined
+20.03.2024	11:20:26	b340db9c-a235-4297-b1c1-66b4561995ec	GET	[object Object]	/api/cars/get/frontpage
+20.03.2024	11:20:26	bdd07134-944b-40f4-aaaa-37adc8bb12a3	undefined	undefined	undefined
+20.03.2024	11:23:55	fec62c67-3a51-47af-ae7b-66d977941550	GET	[object Object]	/
+20.03.2024	11:23:55	d364e34b-08e3-4fe9-ab9d-43dd7b13cc51	undefined	undefined	undefined
+20.03.2024	11:24:35	4fedad51-68ef-480d-8915-0bfc187b0293	GET	[object Object]	/
+20.03.2024	11:24:35	f471be3c-6309-418b-888b-ba6b60b9a81b	undefined	undefined	undefined
+20.03.2024	11:24:44	0a46deff-6df1-408b-9526-1b4cc2c2ba2a	GET	[object Object]	/
+20.03.2024	11:24:44	14fb553e-7162-4981-8865-717a402b25f0	undefined	undefined	undefined
+20.03.2024	11:25:21	7f56fc0f-cece-4699-84fa-e73ac508b46b	GET	[object Object]	/
+20.03.2024	11:31:07	eeb9baa9-35b8-449b-8658-16abc4688696	GET	[object Object]	/
+20.03.2024	11:32:53	e86ee767-19e3-45ad-b5ab-1fdcbf1029fd	OPTIONS	[object Object]	/
+20.03.2024	11:32:53	3eaa5a87-59f0-44bf-a238-db98fae777e2	undefined	undefined	undefined
+20.03.2024	11:32:53	4f5b1160-5898-4613-8c08-891d0e140ca8	GET	[object Object]	/
+20.03.2024	11:32:53	c0d84c38-ce54-48b4-8eed-32139e8a1939	undefined	undefined	undefined
+20.03.2024	11:33:59	9d81510e-caf0-4b34-9a89-21cb30440e4f	OPTIONS	[object Object]	/
+20.03.2024	11:33:59	d1052631-3d09-4d42-aa26-acdf2656265b	undefined	undefined	undefined
+20.03.2024	11:33:59	1e143f36-c6a8-4347-9a49-610c3cf871d2	GET	[object Object]	/
+20.03.2024	11:33:59	2074380a-f397-4ec8-906b-f48818075c4e	undefined	undefined	undefined
+20.03.2024	11:34:18	d4217b32-484d-4c8b-9566-80e8da580073	OPTIONS	[object Object]	/
+20.03.2024	11:34:18	758bf640-9508-47ad-ac01-63553f1d6fe4	undefined	undefined	undefined
+20.03.2024	11:34:18	8624412f-786d-48c9-b8c4-546f0aae8681	GET	[object Object]	/
+20.03.2024	11:34:18	c0e769b8-40d3-43f0-8a37-0ea88f9b641c	undefined	undefined	undefined
+20.03.2024	11:35:04	1f5efd95-0ad5-4247-a914-63e597911ef8	OPTIONS	[object Object]	/
+20.03.2024	11:35:04	a360751a-534a-4b19-a42b-7a624c751c25	GET	[object Object]	/
+20.03.2024	11:35:44	5c395b16-8c16-4172-a9b6-2de5f5d0af8e	OPTIONS	[object Object]	/
+20.03.2024	11:35:44	cf61e160-546a-4745-b0ee-518d488cb33c	undefined	undefined	undefined
+20.03.2024	11:35:44	156fec2b-5b5e-45df-a0c1-412cf6a54f00	GET	[object Object]	/
+20.03.2024	11:35:44	908ea746-6fbb-4410-9856-4a9c9edf7173	undefined	undefined	undefined
+20.03.2024	11:37:26	7c986266-6197-40ca-9a66-bdfff5abc96c	OPTIONS	https://www.google.com	/
+20.03.2024	11:37:26	30769b93-486e-4be3-a516-b0f7a8147e6b	GET	https://www.google.com	/
+20.03.2024	11:37:45	a317b892-f7d7-4f3c-9e99-60f135d6f0f3	OPTIONS	https://www.google.com	/
+20.03.2024	11:37:45	76539c2f-03be-43dd-b710-62142a55b4a8	GET	https://www.google.com	/
+20.03.2024	11:39:06	5a9eb4b6-b558-4ba9-ab83-6150d827e8a8	OPTIONS	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	11:39:06	94151dc0-652b-4a37-ac77-b2c03df57551	GET	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	11:41:03	e76e848f-c339-4f63-bb2f-8a8f5586b027	GET	undefined	/api/cars/get/frontpage
+20.03.2024	11:43:48	56727657-eed8-4f27-a2d6-a3925c2b4931	GET	undefined	/api/cars/get/frontpage
+20.03.2024	11:43:54	786d9458-0774-4497-9c3f-8be6e5c67faf	GET	undefined	/api/cars/get/frontpage
+20.03.2024	11:53:55	2381132a-71eb-454b-9d38-6daf4fa04551	GET	undefined	/api/cars/get/frontpage
+20.03.2024	11:53:55	07ed29a8-a865-4961-b04e-a50a3c98f2e9	GET	undefined	/favicon.ico
+20.03.2024	11:57:10	da312727-0da3-4ab9-9621-37d3afc89268	OPTIONS	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	11:57:10	ead9d46e-4ac4-483b-9922-b7b0a192f454	GET	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	11:57:32	943f157d-8018-47b2-9de1-ee3bd404875e	OPTIONS	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	11:57:32	8f9f6294-cafb-4729-99ba-bae87a1b4783	GET	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	12:00:49	54c42ea1-2439-4ac8-85a3-9fc5c39c96ea	OPTIONS	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	12:00:49	7558251f-e261-41a0-a2fb-a3baccd1e1d2	GET	https://www.google.com	/api/cars/get/frontpage
+20.03.2024	12:05:14	7596d6b3-4626-4206-9eeb-117b16d3d1a2	GET	undefined	/
+20.03.2024	12:06:22	732c8fe3-24eb-4039-87cb-08271e84f033	OPTIONS	https://www.google.com	/
+20.03.2024	12:06:22	98cb73d7-2e4e-4666-8e40-5d2184b8d4fb	GET	https://www.google.com	/
+20.03.2024	12:07:51	d32ad1eb-e0b1-4ae2-aa9e-5d1ddb7bd2dc	GET	undefined	/
+20.03.2024	12:11:59	0dda45a8-1afe-40cc-a396-a294f6880ca8	GET	undefined	/
+20.03.2024	12:12:10	7b02a7bb-12ad-4301-a157-03545345dec8	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	12:12:10	45f149ba-f4cd-4bbf-b3c6-8551dad06ab4	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	12:12:10	1db7c613-0961-420a-8230-ed13e1992b74	GET	undefined	/images/2aec22f634bd5db223f7fcf2a9fe9b18
+20.03.2024	12:12:10	da654b6a-d399-48da-aa19-c5016b454d16	GET	undefined	/images/54623af87d0a43d0b56caa4a6b6daf51
+20.03.2024	12:12:10	f5edad09-1d85-4393-8e90-ba710b5c735c	GET	undefined	/images/676d1bf43d726db6cb731cc9d2d05917
+20.03.2024	12:12:10	6e43fef4-f3cd-4c75-be49-7d105bcf7365	GET	undefined	/images/52d0a3f1486655855d87cc690b9929b7
+20.03.2024	12:15:02	bd17e7b0-26ac-48b5-b058-3fa0525f862d	GET	http://localhost:3000	/api/cars/get/all
+20.03.2024	12:15:02	8c3d32e8-91c5-471c-8e53-e09272cdf63e	GET	http://localhost:3000	/api/cars/get/all
+20.03.2024	12:15:02	8aacc506-439e-4282-90fb-b8c09f968fed	GET	undefined	/images/undefined
+20.03.2024	12:15:05	7f9504aa-211e-4c27-8cc4-a29521834237	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	12:15:05	c42ccc8f-28d5-4e1e-8daf-406d22e0702d	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	21:00:38	53b1954c-446d-439d-b218-f0f5cd7ed51f	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	21:00:38	f357312c-9bb3-4269-969a-dc5731b3f174	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	21:00:38	e6062f61-2a96-48b4-83e6-691bd6b8af8b	GET	undefined	/images/2aec22f634bd5db223f7fcf2a9fe9b18
+20.03.2024	21:00:38	008b3ee4-2b66-4382-a2fc-da274b362479	GET	undefined	/images/54623af87d0a43d0b56caa4a6b6daf51
+20.03.2024	21:00:38	99bde8c2-8859-4ee6-b6f2-a48c345fbe90	GET	undefined	/images/52d0a3f1486655855d87cc690b9929b7
+20.03.2024	21:00:38	1c233096-3634-4566-be55-023e63a85a03	GET	undefined	/images/676d1bf43d726db6cb731cc9d2d05917
+20.03.2024	21:00:51	4008cb4e-f9e5-4b98-baa6-b5a0b8f3d76e	GET	http://localhost:3000	/api/cars/get/all
+20.03.2024	21:00:51	5ac9f661-485d-4b76-9aac-486b537a76b2	GET	undefined	/images/undefined
+20.03.2024	21:01:08	57ee9dd5-1f59-401a-923a-cf09a15ebf3f	GET	http://localhost:3000	/api/cars/search/advanced?manufacturer=&model=&yearLowerBound=2008&yearUpperBound=2018&priceLowerBound=4000&priceUpperBound=64000
+20.03.2024	21:01:13	8c2b9c6e-b4fe-4a2e-8b41-9608c5acf024	GET	http://localhost:3000	/api/cars/search/advanced?manufacturer=&model=&yearLowerBound=2008&yearUpperBound=2018&priceLowerBound=4000&priceUpperBound=177000
+20.03.2024	21:01:18	8f28f24b-c7ca-4a1a-af80-98298666bef7	GET	http://localhost:3000	/api/cars/search/advanced?manufacturer=&model=&yearLowerBound=1994&yearUpperBound=2024&priceLowerBound=4000&priceUpperBound=177000
+20.03.2024	21:01:18	a9f01ba3-d9c3-4343-b4ac-9f18bd8a0a9f	GET	undefined	/images/2aec22f634bd5db223f7fcf2a9fe9b18
+20.03.2024	21:01:18	940a3345-c1ce-4558-b0cf-94a1b808e716	GET	undefined	/images/54623af87d0a43d0b56caa4a6b6daf51
+20.03.2024	21:01:18	9b0a952d-2004-4e2a-a907-327c46dfc45f	GET	undefined	/images/676d1bf43d726db6cb731cc9d2d05917
+20.03.2024	21:01:18	761ef274-4f09-4212-a65d-b186e21185e8	GET	undefined	/images/52d0a3f1486655855d87cc690b9929b7
+20.03.2024	21:01:23	0c6eed43-434b-46ce-afa3-4638aabc3527	GET	http://localhost:3000	/api/cars/search/advanced?manufacturer=&model=&yearLowerBound=1994&yearUpperBound=2024&priceLowerBound=0&priceUpperBound=177000
+20.03.2024	21:01:31	cc4d3e7b-b67c-49ae-b4a2-32cd541e026a	GET	http://localhost:3000	/api/cars/get/all
+20.03.2024	21:01:31	325ef8e2-f229-43c0-87d8-9046e3bb5170	GET	undefined	/images/undefined
+20.03.2024	21:01:35	7442d46b-5a48-4a49-93ac-1aabda94b346	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	21:01:36	806abdce-3a37-424c-9468-48d1321bb587	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	21:01:41	32efd1d7-9eb9-44a4-8f88-16a04df70b0c	GET	http://localhost:3000	/api/cars/search/budget/0/250000
+20.03.2024	21:01:41	e05d1f7a-ecc3-4b6d-8941-f82ba9e50886	GET	undefined	/images/undefined
+20.03.2024	21:01:50	7efddbbe-c79d-41c2-bea3-976c4b20204e	GET	http://localhost:3000	/api/cars/get/frontpage
+20.03.2024	21:01:50	3e670f9a-7154-47b0-883f-93f7d10d89d1	GET	http://localhost:3000	/api/cars/get/frontpage
