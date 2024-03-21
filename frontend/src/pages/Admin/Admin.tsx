@@ -7,8 +7,11 @@ import { CarData } from '../../constants/constants';
 import CarService from '../../services/CarService';
 import SearchHeader from '../Search/SearchHeader/SearchHeader';
 import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
+import { useAuth } from '../../hooks/useAuth';
 
 const Admin = () => {
+	const { isAuthenticated } = useAuth();
+
 	const [frontPageTrigger, setFrontPageTrigger] = useState<boolean>(false);
 	const [carListTrigger, setCarListTrigger] = useState<boolean>(false);
 	const refreshBothListsOnUpload = () => {
@@ -47,21 +50,27 @@ const Admin = () => {
 
 	return (
 		<>
-			<header>
-				<SearchHeader setCarList={setCarList} />
-			</header>
-			<main>
-				<AddCar
-					refreshMainListOnly={refreshMainListOnly}
-					refreshBothListsOnUpload={refreshBothListsOnUpload}
-				/>
-				<List title='מוצגים בעמוד הבית' carsData={frontPageCars}></List>
-				<List title='כל הרכבים' carsData={carList}></List>
-				<FloatingButtons />
-			</main>
-			<footer>
-				<Footer />
-			</footer>
+			{isAuthenticated ? (
+				<>
+					<header>
+						<SearchHeader setCarList={setCarList} />
+					</header>
+					<main>
+						<AddCar
+							refreshMainListOnly={refreshMainListOnly}
+							refreshBothListsOnUpload={refreshBothListsOnUpload}
+						/>
+						<List title='מוצגים בעמוד הבית' carsData={frontPageCars}></List>
+						<List title='כל הרכבים' carsData={carList}></List>
+						<FloatingButtons />
+					</main>
+					<footer>
+						<Footer />
+					</footer>
+				</>
+			) : (
+				<div>לא מאושר</div>
+			)}
 		</>
 	);
 };

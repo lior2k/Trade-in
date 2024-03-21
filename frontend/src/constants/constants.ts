@@ -13,8 +13,16 @@ export type CarData = {
 	_id: string; //mongo id
 };
 
+export interface User {
+	id?: string;
+	username?: string;
+	password?: string;
+	accessToken?: string;
+}
+
 export const BACKEND_BASE_URL = 'http://localhost:8803';
-export const BACKEND_API_URL = 'http://localhost:8803/api/cars';
+export const BACKEND_CAR_API_URL = 'http://localhost:8803/api/cars';
+export const BACKEND_AUTH_API_URL = 'http://localhost:8803/api/users';
 
 export const CarModels: Record<string, string[]> = {
 	יונדאי: ['אלנטרה', 'טוסון', 'סונטה', 'i10', 'i20'],

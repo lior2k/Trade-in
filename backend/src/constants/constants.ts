@@ -19,9 +19,6 @@ export const enum HttpStatusCode {
 
 export const APP_ERROR_MESSAGE = {
 	serverError: 'Something went wrong, try again later',
-	userAuthenticated: 'User Authenticated successfully',
-	carReturned: 'Car Returned successfully',
-	carsReturned: 'Cars Returned successfully',
 	carDoesntExist: 'Car does not exist',
 	invalidCredentials: 'Invalid username or password',
 };
