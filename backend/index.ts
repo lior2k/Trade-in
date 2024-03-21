@@ -1,26 +1,28 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 
-const cors = require('cors');
-const corsOptions = require('./src/config/corsOptions');
+import cors from 'cors';
+import corsOptions from './src/config/corsOptions';
 
 const { logger } = require('./src/middlewares/logEvents');
 import errorHandler from './src/middlewares/errorHandler';
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 mongoose.set('strictQuery', false);
 
-const path = require('path');
-const dotenv = require('dotenv');
+import path from 'path';
+import dotenv from 'dotenv';
 dotenv.config();
 
-const carsRoute = require('./src/routes/cars');
+import carsRoute from './src/routes/cars';
+import usersRoute from './src/routes/users';
 
 app.use(logger);
 app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use('/api/cars', carsRoute);
+app.use('/api/users', usersRoute);
 app.use(errorHandler);
 
 // anything that made it here gets a 404 error
@@ -33,6 +35,6 @@ app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}...`);
 });
 
-mongoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URL as string).then(() => {
 	console.log('MongoDB connected successfully');
 });

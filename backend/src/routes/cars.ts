@@ -1,7 +1,9 @@
-const router = require('express').Router();
-const multer = require('multer');
+import { Router } from 'express';
+import multer from 'multer';
+import carsController from '../controllers/carsController';
+import authenticate from '../middlewares/authenticate';
+const router = Router();
 const upload = multer({ dest: './public/images' });
-const carsController = require('../controllers/carsController');
 
 /*
 Create one car
@@ -18,14 +20,19 @@ Create one car
 		}
 	Files: req.files = [file1, file2, ...]
 */
-router.post('/add', upload.array('images', 10), carsController.addCar);
+router.post(
+	'/add',
+	authenticate,
+	upload.array('images', 10),
+	carsController.addCar
+);
 
 /*
 Delete one car
 -- Examples --
 	Url: http://localhost:8803/api/cars/delete/65c3bb4e08e5ebdc52b4d115
 */
-router.delete('/delete/:id', carsController.deleteCar);
+router.delete('/delete/:id', authenticate, carsController.deleteCar);
 
 /*
 Update one car
@@ -41,7 +48,7 @@ Update one car
     		"price": 60000
 		}
 */
-router.patch('/update/:id', carsController.updateCar);
+router.patch('/update/:id', authenticate, carsController.updateCar);
 
 /*
 The order of definition of the following methods is actually important,
@@ -98,4 +105,4 @@ Get by budget only
 */
 router.get('/search/advanced', carsController.getCarsByAllParameters);
 
-module.exports = router;
+export default router;

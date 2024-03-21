@@ -1,6 +1,9 @@
 const whitelist = ['https://www.yoursite.com', 'http://localhost:3000'];
 const corsOptions = {
-	origin: (origin, callback) => {
+	origin: (
+		origin: string | undefined,
+		callback: (error: Error | null, allow?: boolean) => void
+	) => {
 		if (whitelist.indexOf(origin) !== -1 || !origin) {
 			callback(null, true);
 		} else {
@@ -10,4 +13,4 @@ const corsOptions = {
 	optionsSuccessStatus: 200,
 };
 
-module.exports = corsOptions;
+export default corsOptions;

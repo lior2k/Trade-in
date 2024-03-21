@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { HTTP_RESPONSE_CODE } from '../constants/constants';
-const Car = require('../models/Car');
+import Car from '../models/Car';
 
 const addCar = async (
 	req: any,
@@ -11,7 +11,7 @@ const addCar = async (
 		...req.body,
 		isFrontPage: req.body.isFrontPage === 'true',
 	});
-	req.files.forEach((file: { filename: string }) =>
+	req.files?.forEach((file: { filename: string }) =>
 		newCar.images.push(file.filename)
 	);
 	try {
@@ -219,7 +219,7 @@ const getCarsByAllParameters = async (
 	}
 };
 
-module.exports = {
+export default {
 	addCar,
 	deleteCar,
 	updateCar,

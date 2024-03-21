@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Define a schema for the User model
 const CarSchema = new mongoose.Schema(
@@ -25,4 +25,4 @@ const CarSchema = new mongoose.Schema(
 );
 
 // Create the User model using the schema
-module.exports = mongoose.model('Car', CarSchema, 'Cars');
+export default mongoose.model('Car', CarSchema, 'Cars');
