@@ -27,7 +27,7 @@ const Search = () => {
 
 				setCarList(cars);
 			} catch (error) {
-				console.log(error);
+				console.error('Error fetching all cars:', error);
 			}
 		};
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './AddCar.css';
 import FileUploader from '../../../components/FileUploader/FileUploader';
-import axios from 'axios';
-import { BACKEND_CAR_API_URL } from '../../../constants/constants';
 import SearchButton from '../../../components/SearchButton/SearchButton';
+import { useAuth } from '../../../hooks/useAuth';
+import CarService from '../../../services/CarService';
 
 interface AddCarProps {
 	refreshMainListOnly: () => void;
@@ -14,6 +14,8 @@ const AddCar: React.FC<AddCarProps> = ({
 	refreshMainListOnly,
 	refreshBothListsOnUpload,
 }) => {
+	const { user } = useAuth();
+
 	const [title, setTitle] = useState('');
 	const [manufacturer, setManufacturer] = useState('');
 	const [model, setModel] = useState('');
@@ -71,19 +73,7 @@ const AddCar: React.FC<AddCarProps> = ({
 		});
 
 		try {
-			// Adjust the API endpoint accordingly
-			const response = await axios.post(
-				`${BACKEND_CAR_API_URL}/add`,
-				formData,
-				{
-					headers: {
-						'Content-Type': 'multipart/form-data',
-					},
-				}
-			);
-
-			console.log('Upload success:', response.data);
-			alert('Car Uploaded Successfully');
+			await CarService.addCar(formData, user);
 
 			if (isFrontPage) {
 				refreshBothListsOnUpload();

@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CarData } from '../../../constants/constants';
+import CarDetails from '../../../components/CarDetails/CarDetails';
 import ListItem from '../../../components/ListItem/ListItem';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
@@ -11,6 +12,7 @@ import { useState, useEffect } from 'react';
 import './HomePageCarousel.css';
 
 const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
+	const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
 	const ArrowRightButton = (props: any) => {
 		const { onClick } = props;
 		return (
@@ -56,29 +58,38 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 		// rtl: true,
 	};
 	return (
-		<div className='carousel-outer-wrapper bglightgrey top-minus'>
-			<div className='carousel-wrapper'>
-				<div className='title-wrapper'>
-					<h2 className='section-title'>רכבים מובילים</h2>
-					<Link to={'/search'}>
-						<span className='title-link theme-link-text'>
-							לכל הרכבים<Icon icon='uit:arrow-up-left'></Icon>
-						</span>
-					</Link>
+		<>
+			<div className='carousel-outer-wrapper bglightgrey top-minus'>
+				<div className='carousel-wrapper'>
+					<div className='title-wrapper'>
+						<h2 className='section-title'>רכבים מובילים</h2>
+						<Link to={'/search'}>
+							<span className='title-link theme-link-text'>
+								לכל הרכבים<Icon icon='uit:arrow-up-left'></Icon>
+							</span>
+						</Link>
+					</div>
+					<Slider {...settings}>
+						{carList.map((carData, index) => (
+							<ListItem
+								carData={carData}
+								key={index}
+								onPress={() => setSelectedCar(carData)}
+								margin='0 auto'
+								width='90%'
+							/>
+						))}
+					</Slider>
 				</div>
-				<Slider {...settings}>
-					{carList.map((carData, index) => (
-						<ListItem
-							carData={carData}
-							key={index}
-							onPress={() => {}}
-							margin='0 auto'
-							width='90%'
-						/>
-					))}
-				</Slider>
 			</div>
-		</div>
+
+			{selectedCar && (
+				<CarDetails
+					carData={selectedCar}
+					closePopUp={() => setSelectedCar(null)}
+				></CarDetails>
+			)}
+		</>
 	);
 };
 

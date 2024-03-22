@@ -10,7 +10,7 @@ import FloatingButtons from '../../components/FloatingButtons/FloatingButtons';
 import { useAuth } from '../../hooks/useAuth';
 
 const Admin = () => {
-	const { isAuthenticated } = useAuth();
+	const { isAuthenticated, user } = useAuth();
 
 	const [frontPageTrigger, setFrontPageTrigger] = useState<boolean>(false);
 	const [carListTrigger, setCarListTrigger] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const Admin = () => {
 				const cars = await CarService.getFrontPageCars();
 				setFrontPageCars(cars);
 			} catch (error) {
-				console.log(error);
+				console.error('Error fetching front page cars', error);
 			}
 		};
 
@@ -42,11 +42,21 @@ const Admin = () => {
 				const cars = await CarService.getAllCars();
 				setCarList(cars);
 			} catch (error) {
-				console.log(error);
+				console.error('Error fetching all cars:', error);
 			}
 		};
 		fetchAllCars();
 	}, [carListTrigger]);
+
+	const deleteCar = async (_id: string) => {
+		try {
+			await CarService.deleteCar(_id, user);
+			// on successful delete - refresh lists
+			refreshBothListsOnUpload();
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<>
@@ -60,8 +70,22 @@ const Admin = () => {
 							refreshMainListOnly={refreshMainListOnly}
 							refreshBothListsOnUpload={refreshBothListsOnUpload}
 						/>
-						<List title='מוצגים בעמוד הבית' carsData={frontPageCars}></List>
-						<List title='כל הרכבים' carsData={carList}></List>
+						<List
+							title='מוצגים בעמוד הבית'
+							carsData={frontPageCars}
+							adminProps={{
+								deleteItem: deleteCar,
+								isAuthenticated: isAuthenticated,
+							}}
+						></List>
+						<List
+							title='כל הרכבים'
+							carsData={carList}
+							adminProps={{
+								deleteItem: deleteCar,
+								isAuthenticated: isAuthenticated,
+							}}
+						></List>
 						<FloatingButtons />
 					</main>
 					<footer>
@@ -69,7 +93,11 @@ const Admin = () => {
 					</footer>
 				</>
 			) : (
-				<div>לא מאושר</div>
+				<div className='login-container'>
+					<span className='main-title' style={{ color: '#FFF' }}>
+						לא מאושר
+					</span>
+				</div>
 			)}
 		</>
 	);

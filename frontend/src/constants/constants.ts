@@ -11,6 +11,7 @@ export type CarData = {
 	isFrontPage?: boolean;
 	id?: string; //index for lists
 	_id: string; //mongo id
+	// to do add description
 };
 
 export interface User {
@@ -23,6 +24,12 @@ export interface User {
 export const BACKEND_BASE_URL = 'http://localhost:8803';
 export const BACKEND_CAR_API_URL = 'http://localhost:8803/api/cars';
 export const BACKEND_AUTH_API_URL = 'http://localhost:8803/api/users';
+
+export const widthBreakPoints = {
+	MOBILE: 767,
+	TABLET: 1365,
+	DESKTOP: 1920,
+};
 
 export const CarModels: Record<string, string[]> = {
 	יונדאי: ['אלנטרה', 'טוסון', 'סונטה', 'i10', 'i20'],

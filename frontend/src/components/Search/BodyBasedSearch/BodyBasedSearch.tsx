@@ -38,7 +38,7 @@ const BodyBasedSearch: React.FC = () => {
 			const cars = await CarService.getCarsByBodyStyle(selectedStyles);
 			navigate('/search', { state: { cars } });
 		} catch (error) {
-			console.error('Upload error:', error);
+			console.error('Error fetching cars by body style:', error);
 		}
 	};
 

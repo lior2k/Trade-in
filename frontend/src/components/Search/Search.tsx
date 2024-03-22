@@ -22,7 +22,7 @@ const Search = () => {
 			const cars = await CarService.getCarsByBudget(lowerBound, upperBound);
 			navigate('/search', { state: { cars } });
 		} catch (error) {
-			console.error('Upload error:', error);
+			console.error('Error fetching cars by budget:', error);
 		}
 	};
 

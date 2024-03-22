@@ -1,53 +1,52 @@
 .add-car-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  max-width: var(--max-content-width);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
 }
 
 .form-toggle-button {
-  min-width: max-content;
-  background-color: var(--theme-color);
-  color: #fff;
-  border-radius: 100vw;
-  padding: 1rem;
-  border: none;
-  transition: background-color 0.2s ease-in-out;
+	min-width: max-content;
+	background-color: var(--theme-color);
+	color: #fff;
+	border-radius: 100vw;
+	padding: 1rem;
+	border: none;
+	transition: background-color 0.2s ease-in-out;
 }
 
 .form-toggle-button:hover {
-  background-color: var(--theme-hover-color);
+	background-color: var(--theme-hover-color);
 }
 
 .hidden-form {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  max-width: 640px;
-  flex: 1;
-  gap: 1rem;
-  margin: 1rem;
-  padding: 1rem;
-  background-color: var(--light-grey);
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	max-width: 640px;
+	flex: 1;
+	gap: 1rem;
+	margin: 1rem;
+	padding: 1rem;
+	background-color: var(--light-grey);
 }
 
 .form-input {
-  background: transparent;
-  border: none;
-  outline: none;
-  border-radius: 100vw;
-  padding: 0.5rem;
-  border: solid 1px var(--second-color);
-  transition: background-color 0.2s ease-in-out;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-radius: 100vw;
+	padding: 0.5rem;
+	border: solid 1px var(--second-color);
+	transition: background-color 0.2s ease-in-out;
 }
 .form-input::placeholder {
-  opacity: 0.9;
-  color: var(--second-color);
+	opacity: 0.9;
+	color: var(--second-color);
 }
 .form-input:focus {
-  background-color: var(--theme-color-040);
+	background-color: var(--theme-color-040);
 }
 .form-input:focus::placeholder {
-  color: #fff;
+	color: #fff;
 }

@@ -1,6 +1,8 @@
 import * as express from 'express';
 import { HTTP_RESPONSE_CODE } from '../constants/constants';
 import Car from '../models/Car';
+import path from 'path';
+import fs from 'fs';
 
 const addCar = async (
 	req: any,
@@ -29,6 +31,22 @@ const deleteCar = async (
 ) => {
 	try {
 		const car = await Car.findByIdAndDelete(req.params.id);
+		// Remove images associated with the car
+		if (car) {
+			// Retrieve images associated with the car
+			const images = car.images;
+
+			// Delete images from the filesystem
+			images.forEach(async (image: string) => {
+				try {
+					await fs.promises.unlink(
+						path.join(__dirname, '..', '..', 'public', 'images', image)
+					);
+				} catch (error) {
+					console.error(`Error deleting image ${image}: ${error}`);
+				}
+			});
+		}
 		res.status(HTTP_RESPONSE_CODE.SUCCESS).json(car);
 	} catch (error) {
 		next(error);

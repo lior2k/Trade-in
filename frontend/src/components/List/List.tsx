@@ -2,29 +2,26 @@ import React, { useState, useEffect } from 'react';
 import './List.css';
 import ListItem from '../ListItem/ListItem';
 import CarDetails from '../CarDetails/CarDetails';
-import { CarData } from '../../constants/constants';
+import { CarData, widthBreakPoints } from '../../constants/constants';
 import useWindowDimensions from '../../hooks/useWindowsDimensions';
 import ExpandingInput from '../ExpandingInput/ExpandingInput';
 
 interface ListProps {
 	title: string;
 	carsData: CarData[];
+	adminProps?: { deleteItem: (_id: string) => void; isAuthenticated: boolean };
 }
 
-const List: React.FC<ListProps> = ({ title, carsData }) => {
+const List: React.FC<ListProps> = ({ title, carsData, adminProps }) => {
 	const [carList, setCarList] = useState<CarData[]>(carsData);
 	const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
-
-	const handleCarClick = (car: CarData) => {
-		setSelectedCar(car);
-	};
 
 	const [itemWidth, setItemWidth] = useState<string>('');
 	const windowDimensions = useWindowDimensions();
 	useEffect(() => {
-		windowDimensions.width <= 767
+		windowDimensions.width <= widthBreakPoints.MOBILE
 			? setItemWidth('75%')
-			: windowDimensions.width <= 1365
+			: windowDimensions.width <= widthBreakPoints.TABLET
 			? setItemWidth('calc(50% - 1rem)')
 			: setItemWidth('calc(25% - 1rem)');
 	}, [windowDimensions]);
@@ -69,19 +66,18 @@ const List: React.FC<ListProps> = ({ title, carsData }) => {
 				<div
 					className='list'
 					style={
-						windowDimensions.width <= 767 ? { justifyContent: 'center' } : {}
+						windowDimensions.width <= widthBreakPoints.MOBILE
+							? { justifyContent: 'center' }
+							: {}
 					}
 				>
 					{carList.map((car: CarData, index: number) => (
 						<ListItem
 							carData={car}
-							onPress={() => handleCarClick(car)}
+							onPress={() => setSelectedCar(car)}
 							key={index}
-							//   minWidth="20%"
-							//   maxWidth="25%"
-							//   flex={1}
-							//   width="calc(25% - 1rem)"
 							width={itemWidth}
+							adminProps={adminProps}
 						></ListItem>
 					))}
 				</div>

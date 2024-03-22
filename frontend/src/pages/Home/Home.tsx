@@ -17,7 +17,7 @@ const Home = () => {
 				const cars = await CarService.getFrontPageCars();
 				setFrontPageCars(cars);
 			} catch (error) {
-				console.log(error);
+				console.error('Error fetching front page cars', error);
 			}
 		};
 

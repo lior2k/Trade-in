@@ -28,7 +28,7 @@ const BasicSearch = () => {
 			}
 			navigate('/search', { state: { cars } });
 		} catch (error) {
-			console.error('Upload error:', error);
+			console.error('Error fetching cars by manufacturer and model:', error);
 		}
 	};
 
