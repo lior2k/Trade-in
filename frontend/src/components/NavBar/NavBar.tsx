@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
-const NavBar: React.FC<{ style?: {} }> = ({ style }) => {
+const NavBar: React.FC<{ style?: React.CSSProperties }> = ({ style }) => {
 	const location = useLocation();
 
 	const isActive = (pathname: string) => {
@@ -22,17 +22,23 @@ const NavBar: React.FC<{ style?: {} }> = ({ style }) => {
 						? 'material-symbols-light:close'
 						: 'fluent:navigation-16-regular'
 				}
-				style={{ width: '32px', height: '32px' }}
+				style={{
+					width: '32px',
+					height: '32px',
+					color: `${
+						style ? style.color : isNavOpen ? '#fff' : 'rgb(5, 11, 32)'
+					}`,
+				}}
 			></Icon>
 
 			<nav>
-				<ul
-					data-visible={isNavOpen}
-					className='primary-navigation flex'
-					style={style}
-				>
+				<ul data-visible={isNavOpen} className='primary-navigation flex'>
 					<li>
-						<Link className={`nav-bar-link ${isActive('/')}`} to='/'>
+						<Link
+							className={`nav-bar-link ${isActive('/')}`}
+							to='/'
+							style={style}
+						>
 							טרייד-אין הרצליה
 						</Link>
 					</li>
@@ -41,25 +47,26 @@ const NavBar: React.FC<{ style?: {} }> = ({ style }) => {
 						<Link
 							className={`nav-bar-link ${isActive('/search')}`}
 							to='/search'
+							style={style}
 						>
 							רכבים למכירה
 						</Link>
 					</li>
 
 					<li>
-						<Link className='nav-bar-link' to=''>
+						<Link className='nav-bar-link' to='' style={style}>
 							טרייד-אין
 						</Link>
 					</li>
 
 					<li>
-						<Link className='nav-bar-link' to=''>
+						<Link className='nav-bar-link' to='' style={style}>
 							מימון
 						</Link>
 					</li>
 
 					<li>
-						<Link className='nav-bar-link' to=''>
+						<Link className='nav-bar-link' to='' style={style}>
 							ליסינג
 						</Link>
 					</li>
@@ -70,6 +77,7 @@ const NavBar: React.FC<{ style?: {} }> = ({ style }) => {
 							rel='noreferrer'
 							target='_blank'
 							className='nav-bar-link'
+							style={style}
 						>
 							ביקורות
 						</a>

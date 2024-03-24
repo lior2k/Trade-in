@@ -16,7 +16,10 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 	const ArrowRightButton = (props: any) => {
 		const { onClick } = props;
 		return (
-			<div className='carousel-arrow arrow-right-wrapper' onClick={onClick}>
+			<div
+				className='carousel-arrow arrow-right-wrapper mobile-hidden'
+				onClick={onClick}
+			>
 				<Icon icon='fluent:ios-arrow-right-24-regular'></Icon>
 			</div>
 		);
@@ -25,7 +28,10 @@ const HomePageCarousel: React.FC<{ carList: CarData[] }> = ({ carList }) => {
 	const ArrowLeftButton = (props: any) => {
 		const { onClick } = props;
 		return (
-			<div className='carousel-arrow arrow-left-wrapper' onClick={onClick}>
+			<div
+				className='carousel-arrow arrow-left-wrapper mobile-hidden'
+				onClick={onClick}
+			>
 				<Icon icon='fluent:ios-arrow-left-24-regular'></Icon>
 			</div>
 		);

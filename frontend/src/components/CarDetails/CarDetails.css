@@ -1,34 +1,34 @@
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-  z-index: 9998;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+	z-index: 9998;
 }
 
 .image-slider {
-  width: 100%;
-  aspect-ratio: 16/9;
-  margin-bottom: 32px;
+	width: 100%;
+	aspect-ratio: 3/2;
+	margin-bottom: 32px;
 }
 
 .info-footer-outer-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .info-footer-inner-container {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
+	display: flex;
+	flex-direction: column;
+	width: 20%;
 }
 
 .grey {
-  color: rgb(83, 79, 79);
+	color: rgb(83, 79, 79);
 }
 
 /* MEDIA QUERIES */
@@ -46,7 +46,7 @@
 } */
 
 @media screen and (max-width: 480px) {
-  .selected-car-info-window {
-    width: 90%;
-  }
+	.selected-car-info-window {
+		width: 90%;
+	}
 }

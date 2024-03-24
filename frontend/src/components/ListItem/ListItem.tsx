@@ -53,13 +53,13 @@ const ListItem: React.FC<ListItemProps> = ({
 
 			<div className='bottom-section-wrapper'>
 				<div className='car-title-wrapper'>
-					<span className='car-title' onClick={onPress}>
+					<span className='mini-title' onClick={onPress}>
 						{carData.title}
 					</span>
 				</div>
 
 				<div className='car-data-wrapper'>
-					<div className='car-data-inner-wrapper'>
+					<div className='car-data-inner-wrapper mobile-hidden'>
 						<Icon icon='et:speedometer'></Icon>
 						<span className=''>{carData.km} ק"מ</span>
 					</div>
@@ -76,7 +76,7 @@ const ListItem: React.FC<ListItemProps> = ({
 				</div>
 
 				<div className='car-price-wrapper'>
-					<span className='price'>{carData.price.toLocaleString()}₪</span>
+					<span className='mini-title'>{carData.price.toLocaleString()}₪</span>
 
 					<span className='theme-link-text' onClick={onPress}>
 						לפרטים

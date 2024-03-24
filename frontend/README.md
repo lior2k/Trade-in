@@ -4,14 +4,12 @@ Created By - Lior Shahar
 
 ## Currrent Bugs
 
-On Admin page - Since there are 2 lists - the popup of the car goes to the same car
-on the different list because both cars has the same \_id.
+- Advanced Search expanding lists open with the lists in the background. 2.
 
 ## Current TODOS
 
-- Implement the home page searches done but have to reupload cars and test.
-- Implement and fix Advanced Search, ruined it when editted the homepage search components.
-- Implement Admin's update car and delete car.
-- Add Email Contact Form to home page.
-- Add responsive design for - navbar, footer, floating buttons position, car details popup and advanced search popup.
-- Finish responsiveness of forms (not compatible to mobile).
+- Implement body based search (including homepage top section buttons). 4.
+- Implement Admin's update car. 1.
+- Add Email Contact Form to home page (Add as a link to nav bar?). 5.
+- Missing responsiveness only on Cardetails popup, may change the popup to a page instead.
+- Logo.

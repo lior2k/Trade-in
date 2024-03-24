@@ -45,7 +45,7 @@ const AddCar: React.FC<AddCarProps> = ({
 		setColor('');
 		setKilometers('');
 		setPreviousOwners('');
-		// setIsFrontPage(false);
+		setIsFrontPage(false);
 		setPrice('');
 		setSelectedFiles([]);
 	};
@@ -182,20 +182,22 @@ const AddCar: React.FC<AddCarProps> = ({
 						<option value='Van'>Van</option>
 					</datalist>
 
-					{/* <input
-            className="form-input"
-            placeholder="להוסיף לתצוגה בעמוד הבית?"
-            type="checkbox"
-            checked={isFrontPage}
-            onChange={() => setIsFrontPage(!isFrontPage)}
-          /> */}
-
 					<input
 						className='form-input'
 						placeholder='מחיר'
 						value={price}
 						onChange={(e) => setPrice(e.target.value)}
 					/>
+
+					<div className='form-input'>
+						להוסיף לתצוגה בעמוד הבית?
+						<input
+							id='frontPageInput'
+							type='checkbox'
+							checked={isFrontPage}
+							onChange={() => setIsFrontPage(!isFrontPage)}
+						></input>
+					</div>
 
 					<FileUploader
 						selectedFiles={selectedFiles}

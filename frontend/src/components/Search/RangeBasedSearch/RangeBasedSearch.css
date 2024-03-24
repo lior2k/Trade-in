@@ -1,5 +1,6 @@
 .range-wrapper {
 	direction: ltr;
+	max-width: 100%;
 }
 .range-inputs {
 	display: flex;

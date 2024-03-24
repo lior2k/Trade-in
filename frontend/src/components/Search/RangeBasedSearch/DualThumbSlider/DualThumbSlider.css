@@ -3,13 +3,12 @@
 	flex-direction: row;
 	align-items: center;
 	padding: 8px;
-	width: 100%;
 }
 
 .track {
 	margin: 0px 16px;
 	height: 6px;
-	width: 100%;
+	width: 80%;
 }
 
 .thumb {

@@ -98,6 +98,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 					setValue={setManufacturer}
 					placeHolder='כל היצרנים'
 					listToRender={Object.keys(CarModels)}
+					className='mobile-hidden'
 					style={{
 						flexGrow: '2',
 						flexShrink: '1',
@@ -123,6 +124,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 									[]
 							  )
 					}
+					className='mobile-hidden'
 					style={{
 						flexGrow: '2',
 						flexShrink: '1',
@@ -137,6 +139,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 				<SearchButton
 					text='חפש'
 					type='submit'
+					className='mobile-hidden'
 					style={{ flexGrow: '1', flexShrink: '0.5', marginInline: '1rem' }}
 				/>
 

@@ -6,6 +6,7 @@ interface SearchButtonProps {
 	onPress?: () => void;
 	icon?: string;
 	text?: string;
+	className?: string;
 	style?: {};
 }
 
@@ -14,23 +15,20 @@ const SearchButton: React.FC<SearchButtonProps> = ({
 	onPress,
 	icon = 'material-symbols:search',
 	text = 'חיפוש',
+	className,
 	style,
 }) => {
+	const classname = `search-button ${className}`;
 	if (onPress) {
 		return (
-			<button
-				type={type}
-				className='search-button'
-				onClick={onPress}
-				style={style}
-			>
+			<button type={type} className={classname} onClick={onPress} style={style}>
 				<span>{text}</span>
 				<Icon className='search-icon' icon={icon}></Icon>
 			</button>
 		);
 	} else {
 		return (
-			<button type={type} className='search-button' style={style}>
+			<button type={type} className={classname} style={style}>
 				<span>{text}</span>
 				<Icon className='search-icon' icon={icon}></Icon>
 			</button>

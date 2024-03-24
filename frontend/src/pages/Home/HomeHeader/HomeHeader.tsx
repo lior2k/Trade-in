@@ -13,14 +13,14 @@ const HomeHeader = () => {
 
 	return (
 		<div className='home-header-container'>
-			<NavBar style={{ color: 'var(--text-color)' }} />
+			<NavBar />
 			<div className='home-header-inner-container'>
 				<h1 className='main-title'>מצא את הרכב המושלם</h1>
 				<span className='sub-text'>מצא רכבים למכירה ולהחלפה</span>
 				<SearchBar onSearch={navigateToSearchPage} />
 			</div>
 
-			<div className='header-bottom-form-wrapper'>
+			<div className='header-bottom-form-wrapper mobile-hidden'>
 				<span
 					className='sub-text'
 					style={{ display: 'block', marginBlock: '.75rem' }}

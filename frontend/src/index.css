@@ -10,7 +10,7 @@ body {
 	--theme-hover-color: #4e6cfb;
 	--second-hover-color: #050b20cc;
 	--main-font: 'DM Sans', 'sans-serif', 'serif';
-	--main-font-size: 15px;
+	--main-font-size: 18px;
 	--main-font-weight: 400;
 	--heading-font: 'Merriweather', serif;
 	--heading-font-weight: 700;
@@ -29,7 +29,7 @@ body {
 	--max-content-width: 1920px;
 
 	font-family: var(--main-font), sans-serif;
-	font-size: 18px;
+	font-size: var(--main-font-size);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: var(--text-color);
@@ -50,7 +50,7 @@ body {
 }
 
 .main-title {
-	font-size: 3.5rem;
+	font-size: calc(3 * var(--main-font-size));
 	text-align: center;
 	font-family: var(--heading-font);
 	color: var(--heading-color);
@@ -61,7 +61,7 @@ body {
 
 .section-title {
 	text-align: center;
-	font-size: 2rem;
+	font-size: calc(2.25 * var(--main-font-size));
 	font-family: var(--heading-font);
 	color: var(--heading-color);
 	font-weight: var(--heading-font-weight);
@@ -70,7 +70,7 @@ body {
 }
 
 .mini-title {
-	font-size: 1.25rem;
+	font-size: calc(1.5 * var(--main-font-size));
 	font-family: var(--heading-font);
 	font-weight: var(--heading-font-weight);
 	color: var(--heading-color);
@@ -110,6 +110,27 @@ button {
 	font-size: var(--font-size);
 }
 
+@media screen and (max-width: 768px) {
+	.mobile-hidden {
+		display: none !important;
+	}
+	.main-title {
+		font-size: calc(2 * var(--main-font-size));
+	}
+	.section-title {
+		font-size: calc(1.5 * var(--main-font-size));
+	}
+	.mini-title {
+		font-size: calc(1.2 * var(--main-font-size));
+	}
+	body {
+		--main-font-size: 16px;
+	}
+	button {
+		font-size: 16px;
+	}
+}
+
 /* Hide scrollbar arrows */
 ::-webkit-scrollbar {
 	width: 0.5rem; /* Adjust the width as needed */
@@ -130,10 +151,4 @@ button {
 /* Optional: Add a hover effect on the thumb */
 ::-webkit-scrollbar-thumb:hover {
 	background-color: var(--theme-hover-color);
-}
-
-@media screen and (max-width: 768px) {
-	.main-title {
-		font-size: 1.75rem;
-	}
 }
