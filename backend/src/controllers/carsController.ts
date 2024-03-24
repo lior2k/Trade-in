@@ -141,20 +141,23 @@ const getCarsByBodyStyle = async (
 	next: express.NextFunction
 ) => {
 	try {
-		const selectedStyles = req.query.styles; // This will be an array of selected styles
+		const stylesParam = req.query.styles;
 		// Validate if 'styles' query parameter is present
-		if (!selectedStyles || !Array.isArray(selectedStyles)) {
+		if (!stylesParam) {
 			return res
 				.status(HTTP_RESPONSE_CODE.BAD_REQUEST)
 				.json({ error: 'Invalid or missing body styles parameter' });
 			// .send({ status, message, error: errors });
 		}
-
+		let styles: string | string[] = stylesParam as string;
+		if (styles.includes(',')) {
+			styles = styles.split(',');
+		}
 		const matchingCars = await Car.find({
-			bodyStyles: { $in: selectedStyles },
+			body: { $in: styles },
 		});
 
-		res.json(matchingCars);
+		res.status(HTTP_RESPONSE_CODE.SUCCESS).json(matchingCars);
 	} catch (error) {
 		next(error);
 	}

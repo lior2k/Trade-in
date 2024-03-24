@@ -38,30 +38,32 @@ const CarDetails: React.FC<{
 					<h3 className='mini-title'>פרטים נוספים</h3>
 					<div className='info-footer-outer-container'>
 						<div className='info-footer-inner-container'>
-							<p className='data grey'>יד</p>
-							<p className='data grey'>צבע</p>
-							<p className='data grey'>סוג מנוע</p>
-							<p className='data grey'>?</p>
+							<span className='data'>יד</span>
+							<span className='data'>סוג מנוע</span>
+							<span className='data'>?</span>
+							<span className='data'>צבע</span>
 						</div>
 						<div className='info-footer-inner-container'>
-							<p className='data'>{carData.previousOwners}</p>
-							<p className='data'>{carData.color}</p>
-							<p className='data'>סוג מנוע</p>
-							<p className='data'>?</p>
+							<span className='data'>{carData.previousOwners}</span>
+							<span className='data'>{carData.color}</span>
+							<span className='data'>סוג מנוע</span>
+							<span className='data'>?</span>
 						</div>
 
 						<div className='info-footer-inner-container'>
-							<p className='data grey'>קילומטראז'</p>
-							<p className='data grey'>שנה</p>
-							<p className='data grey'>נפח מנוע</p>
+							<span className='data'>קילומטראז'</span>
+							<span className='data'>שנה</span>
+							<span className='data'>נפח מנוע</span>
 
-							<p className='data grey'>מחיר</p>
+							<span className='data'>מחיר</span>
 						</div>
 						<div className='info-footer-inner-container'>
-							<p className='data'>{carData.km}</p>
-							<p className='data'>{carData.year}</p>
-							<p className='data'>נפח מנוע</p>
-							<p className='data price'>{carData.price} ₪</p>
+							<span className='data'>{carData.km}</span>
+							<span className='data'>{carData.year}</span>
+							<span className='data'>נפח מנוע</span>
+							<span className='data price'>
+								{carData.price.toLocaleString()} ₪
+							</span>
 						</div>
 					</div>
 				</div>

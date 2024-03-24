@@ -26,7 +26,7 @@ const AddCar: React.FC<AddCarProps> = ({
 	const [isFrontPage, setIsFrontPage] = useState(false);
 	const [price, setPrice] = useState('');
 	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-	const [type, setType] = useState('');
+	const [bodyStyle, setType] = useState('');
 	const [toggleButtonText, setToggleButtonText] =
 		useState('לחץ כדי להוסיף רכב');
 	const [formVisible, setFormVisible] = useState<boolean>(false);
@@ -65,7 +65,7 @@ const AddCar: React.FC<AddCarProps> = ({
 		formData.append('color', color);
 		formData.append('km', kilometers);
 		formData.append('previousOwners', previousOwners);
-		formData.append('type', type);
+		formData.append('body', bodyStyle);
 		formData.append('isFrontPage', String(isFrontPage));
 		formData.append('price', price);
 		selectedFiles.forEach((file) => {
@@ -172,14 +172,12 @@ const AddCar: React.FC<AddCarProps> = ({
 						onChange={handleTypeChoice}
 					></input>
 					<datalist id='types'>
-						<option value='Electric'>Electric</option>
-						<option value='Hybrid'>Hybrid</option>
-						<option value='Luxury'>Luxury</option>
-						<option value='Sedan'>Sedan</option>
-						<option value='Sports'>Sports</option>
-						<option value='SUV'>SUV</option>
-						<option value='Truck'>Truck</option>
-						<option value='Van'>Van</option>
+						<option value='חשמלי'>חשמלי</option>
+						<option value='היברידי'>היברידי</option>
+						<option value='יוקרה'>יוקרה</option>
+						<option value='ספורט'>ספורט</option>
+						<option value="גי'פ">גי'פ</option>
+						<option value='מסחרי'>מסחרי</option>
 					</datalist>
 
 					<input

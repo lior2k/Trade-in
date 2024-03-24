@@ -86,7 +86,7 @@ const NavBar: React.FC<{ style?: React.CSSProperties }> = ({ style }) => {
 			</nav>
 
 			<div>
-				<img src='favicon.ico' alt='Logo' className='logo' />
+				<img src='tih-logo.jpg' alt='Logo' className='logo' />
 			</div>
 		</div>
 	);

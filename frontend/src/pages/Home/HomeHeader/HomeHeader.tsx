@@ -4,11 +4,21 @@ import SearchBar from '../../../components/SearchBar/SearchBar';
 import { useNavigate } from 'react-router-dom';
 import { CarData } from '../../../constants/constants';
 import { Icon } from '@iconify/react';
+import CarService from '../../../services/CarService';
 
 const HomeHeader = () => {
 	const navigate = useNavigate();
 	const navigateToSearchPage = (cars: CarData[]) => {
 		navigate('/search', { state: { cars } });
+	};
+
+	const handleFormSubmit = async (bodyStyle: string) => {
+		try {
+			const cars = await CarService.getCarsByBodyStyle([bodyStyle]);
+			navigateToSearchPage(cars);
+		} catch (error) {
+			console.error('Error fetching car by body style', error);
+		}
 	};
 
 	return (
@@ -27,19 +37,33 @@ const HomeHeader = () => {
 				>
 					או חפש מודל ספציפי
 				</span>
-				<div className='header-bottom-form'>
-					<button className='transparent-button'>
-						<span>חשמלי</span>
-						<Icon icon='mdi:electric-charger'></Icon>
-					</button>
-					<button className='transparent-button'>
-						<span>גי'פ</span>
-						<Icon icon='mingcute:jeep-line'></Icon>
-					</button>
-					<button className='transparent-button'>
-						<span>מסחרי</span>
-						<Icon icon='mdi:truck-outline'></Icon>
-					</button>
+				<div>
+					<form className='header-bottom-form'>
+						<button
+							className='transparent-button'
+							type='button'
+							onClick={() => handleFormSubmit('חשמלי')}
+						>
+							<span>חשמלי</span>
+							<Icon icon='mdi:electric-charger'></Icon>
+						</button>
+						<button
+							className='transparent-button'
+							type='button'
+							onClick={() => handleFormSubmit("גי'פ")}
+						>
+							<span>גי'פ</span>
+							<Icon icon='mingcute:jeep-line'></Icon>
+						</button>
+						<button
+							className='transparent-button'
+							type='button'
+							onClick={() => handleFormSubmit('מסחרי')}
+						>
+							<span>מסחרי</span>
+							<Icon icon='mdi:truck-outline'></Icon>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>

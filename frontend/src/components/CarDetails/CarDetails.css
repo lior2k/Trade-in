@@ -25,10 +25,14 @@
 	display: flex;
 	flex-direction: column;
 	width: 20%;
+	gap: 1rem;
 }
 
-.grey {
-	color: rgb(83, 79, 79);
+.price {
+	font-family: var(--heading-font);
+	font-weight: var(--heading-font-weight);
+	color: var(--heading-color);
+	font-size: calc(1.25 * var(--main-font-size));
 }
 
 /* MEDIA QUERIES */

@@ -35,7 +35,25 @@ body {
 	color: var(--text-color);
 }
 
-@keyframes fade-in {
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	/* font: inherit; */
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* @keyframes fade-in {
 	to {
 		scale: 1;
 		opacity: 1;
@@ -47,7 +65,7 @@ body {
 		scale: 0;
 		opacity: 0;
 	}
-}
+} */
 
 .main-title {
 	font-size: calc(3 * var(--main-font-size));
@@ -56,7 +74,7 @@ body {
 	color: var(--heading-color);
 	font-weight: var(--heading-font-weight);
 	font-style: italic;
-	margin-block-start: 0;
+	margin-block: 1rem;
 }
 
 .section-title {
@@ -74,6 +92,7 @@ body {
 	font-family: var(--heading-font);
 	font-weight: var(--heading-font-weight);
 	color: var(--heading-color);
+	margin-block: 4px;
 }
 
 .sub-text {

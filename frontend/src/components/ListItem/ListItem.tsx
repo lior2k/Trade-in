@@ -76,7 +76,7 @@ const ListItem: React.FC<ListItemProps> = ({
 				</div>
 
 				<div className='car-price-wrapper'>
-					<span className='mini-title'>{carData.price.toLocaleString()}₪</span>
+					<span className='price'>{carData.price.toLocaleString()}₪</span>
 
 					<span className='theme-link-text' onClick={onPress}>
 						לפרטים
