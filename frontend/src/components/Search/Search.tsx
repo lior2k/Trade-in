@@ -38,7 +38,7 @@ const Search = () => {
 					</div>
 
 					<div className='search-flex-column-container bradius'>
-						<h3 className='mini-title'>חיפוש לפי סוג שילדה</h3>
+						<h3 className='mini-title'>חיפוש לפי סוג רכב</h3>
 						<BodyBasedSearch />
 					</div>
 

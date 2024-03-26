@@ -31,14 +31,10 @@ export const widthBreakPoints = {
 	DESKTOP: 1920,
 };
 
-export const CarModels: Record<string, string[]> = {
-	יונדאי: ['אלנטרה', 'טוסון', 'סונטה', 'i10', 'i20'],
-	סוזוקי: ['סוויפט', 'ויטרה', "ג'מני"],
-	קיה: ['פיקנטו', 'סורנטו', 'סול', 'קדנזה', 'סטינגר'],
-	סיאט2: ['לאון', 'איביזה', 'ארונה', 'מיי'],
-	סיאט3: ['לאון', 'איביזה', 'ארונה', 'מיי'],
-	סיאט4: ['לאון', 'איביזה', 'ארונה', 'מיי'],
-	סיאט5: ['לאון', 'איביזה', 'ארונה', 'מיי'],
-	סיאט6: ['לאון', 'איביזה', 'ארונה', 'מיי'],
-	סיאט7: ['לאון', 'איביזה', 'ארונה', 'מיי'],
+// this variable is set in the useeffect on launch.
+export const CarModels: Record<string, string[]> = {};
+export const setCarModels = (data: Record<string, string[]>) => {
+	for (const manufacturer in data) {
+		CarModels[manufacturer] = data[manufacturer];
+	}
 };

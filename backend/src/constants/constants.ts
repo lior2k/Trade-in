@@ -22,3 +22,5 @@ export const APP_ERROR_MESSAGE = {
 	carDoesntExist: 'Car does not exist',
 	invalidCredentials: 'Invalid username or password',
 };
+
+export type CarModels = Record<string, string[]>;

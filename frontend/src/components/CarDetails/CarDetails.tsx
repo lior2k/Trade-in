@@ -37,33 +37,37 @@ const CarDetails: React.FC<{
 
 					<h3 className='mini-title'>פרטים נוספים</h3>
 					<div className='info-footer-outer-container'>
-						<div className='info-footer-inner-container'>
-							<span className='data'>יד</span>
-							<span className='data'>סוג מנוע</span>
-							<span className='data'>?</span>
-							<span className='data'>צבע</span>
-						</div>
-						<div className='info-footer-inner-container'>
-							<span className='data'>{carData.previousOwners}</span>
-							<span className='data'>{carData.color}</span>
-							<span className='data'>סוג מנוע</span>
-							<span className='data'>?</span>
+						<div className='info-footer-middle-container'>
+							<div className='info-footer-inner-container'>
+								<span className='data'>יד</span>
+								<span className='data'>צבע</span>
+								<span className='data'>סוג מנוע</span>
+								<span className='data'>?</span>
+							</div>
+							<div className='info-footer-inner-container'>
+								<span className='data'>{carData.previousOwners}</span>
+								<span className='data'>{carData.color}</span>
+								<span className='data'>סוג מנוע</span>
+								<span className='data'>?</span>
+							</div>
 						</div>
 
-						<div className='info-footer-inner-container'>
-							<span className='data'>קילומטראז'</span>
-							<span className='data'>שנה</span>
-							<span className='data'>נפח מנוע</span>
+						<div className='info-footer-middle-container'>
+							<div className='info-footer-inner-container'>
+								<span className='data'>ק"מ</span>
+								<span className='data'>שנה</span>
+								<span className='data'>נפח מנוע</span>
 
-							<span className='data'>מחיר</span>
-						</div>
-						<div className='info-footer-inner-container'>
-							<span className='data'>{carData.km}</span>
-							<span className='data'>{carData.year}</span>
-							<span className='data'>נפח מנוע</span>
-							<span className='data price'>
-								{carData.price.toLocaleString()} ₪
-							</span>
+								<span className='data'>מחיר</span>
+							</div>
+							<div className='info-footer-inner-container'>
+								<span className='data'>{carData.km}</span>
+								<span className='data'>{carData.year}</span>
+								<span className='data'>נפח מנוע</span>
+								<span className='data price'>
+									{carData.price.toLocaleString()} ₪
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>

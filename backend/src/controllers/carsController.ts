@@ -1,6 +1,7 @@
 import * as express from 'express';
 import { HTTP_RESPONSE_CODE } from '../constants/constants';
 import Car from '../models/Car';
+import { CarModels } from '../constants/constants';
 import path from 'path';
 import fs from 'fs';
 
@@ -240,6 +241,30 @@ const getCarsByAllParameters = async (
 	}
 };
 
+const getManufacturersAndModels = async (
+	req: express.Request,
+	res: express.Response,
+	next: express.NextFunction
+) => {
+	try {
+		const carModels: CarModels = {};
+		const cars = await Car.find({});
+		for (const car of cars) {
+			if (!carModels[car.manufacturer]) {
+				carModels[car.manufacturer] = [car.model];
+			} else {
+				// if model not already present
+				if (carModels[car.manufacturer].indexOf(car.model) === -1) {
+					carModels[car.manufacturer].push(car.model);
+				}
+			}
+		}
+		res.status(HTTP_RESPONSE_CODE.SUCCESS).json(carModels);
+	} catch (error) {
+		next(error);
+	}
+};
+
 export default {
 	addCar,
 	deleteCar,
@@ -251,4 +276,5 @@ export default {
 	getCarsByBodyStyle,
 	getCarsByBudget,
 	getCarsByAllParameters,
+	getManufacturersAndModels,
 };

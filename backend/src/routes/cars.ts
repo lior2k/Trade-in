@@ -105,4 +105,6 @@ Get by budget only
 */
 router.get('/search/advanced', carsController.getCarsByAllParameters);
 
+router.get('/manufacturers-models', carsController.getManufacturersAndModels);
+
 export default router;

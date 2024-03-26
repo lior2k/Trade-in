@@ -104,6 +104,14 @@ const CarService = {
 		console.log('Deleted Successfully:', response.data);
 		alert('רכב נמחק בהצלחה');
 	},
+
+	getManufacturersAndModels: async (): Promise<Record<string, string[]>> => {
+		const response = await axios.get(
+			`${BACKEND_CAR_API_URL}/manufacturers-models`
+		);
+		console.log(response.data);
+		return response.data;
+	},
 };
 
 export default CarService;
